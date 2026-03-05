@@ -124,15 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.dataTransfer.files[0]) processImage(e.dataTransfer.files[0]);
     });
 
-    // ─── Run Tesseract OCR ─────────────────────────────────────────
+    // ─── Run Tesseract OCR with word-level bounding boxes ──────────
     const processImage = async (file) => {
-        // Show preview
         const url = URL.createObjectURL(file);
         imgPreview.src = url;
         imgPreview.classList.remove('d-none');
         document.getElementById('upload-placeholder').classList.add('d-none');
 
-        // Show progress
         ocrProgress.style.display = 'block';
         extractedSection.classList.add('d-none');
         extractedRows = [];
@@ -149,11 +147,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             ocrStatusText.textContent = 'Memproses hasil OCR...';
-            const text = result.data.text;
-            extractedRows = parseForexHistoryText(text);
+            // Use word-level data with bounding boxes for accurate column reconstruction
+            extractedRows = parseByBoundingBox(result.data.words);
+            // If that fails, fall back to raw text
+            if (extractedRows.length === 0) {
+                extractedRows = parseForexHistoryText(result.data.text);
+            }
             renderExtractedRows(extractedRows);
         } catch (err) {
             ocrStatusText.textContent = 'OCR gagal: ' + err.message;
+            console.error(err);
         } finally {
             ocrProgress.style.display = 'none';
         }
@@ -162,114 +165,140 @@ document.addEventListener('DOMContentLoaded', () => {
     // ─── Post-process OCR value to fix common errors ───────────────
     const cleanValue = (raw) => {
         if (!raw) return '';
-        raw = raw.trim().replace(/\.$/, ''); // remove trailing dot artifact
-
-        // Already has a unit suffix
+        raw = raw.trim().replace(/\.$/, '').replace(/,$/, ''); // remove trailing dot/comma
+        if (!raw) return '';
+        // Already has a recognised unit suffix
         if (/[%KMBTkmbt]$/i.test(raw)) {
-            // Still check: does it look like "11%" instead of "1.1%"?
-            const noSuffix = raw.slice(0, -1);
             const suffix = raw.slice(-1).toUpperCase();
+            const noSuffix = raw.slice(0, -1);
             const num = parseFloat(noSuffix);
+            // Fix "11%" → "1.1%" (OCR missed decimal point, works for 2-digit ints with %)
             if (!isNaN(num) && suffix === '%' && Number.isInteger(num) && Math.abs(num) >= 10 && Math.abs(num) <= 99) {
-                // Insert decimal after 1st digit: "11" → "1.1"
                 const sign = num < 0 ? '-' : '';
                 const abs = String(Math.abs(num));
                 return `${sign}${abs[0]}.${abs.slice(1)}%`;
             }
-            return raw;
+            return raw; // K/M/B/T stay as-is
         }
-
-        const num = parseFloat(raw);
+        const num = parseFloat(raw.replace(',', '.'));
         if (isNaN(num)) return raw;
-
-        // 2-digit integer without suffix that looks like a missing-decimal %
-        // e.g. "11"→"1.1%", "19"→"1.9%", "-15"→"-1.5%"
+        // 2-digit integer without suffix → insert decimal ("11" → "1.1%")
         if (Number.isInteger(num) && Math.abs(num) >= 10 && Math.abs(num) <= 99) {
             const sign = num < 0 ? '-' : '';
             const abs = String(Math.abs(num));
             return `${sign}${abs[0]}.${abs.slice(1)}%`;
         }
-
-        // Small decimal without % — assume it's a percentage (only for small values < 10)
-        if (Math.abs(num) < 10) return raw + '%';
-
+        // Small value (< 10) without % → assume percentage
+        if (Math.abs(num) < 10) return String(num) + '%';
         return raw;
     };
 
-    // ─── Parse OCR text into data rows ─────────────────────────────
     const MONTHS_MAP = {
         jan: 'Jan', feb: 'Feb', mar: 'Mar', apr: 'Apr', may: 'May', jun: 'Jun',
         jul: 'Jul', aug: 'Aug', sep: 'Sep', oct: 'Oct', nov: 'Nov', dec: 'Dec'
     };
     const MONTH_KEYS = Object.keys(MONTHS_MAP).join('|');
+    const MONTH_RE = new RegExp(`^(${MONTH_KEYS})$`, 'i');
 
+    // ─── Strategy 1: Bounding Box (most accurate for tables) ───────
+    const parseByBoundingBox = (words) => {
+        if (!words || words.length === 0) return [];
+
+        // Group words into visual rows based on vertical (Y) center proximity
+        const rows = [];
+        const ROW_TOLERANCE = 12; // px — words within 12px vertically = same row
+
+        for (const word of words) {
+            const text = word.text.replace(/[\u2019''`]/g, "'").trim();
+            if (!text || text.length < 1) continue;
+            const yCenter = (word.bbox.y0 + word.bbox.y1) / 2;
+
+            // Find an existing row close enough
+            let foundRow = null;
+            for (const row of rows) {
+                if (Math.abs(row.yCenter - yCenter) <= ROW_TOLERANCE) {
+                    foundRow = row;
+                    break;
+                }
+            }
+            if (foundRow) {
+                foundRow.words.push({ text, x: word.bbox.x0 });
+                // Update yCenter as average
+                foundRow.yCenter = (foundRow.yCenter + yCenter) / 2;
+            } else {
+                rows.push({ yCenter, words: [{ text, x: word.bbox.x0 }] });
+            }
+        }
+
+        // Sort rows by y, words within each row by x (left→right)
+        rows.sort((a, b) => a.yCenter - b.yCenter);
+        rows.forEach(r => r.words.sort((a, b) => a.x - b.x));
+
+        // Identify date rows: rows that contain a month word followed by a day number and year
+        const dataRows = [];
+
+        for (const row of rows) {
+            const texts = row.words.map(w => w.text);
+            const joined = texts.join(' ');
+
+            // Look for a month name in this row
+            const dateRe = new RegExp(`(${MONTH_KEYS})[\\.']?\\s*(\\d{1,2})[,.]?\\s*(20\\d{2})`, 'i');
+            const dm = joined.match(dateRe);
+            if (!dm) continue;
+
+            const mon = MONTHS_MAP[dm[1].toLowerCase()] || dm[1];
+            const dateStr = `${mon} ${parseInt(dm[2])}, ${dm[3]}`;
+
+            // Collect everything that looks like a number/value in this row
+            const numRe = /^-?\d+[\.,]?\d*[%KMBTkmbté]?$/i;
+            const valueTokens = texts.filter(t => {
+                if (/^20\d{2}$/.test(t)) return false; // skip years
+                if (/^\d{1,2}$/.test(t) && parseInt(t) <= 31) return false; // skip day numbers
+                return numRe.test(t) || /^-?\d+[\.,]?\d*$/.test(t);
+            });
+
+            if (dataRows.length > 0 || valueTokens.length > 0 || true) {
+                dataRows.push({
+                    date: dateStr,
+                    actual: cleanValue(valueTokens[0] || ''),
+                    forecast: cleanValue(valueTokens[1] || ''),
+                    previous: cleanValue(valueTokens[2] || ''),
+                });
+            }
+        }
+
+        return dataRows;
+    };
+
+    // ─── Strategy 2: Flat text fallback ────────────────────────────
     const parseForexHistoryText = (rawText) => {
-        // Tesseract for column tables produces text where columns often appear
-        // out-of-order or separated. Best strategy:
-        // 1. Flatten the text and find ALL dates
-        // 2. Between each pair of dates, collect up to 3 numbers (actual/forecast/previous)
-
         const fullText = rawText.replace(/\r/g, '').replace(/\n/g, ' ').replace(/\s+/g, ' ');
-
-        // Match date patterns: "Feb 20, 2026" or "Feb 20 2026" or "Feb. 20, 2026" etc.
-        const dateRe = new RegExp(
-            `(${MONTH_KEYS})\\.?\\s*(\\d{1,2})[,.]?\\s*(202\\d|201\\d)`,
-            'gi'
-        );
-
+        const dateRe = new RegExp(`(${MONTH_KEYS})\\.?\\s*(\\d{1,2})[,.]?\\s*(202\\d|201\\d)`, 'gi');
         const dates = [];
         let dm;
         while ((dm = dateRe.exec(fullText)) !== null) {
             const mon = MONTHS_MAP[dm[1].toLowerCase()] || dm[1];
             dates.push({ date: `${mon} ${parseInt(dm[2])}, ${dm[3]}`, endPos: dm.index + dm[0].length });
         }
-
-        if (dates.length === 0) return fallbackParse(rawText); // try line-by-line
+        if (dates.length === 0) return [];
 
         const rows = [];
         for (let i = 0; i < dates.length; i++) {
             const start = dates[i].endPos;
-            const end = i + 1 < dates.length ? dates[i + 1].endPos - dates[i + 1].date.length - 5 : fullText.length;
+            const end = i + 1 < dates.length ? dates[i + 1].endPos - 15 : fullText.length;
             const chunk = fullText.slice(start, Math.max(start, end));
-
-            // Extract all number-like tokens (e.g. 2.7%, -0.9%, 150K)
             const numRe = /(-?\d+\.?\d*)\s*(%|K|M|B|T)?/gi;
-            const nums = [];
-            let nm;
+            const nums = []; let nm;
             while ((nm = numRe.exec(chunk)) !== null) {
-                if (nm[1].length > 0 && parseFloat(nm[1]) < 10000) { // filter out years etc.
+                if (nm[1].length > 0 && parseFloat(nm[1]) < 10000)
                     nums.push(nm[1] + (nm[2] ? nm[2].toUpperCase() : ''));
-                }
             }
-
             rows.push({
                 date: dates[i].date,
                 actual: cleanValue(nums[0] || ''),
                 forecast: cleanValue(nums[1] || ''),
                 previous: cleanValue(nums[2] || ''),
             });
-        }
-        return rows;
-    };
-
-    // Fallback line-by-line parser
-    const fallbackParse = (rawText) => {
-        const rows = [];
-        for (const line of rawText.split('\n').map(l => l.trim()).filter(Boolean)) {
-            if (!/202\d|201\d/.test(line)) continue;
-            const monthPat = new RegExp(`(${MONTH_KEYS})\\.?\\s*(\\d{1,2})[,.]?\\s*(202\\d|201\\d)`, 'i');
-            const dm = line.match(monthPat);
-            if (!dm) continue;
-            const mon = MONTHS_MAP[dm[1].toLowerCase()] || dm[1];
-            const dateStr = `${mon} ${parseInt(dm[2])}, ${dm[3]}`;
-            const numRe = /(-?\d+\.?\d*)\s*(%|K|M|B|T)?/gi;
-            const nums = []; let nm;
-            while ((nm = numRe.exec(line)) !== null) {
-                if (parseFloat(nm[1]) < 10000 && nm[1].length > 0)
-                    nums.push(nm[1] + (nm[2] ? nm[2].toUpperCase() : ''));
-            }
-            const filtered = nums.filter(n => !n.startsWith('20'));
-            rows.push({ date: dateStr, actual: cleanValue(filtered[0] || ''), forecast: cleanValue(filtered[1] || ''), previous: cleanValue(filtered[2] || '') });
         }
         return rows;
     };
