@@ -284,6 +284,70 @@ def scrape_api():
             'error': str(error)
         }), 500
 
+@app.route('/api/indicators', methods=['GET'])
+def get_indicators():
+    return jsonify({
+        'success': True,
+        'data': targetIndicators
+    })
+
+@app.route('/api/save_manual_data', methods=['POST'])
+def save_manual_data():
+    try:
+        from flask import request
+        payload = request.json
+        if not payload:
+            return jsonify({'success': False, 'message': 'No data provided'}), 400
+            
+        indicator_id = str(payload.get('indicator_id'))
+        date_str = payload.get('date').strip()
+        actual = payload.get('actual', '').strip()
+        forecast = payload.get('forecast', '').strip()
+        previous = payload.get('previous', '').strip()
+        
+        if not indicator_id or not date_str:
+            return jsonify({'success': False, 'message': 'Indicator ID and Date are required'}), 400
+            
+        history_data = get_scraped_history()
+        
+        if indicator_id not in history_data:
+            history_data[indicator_id] = []
+            
+        entry = {
+            "date": date_str,
+            "actual": actual,
+            "forecast": forecast,
+            "previous": previous
+        }
+        
+        # Check if date already exists for this indicator, if so, update it. If not, append.
+        updated = False
+        for i, existing_entry in enumerate(history_data[indicator_id]):
+            if existing_entry['date'].lower() == date_str.lower():
+                history_data[indicator_id][i] = entry
+                updated = True
+                break
+                
+        if not updated:
+            history_data[indicator_id].append(entry)
+            
+        save_scraped_history(history_data)
+        
+        return jsonify({
+            'success': True,
+            'message': 'Data saved successfully',
+            'action': 'updated' if updated else 'added',
+            'data': entry
+        })
+        
+    except Exception as error:
+        print("Admin API error:", error)
+        return jsonify({
+            'success': False,
+            'message': 'Failed to save manually.',
+            'error': str(error)
+        }), 500
+
 if __name__ == '__main__':
     print(f"[PWA Backend] Server listening on http://localhost:{PORT}")
     app.run(host='0.0.0.0', port=PORT, debug=True)
