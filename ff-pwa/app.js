@@ -200,27 +200,141 @@ document.addEventListener('DOMContentLoaded', () => {
     // Events
     refreshBtn.addEventListener('click', fetchData);
 
-    // Export to Excel
-    document.getElementById('export-btn').addEventListener('click', () => {
+    // Export to Excel (styled, matching the reference format)
+    document.getElementById('export-btn').addEventListener('click', async () => {
         if (allFetchedData.length === 0) {
             alert('Belum ada data untuk diekspor. Coba perbarui data dulu.');
             return;
         }
 
-        // Get the currently shown entries (filtered by month and day)
+        // Filter data as currently displayed
         let exportData = allFetchedData.filter(d => d.monthYear === dateFilter.value);
         const dayVal = dayFilter.value;
         if (dayVal && dayVal !== 'ALL') {
             exportData = exportData.filter(d => d.date === dayVal);
         }
 
-        // Build rows for the spreadsheet
-        const header = ['No', 'Indicators', 'Category', 'Date', 'Movement Before Date', 'Movement After Date', 'Last', 'Forecast', 'Actual', 'Units', 'Percentage Probability', 'Reference'];
-        const rows = [header];
+        // Yellow row IDs (matching app.js highlight logic)
+        const yellowIds = new Set([17, 18, 19, 20, 21, 30, 31, 33, 34, 35, 36, 38, 39, 40]);
+
+        const workbook = new ExcelJS.Workbook();
+        const sheet = workbook.addWorksheet('Indicators');
+
+        // Column widths (cols A-L = 12 cols)
+        sheet.columns = [
+            { width: 5 },   // No
+            { width: 28 },  // Indicators
+            { width: 24 },  // Category
+            { width: 13 },  // Date
+            { width: 20 },  // Movement Before Date
+            { width: 20 },  // Movement After Date
+            { width: 10 },  // Last
+            { width: 10 },  // Forecast
+            { width: 10 },  // Actual
+            { width: 16 },  // Units
+            { width: 22 },  // Percentage Probability
+            { width: 55 },  // Reference
+        ];
+
+        const COLS = 12;
+
+        // Helper: apply border to a cell
+        const border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+        const thinBorder = (cell) => { cell.border = border; };
+
+        const headerFill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1F3864' } }; // Dark blue
+        const subHeaderFill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF2E4796' } };
+        const yellowFill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFFF00' } };
+        const titleFill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1A1A2E' } };
+
+        // --- ROW 1: Title ---
+        const titleRow = sheet.addRow(['FOREX FACTORY DATA PROBABILITY']);
+        sheet.mergeCells(1, 1, 1, COLS);
+        titleRow.getCell(1).font = { bold: true, size: 14, color: { argb: 'FFFFFFFF' } };
+        titleRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+        titleRow.getCell(1).fill = titleFill;
+        titleRow.height = 22;
+
+        // --- ROW 2: UNITED STATES ---
+        const subtitleRow = sheet.addRow(['UNITED STATES']);
+        sheet.mergeCells(2, 1, 2, COLS);
+        subtitleRow.getCell(1).font = { bold: true, size: 11, color: { argb: 'FFFFFFFF' } };
+        subtitleRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+        subtitleRow.getCell(1).fill = titleFill;
+        subtitleRow.height = 18;
+
+        // --- ROW 3: empty spacer ---
+        sheet.addRow([]);
+
+        // --- ROW 4: Main Headers (2-row merged header) ---
+        // We write both header rows at once using manual cell setting
+        const h1 = sheet.addRow([]); // row 4
+        const h2 = sheet.addRow([]); // row 5
+        h1.height = 22;
+        h2.height = 18;
+
+        const mainHeaders = [
+            { col: 1, label: 'No', mergeRows: true },
+            { col: 2, label: 'Indicators', mergeRows: true },
+            { col: 3, label: 'Category', mergeRows: true },
+            { col: 4, label: 'Date', mergeRows: true },
+            { col: 5, label: 'Movement Before Date', mergeRows: true },
+            { col: 6, label: 'Movement after Date', mergeRows: true },
+            { col: 7, label: 'Movement Percentage', mergeRows: false, span: 3 },
+            { col: 10, label: 'Units', mergeRows: true },
+            { col: 11, label: 'Percentage Probability', mergeRows: true },
+            { col: 12, label: 'Reference', mergeRows: true },
+        ];
+
+        const headerFont = { bold: true, color: { argb: 'FFFFFFFF' }, size: 9.5 };
+
+        for (const h of mainHeaders) {
+            const cell = h1.getCell(h.col);
+            cell.value = h.label;
+            cell.font = headerFont;
+            cell.fill = headerFill;
+            cell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+            thinBorder(cell);
+
+            if (h.mergeRows) {
+                // merge rows 4-5 for this col
+                sheet.mergeCells(4, h.col, 5, h.col);
+            } else if (h.span) {
+                // merge cols for "Movement Percentage" header
+                sheet.mergeCells(4, h.col, 4, h.col + h.span - 1);
+            }
+        }
+
+        // Row 5 sub-headers for Movement Percentage
+        const subLabels = ['Last', 'Forecast', 'Actual'];
+        subLabels.forEach((label, i) => {
+            const cell = h2.getCell(7 + i);
+            cell.value = label;
+            cell.font = { bold: true, color: { argb: 'FFFFFFFF' }, size: 9 };
+            cell.fill = subHeaderFill;
+            cell.alignment = { horizontal: 'center', vertical: 'middle' };
+            thinBorder(cell);
+        });
+        // Apply fill to already-merged single-col headers in row 5
+        [1, 2, 3, 4, 5, 6, 10, 11, 12].forEach(c => {
+            const cell = h2.getCell(c);
+            cell.fill = headerFill;
+            thinBorder(cell);
+        });
+
+        // --- DATA ROWS (starting at row 6) ---
+        // Group consecutive rows with same category for vertical merging
+        let currentRowNum = 6;
+        let categoryStartRow = 6;
+        let currentCategory = null;
 
         exportData.forEach((row, idx) => {
-            rows.push([
-                (idx % 52) + 1,
+            const isYellow = yellowIds.has(Number(row.id));
+            const rowFill = isYellow ? yellowFill : null;
+            const textColor = isYellow ? 'FF000000' : 'FFCCCCCC'; // black text on yellow, light grey otherwise
+
+            const dataRow = sheet.addRow([
+                (idx % 52) + 1,    // No
                 row.name || '',
                 row.category || '',
                 row.date || '',
@@ -233,21 +347,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 row.probability || '-',
                 row.refUrl || ''
             ]);
+            dataRow.height = 16;
+
+            for (let c = 1; c <= COLS; c++) {
+                const cell = dataRow.getCell(c);
+                cell.font = { size: 9, color: { argb: textColor } };
+                cell.alignment = { horizontal: c <= 2 || c === 12 ? 'left' : 'center', vertical: 'middle' };
+                thinBorder(cell);
+                if (rowFill) cell.fill = rowFill;
+            }
+
+            // Track category for merging
+            if (row.category !== currentCategory) {
+                if (currentCategory !== null && currentRowNum - 1 > categoryStartRow) {
+                    sheet.mergeCells(categoryStartRow, 3, currentRowNum - 1, 3);
+                }
+                currentCategory = row.category;
+                categoryStartRow = currentRowNum;
+            }
+            currentRowNum++;
         });
 
-        // Create workbook
-        const wb = XLSX.utils.book_new();
-        const ws = XLSX.utils.aoa_to_sheet(rows);
+        // Merge last category group
+        if (currentCategory !== null && currentRowNum - 1 > categoryStartRow) {
+            sheet.mergeCells(categoryStartRow, 3, currentRowNum - 1, 3);
+        }
 
-        // Column widths
-        ws['!cols'] = [
-            { wch: 5 }, { wch: 30 }, { wch: 25 }, { wch: 15 }, { wch: 20 }, { wch: 20 },
-            { wch: 10 }, { wch: 10 }, { wch: 10 }, { wch: 18 }, { wch: 22 }, { wch: 55 }
-        ];
+        // Make category cells centered & middle-aligned
+        for (let r = 6; r < currentRowNum; r++) {
+            const cell = sheet.getCell(r, 3);
+            cell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+        }
 
-        XLSX.utils.book_append_sheet(wb, ws, 'Indicators');
-        const filename = `ForexFactory_${(dateFilter.value || 'data').replace(/\s/g, '_')}.xlsx`;
-        XLSX.writeFile(wb, filename);
+        // --- DOWNLOAD ---
+        const buffer = await workbook.xlsx.writeBuffer();
+        const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `ForexFactory_${(dateFilter.value || 'data').replace(/\s/g, '_')}.xlsx`;
+        a.click();
+        URL.revokeObjectURL(url);
     });
 
     dateFilter.addEventListener('change', () => {
