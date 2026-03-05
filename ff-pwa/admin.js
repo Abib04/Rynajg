@@ -107,8 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let extractedRows = [];
 
-    // Click to upload
-    uploadZone.addEventListener('click', () => imgInput.click());
+    // Click to upload — stop propagation from child inputs
+    uploadZone.addEventListener('click', (e) => {
+        // Only trigger file picker when clicking the zone itself, not child inputs/buttons
+        if (e.target === uploadZone || e.target.id === 'upload-placeholder' || e.target.closest('#upload-placeholder')) {
+            imgInput.click();
+        }
+    });
     imgInput.addEventListener('change', (e) => { if (e.target.files[0]) processImage(e.target.files[0]); });
 
     // Drag and drop
@@ -185,8 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return `${sign}${abs[0]}.${abs.slice(1)}%`;
         }
 
-        // Small decimal without % — assume it's a percentage
-        if (Math.abs(num) <= 20) return raw + '%';
+        // Small decimal without % — assume it's a percentage (only for small values < 10)
+        if (Math.abs(num) < 10) return raw + '%';
 
         return raw;
     };

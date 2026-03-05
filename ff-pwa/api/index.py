@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import json
 import os
@@ -294,7 +294,6 @@ def get_indicators():
 @app.route('/api/save_manual_data', methods=['POST'])
 def save_manual_data():
     try:
-        from flask import request
         payload = request.json
         if not payload:
             return jsonify({'success': False, 'message': 'No data provided'}), 400
