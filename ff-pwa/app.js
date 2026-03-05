@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             statusDot.classList.remove('active');
             statusDot.style.backgroundColor = '#f59e0b'; // Yellow while fetching
 
-            const response = await fetch('http://localhost:3000/api/scrape');
+            const response = await fetch('/api/scrape');
             if (!response.ok) throw new Error("HTTP Error " + response.status);
 
             const result = await response.json();
