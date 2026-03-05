@@ -154,6 +154,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // ─── Post-process OCR value to fix common errors ───────────────
+    const cleanValue = (raw) => {
+        if (!raw) return '';
+        raw = raw.trim().replace(/\.$/, ''); // remove trailing dot artifact
+
+        // Already has a unit suffix
+        if (/[%KMBTkmbt]$/i.test(raw)) {
+            // Still check: does it look like "11%" instead of "1.1%"?
+            const noSuffix = raw.slice(0, -1);
+            const suffix = raw.slice(-1).toUpperCase();
+            const num = parseFloat(noSuffix);
+            if (!isNaN(num) && suffix === '%' && Number.isInteger(num) && Math.abs(num) >= 10 && Math.abs(num) <= 99) {
+                // Insert decimal after 1st digit: "11" → "1.1"
+                const sign = num < 0 ? '-' : '';
+                const abs = String(Math.abs(num));
+                return `${sign}${abs[0]}.${abs.slice(1)}%`;
+            }
+            return raw;
+        }
+
+        const num = parseFloat(raw);
+        if (isNaN(num)) return raw;
+
+        // 2-digit integer without suffix that looks like a missing-decimal %
+        // e.g. "11"→"1.1%", "19"→"1.9%", "-15"→"-1.5%"
+        if (Number.isInteger(num) && Math.abs(num) >= 10 && Math.abs(num) <= 99) {
+            const sign = num < 0 ? '-' : '';
+            const abs = String(Math.abs(num));
+            return `${sign}${abs[0]}.${abs.slice(1)}%`;
+        }
+
+        // Small decimal without % — assume it's a percentage
+        if (Math.abs(num) <= 20) return raw + '%';
+
+        return raw;
+    };
+
     // ─── Parse OCR text into data rows ─────────────────────────────
     const MONTHS_MAP = {
         jan: 'Jan', feb: 'Feb', mar: 'Mar', apr: 'Apr', may: 'May', jun: 'Jun',
@@ -202,9 +239,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             rows.push({
                 date: dates[i].date,
-                actual: nums[0] || '',
-                forecast: nums[1] || '',
-                previous: nums[2] || '',
+                actual: cleanValue(nums[0] || ''),
+                forecast: cleanValue(nums[1] || ''),
+                previous: cleanValue(nums[2] || ''),
             });
         }
         return rows;
@@ -227,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     nums.push(nm[1] + (nm[2] ? nm[2].toUpperCase() : ''));
             }
             const filtered = nums.filter(n => !n.startsWith('20'));
-            rows.push({ date: dateStr, actual: filtered[0] || '', forecast: filtered[1] || '', previous: filtered[2] || '' });
+            rows.push({ date: dateStr, actual: cleanValue(filtered[0] || ''), forecast: cleanValue(filtered[1] || ''), previous: cleanValue(filtered[2] || '') });
         }
         return rows;
     };
