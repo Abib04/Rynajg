@@ -200,6 +200,56 @@ document.addEventListener('DOMContentLoaded', () => {
     // Events
     refreshBtn.addEventListener('click', fetchData);
 
+    // Export to Excel
+    document.getElementById('export-btn').addEventListener('click', () => {
+        if (allFetchedData.length === 0) {
+            alert('Belum ada data untuk diekspor. Coba perbarui data dulu.');
+            return;
+        }
+
+        // Get the currently shown entries (filtered by month and day)
+        let exportData = allFetchedData.filter(d => d.monthYear === dateFilter.value);
+        const dayVal = dayFilter.value;
+        if (dayVal && dayVal !== 'ALL') {
+            exportData = exportData.filter(d => d.date === dayVal);
+        }
+
+        // Build rows for the spreadsheet
+        const header = ['No', 'Indicators', 'Category', 'Date', 'Movement Before Date', 'Movement After Date', 'Last', 'Forecast', 'Actual', 'Units', 'Percentage Probability', 'Reference'];
+        const rows = [header];
+
+        exportData.forEach((row, idx) => {
+            rows.push([
+                (idx % 52) + 1,
+                row.name || '',
+                row.category || '',
+                row.date || '',
+                row.movementBefore || '-',
+                row.movementAfter || '-',
+                row.last || '-',
+                row.forecast || '-',
+                row.actual || '-',
+                row.units || '',
+                row.probability || '-',
+                row.refUrl || ''
+            ]);
+        });
+
+        // Create workbook
+        const wb = XLSX.utils.book_new();
+        const ws = XLSX.utils.aoa_to_sheet(rows);
+
+        // Column widths
+        ws['!cols'] = [
+            { wch: 5 }, { wch: 30 }, { wch: 25 }, { wch: 15 }, { wch: 20 }, { wch: 20 },
+            { wch: 10 }, { wch: 10 }, { wch: 10 }, { wch: 18 }, { wch: 22 }, { wch: 55 }
+        ];
+
+        XLSX.utils.book_append_sheet(wb, ws, 'Indicators');
+        const filename = `ForexFactory_${(dateFilter.value || 'data').replace(/\s/g, '_')}.xlsx`;
+        XLSX.writeFile(wb, filename);
+    });
+
     dateFilter.addEventListener('change', () => {
         if (allFetchedData.length > 0) {
             updateDayFilterAndRender();
