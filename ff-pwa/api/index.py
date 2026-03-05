@@ -82,24 +82,68 @@ targetIndicators = [
 ]
 
 import urllib.request
+import firebase_admin
+from firebase_admin import credentials, firestore
+
+# Initialize Firebase via env or local file
+db = None
+if not firebase_admin._apps:
+    try:
+        cred_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'firebase_credentials.json')
+        if os.path.exists(cred_path):
+            cred = credentials.Certificate(cred_path)
+            firebase_admin.initialize_app(cred)
+            db = firestore.client()
+        elif os.getenv('FIREBASE_SERVICE_ACCOUNT'):
+            # For Vercel deployment
+            service_account_info = json.loads(os.getenv('FIREBASE_SERVICE_ACCOUNT'))
+            cred = credentials.Certificate(service_account_info)
+            firebase_admin.initialize_app(cred)
+            db = firestore.client()
+    except Exception as e:
+        print("Failed to initialize Firebase:", e)
 
 def get_scraped_history():
-    try:
-        file_path = os.path.join(os.path.dirname(__file__), 'scraped_history.json')
-        if os.path.exists(file_path):
-            with open(file_path, 'r', encoding='utf-8') as f:
-                return json.load(f)
-    except Exception as e:
-        print("Error reading scraped_history.json:", e)
-    return {}
+    history_data = {}
+    if db:
+        try:
+            doc = db.collection('app_data').document('scraped_history').get()
+            if doc.exists:
+                history_data = doc.to_dict()
+            else:
+                # Seed Firestore from local JSON if empty
+                file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'scraped_history.json')
+                if os.path.exists(file_path):
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        history_data = json.load(f)
+                    db.collection('app_data').document('scraped_history').set(history_data)
+                    print("Synced local scraped_history.json to Firebase!")
+        except Exception as e:
+            print("Error reading from Firestore:", e)
+    else:
+        # Fallback to local
+        try:
+            file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'scraped_history.json')
+            if os.path.exists(file_path):
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+        except Exception as e:
+            print("Error reading scraped_history.json:", e)
+    return history_data
 
 def save_scraped_history(history_data):
-    try:
-        file_path = os.path.join(os.path.dirname(__file__), 'scraped_history.json')
-        with open(file_path, 'w', encoding='utf-8') as f:
-            json.dump(history_data, f, indent=4)
-    except Exception as e:
-        print("Error saving scraped_history.json:", e)
+    if db:
+        try:
+            db.collection('app_data').document('scraped_history').set(history_data)
+        except Exception as e:
+            print("Error writing to Firestore:", e)
+    else:
+        try:
+            file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'scraped_history.json')
+            with open(file_path, 'w', encoding='utf-8') as f:
+                json.dump(history_data, f, indent=4)
+        except Exception as e:
+            print("Error saving scraped_history.json:", e)
 
 def fetch_free_news_api():
     url = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
