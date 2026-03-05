@@ -155,46 +155,79 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // ─── Parse OCR text into data rows ─────────────────────────────
-    const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const MONTHS_MAP = {
+        jan: 'Jan', feb: 'Feb', mar: 'Mar', apr: 'Apr', may: 'May', jun: 'Jun',
+        jul: 'Jul', aug: 'Aug', sep: 'Sep', oct: 'Oct', nov: 'Nov', dec: 'Dec'
+    };
+    const MONTH_KEYS = Object.keys(MONTHS_MAP).join('|');
 
     const parseForexHistoryText = (rawText) => {
-        const lines = rawText.split('\n').map(l => l.trim()).filter(l => l.length > 3);
+        // Tesseract for column tables produces text where columns often appear
+        // out-of-order or separated. Best strategy:
+        // 1. Flatten the text and find ALL dates
+        // 2. Between each pair of dates, collect up to 3 numbers (actual/forecast/previous)
+
+        const fullText = rawText.replace(/\r/g, '').replace(/\n/g, ' ').replace(/\s+/g, ' ');
+
+        // Match date patterns: "Feb 20, 2026" or "Feb 20 2026" or "Feb. 20, 2026" etc.
+        const dateRe = new RegExp(
+            `(${MONTH_KEYS})\\.?\\s*(\\d{1,2})[,.]?\\s*(202\\d|201\\d)`,
+            'gi'
+        );
+
+        const dates = [];
+        let dm;
+        while ((dm = dateRe.exec(fullText)) !== null) {
+            const mon = MONTHS_MAP[dm[1].toLowerCase()] || dm[1];
+            dates.push({ date: `${mon} ${parseInt(dm[2])}, ${dm[3]}`, endPos: dm.index + dm[0].length });
+        }
+
+        if (dates.length === 0) return fallbackParse(rawText); // try line-by-line
+
         const rows = [];
+        for (let i = 0; i < dates.length; i++) {
+            const start = dates[i].endPos;
+            const end = i + 1 < dates.length ? dates[i + 1].endPos - dates[i + 1].date.length - 5 : fullText.length;
+            const chunk = fullText.slice(start, Math.max(start, end));
 
-        // Match lines that START with a month abbreviation (date lines)
-        // e.g.  "Feb 20, 2026    2.7%    0.2%    -0.9%"
-        const monthPattern = new RegExp(`^(${MONTHS.join('|')})\\s+(\\d{1,2})[,.]?\\s+(\\d{4})`, 'i');
-        const valuePattern = /(-?\d+\.?\d*)\s*(%|K|B|M|T)?/gi;
-
-        for (const line of lines) {
-            const dateMatch = line.match(monthPattern);
-            if (!dateMatch) continue;
-
-            const month = dateMatch[1];
-            const day = dateMatch[2];
-            const year = dateMatch[3];
-            const dateStr = `${month} ${day}, ${year}`;
-
-            // Extract all numbers from the rest of the line (after the date)
-            const afterDate = line.slice(dateMatch[0].length).replace(/[|iltI]/g, ''); // clean OCR chars
-
-            const numbers = [];
-            let m;
-            const re = /(-?\d+\.?\d*\s*[%KkMmBbTt]?)/g;
-            while ((m = re.exec(afterDate)) !== null) {
-                const raw = m[1].trim();
-                if (raw.length > 0) numbers.push(raw);
+            // Extract all number-like tokens (e.g. 2.7%, -0.9%, 150K)
+            const numRe = /(-?\d+\.?\d*)\s*(%|K|M|B|T)?/gi;
+            const nums = [];
+            let nm;
+            while ((nm = numRe.exec(chunk)) !== null) {
+                if (nm[1].length > 0 && parseFloat(nm[1]) < 10000) { // filter out years etc.
+                    nums.push(nm[1] + (nm[2] ? nm[2].toUpperCase() : ''));
+                }
             }
 
-            // We expect: [actual, forecast, previous] in that order
-            if (numbers.length >= 1) {
-                rows.push({
-                    date: dateStr,
-                    actual: numbers[0] || '',
-                    forecast: numbers[1] || '',
-                    previous: numbers[2] || '',
-                });
+            rows.push({
+                date: dates[i].date,
+                actual: nums[0] || '',
+                forecast: nums[1] || '',
+                previous: nums[2] || '',
+            });
+        }
+        return rows;
+    };
+
+    // Fallback line-by-line parser
+    const fallbackParse = (rawText) => {
+        const rows = [];
+        for (const line of rawText.split('\n').map(l => l.trim()).filter(Boolean)) {
+            if (!/202\d|201\d/.test(line)) continue;
+            const monthPat = new RegExp(`(${MONTH_KEYS})\\.?\\s*(\\d{1,2})[,.]?\\s*(202\\d|201\\d)`, 'i');
+            const dm = line.match(monthPat);
+            if (!dm) continue;
+            const mon = MONTHS_MAP[dm[1].toLowerCase()] || dm[1];
+            const dateStr = `${mon} ${parseInt(dm[2])}, ${dm[3]}`;
+            const numRe = /(-?\d+\.?\d*)\s*(%|K|M|B|T)?/gi;
+            const nums = []; let nm;
+            while ((nm = numRe.exec(line)) !== null) {
+                if (parseFloat(nm[1]) < 10000 && nm[1].length > 0)
+                    nums.push(nm[1] + (nm[2] ? nm[2].toUpperCase() : ''));
             }
+            const filtered = nums.filter(n => !n.startsWith('20'));
+            rows.push({ date: dateStr, actual: filtered[0] || '', forecast: filtered[1] || '', previous: filtered[2] || '' });
         }
         return rows;
     };
