@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forex Factory Data Probability</title>
+
+    <!-- PWA Requirements -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121826">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div>
+                    <h1>Forex Factory Data Probability</h1>
+                    <p class="subtitle">United States Economic Indicators Monitor</p>
+                </div>
+                <div class="header-actions">
+                    <div class="status-indicator">
+                        <span class="dot"></span>
+                        <span id="last-updated">Menunggu Data...</span>
+                    </div>
+                    <select id="date-filter" class="table-card"
+                        style="padding: 0.5rem; border-radius: 6px; border: 1px solid #1e293b; background: #0f172a; color: #f8fafc; font-family: inherit; font-size: 0.875rem; cursor: pointer; outline: none; margin-right: 0.5rem;">
+                        <option value="">Loading Months...</option>
+                    </select>
+                    <select id="day-filter" class="table-card"
+                        style="padding: 0.5rem; border-radius: 6px; border: 1px solid #1e293b; background: #0f172a; color: #f8fafc; font-family: inherit; font-size: 0.875rem; cursor: pointer; outline: none; margin-right: 1rem; display: none;">
+                        <option value="ALL">Semua Tanggal</option>
+                    </select>
+                    <button id="refresh-btn" class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 2v6h-6"></path>
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                            <path d="M3 3v6h6"></path>
+                        </svg>
+                        Perbarui Data
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="table-card">
+                <div class="table-responsive">
+                    <table id="data-table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" class="col-xs">No</th>
+                                <th rowspan="2" class="col-lg">Indicators</th>
+                                <th rowspan="2" class="col-md text-center">Category</th>
+                                <th rowspan="2" class="col-md text-center">Date</th>
+                                <th rowspan="2" class="col-md text-center">Movement Before Date</th>
+                                <th rowspan="2" class="col-md text-center">Movement after Date</th>
+                                <th colspan="3" class="col-group text-center highlight-group">Movement Percentage</th>
+                                <th rowspan="2" class="col-sm text-center">Units</th>
+                                <th rowspan="2" class="col-md text-center">Percentage Probability</th>
+                                <th rowspan="2" class="col-xl">Reference</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center th-sub">Last</th>
+                                <th class="text-center th-sub">Forecast</th>
+                                <th class="text-center th-sub">Actual</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Rows will be injected by JavaScript -->
+                            <tr>
+                                <td colspan="10" class="loading-cell">
+                                    <div class="loader"></div>
+                                    <p>Mengambil data dari server...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- PWA Service Worker Registration & App Logic -->
+    <script src="app.js"></script>
+</body>
+
+</html>

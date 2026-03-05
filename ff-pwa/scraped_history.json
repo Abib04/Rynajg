@@ -1,0 +1,434 @@
+{
+    "1": [
+        {
+            "date": "Feb 13, 2026",
+            "actual": "0.2%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Jan 13, 2026",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Oct 24, 2025",
+            "actual": "0.3%",
+            "forecast": "0.4%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Sep 11, 2025",
+            "actual": "0.4%",
+            "forecast": "0.3%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "Aug 12, 2025",
+            "actual": "0.2%",
+            "forecast": "0.2%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Jul 15, 2025",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "0.1%"
+        },
+        {
+            "date": "Jun 11, 2025",
+            "actual": "0.1%",
+            "forecast": "0.2%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "May 13, 2025",
+            "actual": "0.2%",
+            "forecast": "0.3%",
+            "previous": "-0.1%"
+        },
+        {
+            "date": "Apr 10, 2025",
+            "actual": "-0.1%",
+            "forecast": "0.1%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "Mar 12, 2025",
+            "actual": "0.2%",
+            "forecast": "0.3%",
+            "previous": "0.5%"
+        },
+        {
+            "date": "Feb 12, 2025",
+            "actual": "0.5%",
+            "forecast": "0.3%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Jan 15, 2025",
+            "actual": "0.4%",
+            "forecast": "0.4%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Dec 11, 2024",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "Nov 13, 2024",
+            "actual": "0.2%",
+            "forecast": "0.2%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "Oct 10, 2024",
+            "actual": "0.2%",
+            "forecast": "0.1%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "Sep 11, 2024",
+            "actual": "0.2%",
+            "forecast": "0.2%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "Aug 14, 2024",
+            "actual": "0.2%",
+            "forecast": "0.2%",
+            "previous": "-0.1%"
+        },
+        {
+            "date": "Jul 11, 2024",
+            "actual": "-0.1%",
+            "forecast": "0.1%",
+            "previous": "0.0%"
+        },
+        {
+            "date": "Jun 12, 2024",
+            "actual": "0.0%",
+            "forecast": "0.1%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "May 15, 2024",
+            "actual": "0.3%",
+            "forecast": "0.4%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Apr 10, 2024",
+            "actual": "0.4%",
+            "forecast": "0.3%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Mar 12, 2024",
+            "actual": "0.4%",
+            "forecast": "0.4%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Feb 13, 2024",
+            "actual": "0.3%",
+            "forecast": "0.2%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Jan 11, 2024",
+            "actual": "0.3%",
+            "forecast": "0.2%",
+            "previous": "0.1%"
+        }
+    ],
+    "2": [
+        {
+            "date": "Feb 13, 2026",
+            "actual": "0.4%",
+            "forecast": "0.3%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Jan 13, 2026",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Oct 24, 2025",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Sep 11, 2025",
+            "actual": "0.3%",
+            "forecast": "0.2%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "Aug 12, 2025",
+            "actual": "0.3%",
+            "forecast": "0.2%",
+            "previous": "0.1%"
+        },
+        {
+            "date": "Jul 15, 2025",
+            "actual": "0.1%",
+            "forecast": "0.2%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Jun 11, 2025",
+            "actual": "0.2%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "May 13, 2025",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Apr 10, 2025",
+            "actual": "0.4%",
+            "forecast": "0.3%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Mar 12, 2025",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Feb 12, 2025",
+            "actual": "0.4%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Jan 15, 2025",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Dec 11, 2024",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Nov 13, 2024",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Oct 10, 2024",
+            "actual": "0.3%",
+            "forecast": "0.2%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Sep 11, 2024",
+            "actual": "0.3%",
+            "forecast": "0.2%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "Aug 14, 2024",
+            "actual": "0.2%",
+            "forecast": "0.2%",
+            "previous": "0.1%"
+        },
+        {
+            "date": "Jul 11, 2024",
+            "actual": "0.1%",
+            "forecast": "0.2%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "Jun 12, 2024",
+            "actual": "0.2%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "May 15, 2024",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Apr 10, 2024",
+            "actual": "0.4%",
+            "forecast": "0.3%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Mar 12, 2024",
+            "actual": "0.4%",
+            "forecast": "0.3%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Feb 13, 2024",
+            "actual": "0.4%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Jan 11, 2024",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        }
+    ],
+    "3": [
+        {
+            "date": "Feb 27, 2026",
+            "actual": "0.5%",
+            "forecast": "0.3%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Jan 30, 2026",
+            "actual": "0.5%",
+            "forecast": "0.2%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "Jan 14, 2026",
+            "actual": "0.2%",
+            "forecast": "0.2%",
+            "previous": "0.1%"
+        },
+        {
+            "date": "Nov 25, 2025",
+            "actual": "0.3%",
+            "forecast": "0.3%",
+            "previous": "-0.1%"
+        },
+        {
+            "date": "Sep 10, 2025",
+            "actual": "-0.1%",
+            "forecast": "0.3%",
+            "previous": "0.7%"
+        },
+        {
+            "date": "Aug 14, 2025",
+            "actual": "0.9%",
+            "forecast": "0.2%",
+            "previous": "0.0%"
+        },
+        {
+            "date": "Jul 16, 2025",
+            "actual": "0.0%",
+            "forecast": "0.2%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Jun 12, 2025",
+            "actual": "0.1%",
+            "forecast": "0.2%",
+            "previous": "-0.2%"
+        },
+        {
+            "date": "May 15, 2025",
+            "actual": "-0.5%",
+            "forecast": "0.2%",
+            "previous": "0.0%"
+        },
+        {
+            "date": "Apr 11, 2025",
+            "actual": "-0.4%",
+            "forecast": "0.2%",
+            "previous": "0.1%"
+        },
+        {
+            "date": "Mar 13, 2025",
+            "actual": "0.0%",
+            "forecast": "0.3%",
+            "previous": "0.6%"
+        },
+        {
+            "date": "Feb 13, 2025",
+            "actual": "0.4%",
+            "forecast": "0.3%",
+            "previous": "0.5%"
+        },
+        {
+            "date": "Jan 14, 2025",
+            "actual": "0.2%",
+            "forecast": "0.4%",
+            "previous": "0.4%"
+        },
+        {
+            "date": "Dec 12, 2024",
+            "actual": "0.4%",
+            "forecast": "0.2%",
+            "previous": "0.3%"
+        },
+        {
+            "date": "Nov 14, 2024",
+            "actual": "0.2%",
+            "forecast": "0.2%",
+            "previous": "0.1%"
+        },
+        {
+            "date": "Oct 11, 2024",
+            "actual": "0.0%",
+            "forecast": "0.1%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "Sep 12, 2024",
+            "actual": "0.2%",
+            "forecast": "0.1%",
+            "previous": "0.0%"
+        },
+        {
+            "date": "Aug 13, 2024",
+            "actual": "0.1%",
+            "forecast": "0.2%",
+            "previous": "0.2%"
+        },
+        {
+            "date": "Jul 12, 2024",
+            "actual": "0.2%",
+            "forecast": "0.1%",
+            "previous": "0.0%"
+        },
+        {
+            "date": "Jun 13, 2024",
+            "actual": "-0.2%",
+            "forecast": "0.1%",
+            "previous": "0.5%"
+        },
+        {
+            "date": "May 14, 2024",
+            "actual": "0.5%",
+            "forecast": "0.3%",
+            "previous": "-0.1%"
+        },
+        {
+            "date": "Apr 11, 2024",
+            "actual": "0.2%",
+            "forecast": "0.3%",
+            "previous": "0.6%"
+        },
+        {
+            "date": "Mar 14, 2024",
+            "actual": "0.6%",
+            "forecast": "0.3%",
+            "previous": "0.3%"
+        }
+    ]
+}

@@ -1,0 +1,332 @@
+/* CSS Variables for Premium Dark Theme */
+:root {
+    --bg-main: #0b0f19;
+    --bg-card: #151c2c;
+    --bg-card-hover: #1e2638;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #475569;
+
+    --accent-blue: #3b82f6;
+    --accent-blue-hover: #2563eb;
+    --accent-green: #10b981;
+    --accent-red: #ef4444;
+    --accent-yellow: #f59e0b;
+
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(59, 130, 246, 0.3);
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-glow: 0 0 15px rgba(59, 130, 246, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.dashboard-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header */
+.dashboard-header {
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Status Indicator */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-muted);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--accent-green);
+    box-shadow: 0 0 8px var(--accent-green);
+}
+
+/* Buttons */
+.btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-blue-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-primary.rotating svg {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Table Card */
+.table-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Table Base */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    table-layout: fixed;
+    /* Fix columns to respect set widths */
+}
+
+/* Typography Helpers */
+.text-center {
+    text-align: center;
+    justify-content: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.font-bold {
+    font-weight: 600;
+}
+
+/* Table Columns Specificity to match Screenshot EXACTLY */
+.col-xs {
+    width: 4%;
+}
+
+.col-sm {
+    width: 10%;
+}
+
+.col-md {
+    width: 12%;
+}
+
+.col-group {
+    width: 22%;
+}
+
+.col-lg {
+    width: 18%;
+}
+
+.col-xl {
+    width: 20%;
+}
+
+/* Table Headers */
+thead th {
+    background-color: #151b27;
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 1.25rem 0.75rem;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.02);
+    vertical-align: middle;
+}
+
+thead th.highlight-group {
+    background-color: #1e2638;
+    border-bottom: 2px solid var(--accent-blue);
+}
+
+.th-sub {
+    background-color: #1e2638 !important;
+    padding: 0.75rem !important;
+}
+
+/* Table Body */
+tbody td {
+    padding: 1.2rem 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.02);
+    vertical-align: middle;
+    transition: background-color 0.2s;
+    background-color: #111827;
+    /* Darker row background typical in these neo dashboards */
+}
+
+tbody tr:hover td {
+    background-color: var(--bg-card-hover);
+}
+
+/* Special Highlighting rules based on the image */
+.bg-yellow {
+    background-color: rgba(245, 158, 11, 0.1) !important;
+    color: #fcd34d;
+}
+
+.bg-yellow:hover td {
+    background-color: rgba(245, 158, 11, 0.15) !important;
+}
+
+/* Data Cells */
+.data-cell {
+    font-family: 'SF Mono', 'Fira Code', 'Inter', monospace;
+    font-weight: 500;
+}
+
+.indicator-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #f1f5f9;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.val-up {
+    color: #22c55e;
+    font-weight: 600;
+}
+
+.val-down {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* Links */
+.ref-link {
+    color: #3b82f6;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.70rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Truncate after 2 lines like image */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.ref-link:hover {
+    text-decoration: underline;
+    color: #60a5fa;
+}
+
+/* Loading State */
+.loading-cell {
+    padding: 4rem 1rem !important;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.loader {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--accent-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem auto;
+}
+
+/* Scrollbar styling for pure aesthetics */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b0f19;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e2638;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
