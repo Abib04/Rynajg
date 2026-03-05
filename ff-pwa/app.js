@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
         exportData.forEach((row, idx) => {
             const isYellow = yellowIds.has(Number(row.id));
             const rowFill = isYellow ? yellowFill : null;
-            const textColor = isYellow ? 'FF000000' : 'FFCCCCCC'; // black text on yellow, light grey otherwise
+            const textColor = 'FF000000'; // black text for all rows
 
             const dataRow = sheet.addRow([
                 (idx % 52) + 1,    // No
