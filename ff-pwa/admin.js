@@ -249,22 +249,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const mon = MONTHS_MAP[dm[1].toLowerCase()] || dm[1];
             const dateStr = `${mon} ${parseInt(dm[2])}, ${dm[3]}`;
 
-            // Collect everything that looks like a number/value in this row
-            const numRe = /^-?\d+[\.,]?\d*[%KMBTkmbté]?$/i;
-            const valueTokens = texts.filter(t => {
-                if (/^20\d{2}$/.test(t)) return false; // skip years
-                if (/^\d{1,2}$/.test(t) && parseInt(t) <= 31) return false; // skip day numbers
-                return numRe.test(t) || /^-?\d+[\.,]?\d*$/.test(t);
-            });
+            // KEY FIX: Only collect numeric values positioned to the RIGHT of the year.
+            // This prevents day numbers like '20,' from being misread as Actual values.
+            const year = dm[3]; // e.g. "2026"
+            const yearWord = row.words.find(w => w.text.replace(/[,.\/]/g, '') === year);
+            const minX = yearWord ? yearWord.x + 5 : -1;
 
-            if (dataRows.length > 0 || valueTokens.length > 0 || true) {
-                dataRows.push({
-                    date: dateStr,
-                    actual: cleanValue(valueTokens[0] || ''),
-                    forecast: cleanValue(valueTokens[1] || ''),
-                    previous: cleanValue(valueTokens[2] || ''),
-                });
-            }
+            const numRe = /^-?\d+[.,]?\d*[%KMBTkmbté]?$/i;
+            const valueWords = row.words
+                .filter(w => {
+                    if (minX >= 0 && w.x <= minX) return false; // must be right of year
+                    const t = w.text.replace(/[,.]$/, ''); // strip trailing punctuation
+                    return numRe.test(t) || /^-?\d+[.,]?\d*$/.test(t);
+                })
+                .map(w => w.text.replace(/[,]$/, ''));
+
+            dataRows.push({
+                date: dateStr,
+                actual: cleanValue(valueWords[0] || ''),
+                forecast: cleanValue(valueWords[1] || ''),
+                previous: cleanValue(valueWords[2] || ''),
+            });
         }
 
         return dataRows;
