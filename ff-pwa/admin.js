@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return rows;
     };
 
-    // ─── Render extracted rows as preview cards ─────────────────────
+    // ─── Render extracted rows as EDITABLE preview cards ───────────
     const renderExtractedRows = (rows) => {
         if (rows.length === 0) {
             extractedList.innerHTML = '<div class="text-warning small">Tidak ada baris data terdeteksi. Coba gunakan screenshot yang lebih jelas.</div>';
@@ -280,18 +280,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
         rowCountBadge.textContent = rows.length;
         extractedList.innerHTML = '';
+
+        const inputStyle = `
+            background: rgba(15,23,42,0.9);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 6px;
+            color: #f8fafc;
+            font-size: 0.8rem;
+            padding: 2px 6px;
+            width: 80px;
+            outline: none;
+        `;
+        const dateInputStyle = inputStyle.replace('width: 80px', 'width: 110px');
+
         rows.forEach((row, i) => {
             const div = document.createElement('div');
-            div.className = 'extracted-row d-flex gap-3 flex-wrap align-items-center';
+            div.className = 'extracted-row';
+            div.style.cssText = 'display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding:0.5rem 0.75rem;';
             div.innerHTML = `
-                <span class="text-info fw-semibold" style="min-width:110px;">${row.date}</span>
-                <span>Actual: <strong class="text-success">${row.actual}</strong></span>
-                <span>Forecast: <strong>${row.forecast}</strong></span>
-                <span>Previous: <strong>${row.previous}</strong></span>
-                <button class="btn btn-outline-danger btn-sm py-0 ms-auto" onclick="removeRow(${i})" style="font-size:0.7rem;">✕ Hapus</button>
+                <span class="text-secondary" style="font-size:0.7rem; min-width:18px;">#${i + 1}</span>
+                <input class="ocr-field" data-idx="${i}" data-field="date"
+                    value="${row.date}" placeholder="Date"
+                    style="${dateInputStyle}" title="Tanggal" />
+                <label style="font-size:0.78rem; color:#94a3b8; margin:0;">Actual:</label>
+                <input class="ocr-field" data-idx="${i}" data-field="actual"
+                    value="${row.actual}" placeholder="e.g. 0.3%"
+                    style="${inputStyle} color:#4ade80;" title="Actual" />
+                <label style="font-size:0.78rem; color:#94a3b8; margin:0;">Forecast:</label>
+                <input class="ocr-field" data-idx="${i}" data-field="forecast"
+                    value="${row.forecast}" placeholder="e.g. 0.2%"
+                    style="${inputStyle}" title="Forecast" />
+                <label style="font-size:0.78rem; color:#94a3b8; margin:0;">Previous:</label>
+                <input class="ocr-field" data-idx="${i}" data-field="previous"
+                    value="${row.previous}" placeholder="e.g. 0.1%"
+                    style="${inputStyle}" title="Previous" />
+                <button class="btn btn-outline-danger btn-sm py-0 ms-auto"
+                    onclick="removeRow(${i})" style="font-size:0.7rem;">✕</button>
             `;
             extractedList.appendChild(div);
         });
+
+        // Live sync: update extractedRows when user edits any field
+        extractedList.querySelectorAll('.ocr-field').forEach(input => {
+            input.addEventListener('input', (e) => {
+                const idx = parseInt(e.target.dataset.idx);
+                const field = e.target.dataset.field;
+                extractedRows[idx][field] = e.target.value;
+            });
+        });
+
         extractedSection.classList.remove('d-none');
     };
 
