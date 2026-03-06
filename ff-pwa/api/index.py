@@ -364,20 +364,36 @@ def scrape_api():
                     'probability': ''
                 })
 
-                history = history_data.get(str(indicator['id']))
+                history = history_data.get(str(indicator['id']), [])
                 found_real = False
-
+                
+                # Check for Weekly occurrence (W1, W2, etc.)
+                week_match = re.search(r'\(W(\d)\)', indicator['name'])
+                target_occurrence = int(week_match.group(1)) if week_match else 1
+                
                 if history and isinstance(history, list):
+                    # Find all entries for this month
+                    month_entries = []
                     for entry in history:
-                        if entry['date'].startswith(current_month_en) and entry['date'].endswith(current_year_str):
-                            result_row['date'] = entry['date']
-                            result_row['actual'] = entry['actual']
-                            result_row['forecast'] = entry['forecast']
-                            result_row['last'] = entry['previous']
-                            result_row['movementBefore'] = entry.get('movementBefore', '')
-                            result_row['movementAfter'] = entry.get('movementAfter', '')
-                            found_real = True
-                            break
+                        e_date = entry['date'].strip()
+                        if e_date.startswith(current_month_en) and e_date.endswith(current_year_str):
+                            month_entries.append(entry)
+                    
+                    # Sort entries by day number
+                    def extract_day(e):
+                        d_m = re.search(r'(\d{1,2})', e['date'])
+                        return int(d_m.group(1)) if d_m else 0
+                    month_entries.sort(key=extract_day)
+                    
+                    if len(month_entries) >= target_occurrence:
+                        entry = month_entries[target_occurrence - 1]
+                        result_row['date'] = entry['date']
+                        result_row['actual'] = entry['actual']
+                        result_row['forecast'] = entry['forecast']
+                        result_row['last'] = entry['previous']
+                        result_row['movementBefore'] = entry.get('movementBefore', '')
+                        result_row['movementAfter'] = entry.get('movementAfter', '')
+                        found_real = True
 
                 if not found_real and indicator['dateType'] == 'specific':
                     try:
@@ -388,7 +404,7 @@ def scrape_api():
                         else:
                             spec_date = datetime(month_year_date.year, month_year_date.month, 30)
                             
-                    result_row['date'] = spec_date.strftime("%d %b %Y")
+                    result_row['date'] = spec_date.strftime("%b %d, %Y")
 
                 final_data.append(result_row)
 
