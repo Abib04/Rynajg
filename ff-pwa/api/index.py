@@ -84,6 +84,7 @@ targetIndicators = [
 import urllib.request
 import firebase_admin
 from firebase_admin import credentials, firestore
+from scraper import scrape_forex_history
 
 # Initialize Firebase via env or local file
 db = None
@@ -373,6 +374,91 @@ def save_manual_data():
         return jsonify({
             'success': False,
             'message': 'Failed to save manually.',
+            'error': str(error)
+        }), 500
+
+@app.route('/api/sync-history', methods=['POST'])
+def sync_history():
+    """
+    Endpoint to trigger backend scraping for specific indicators.
+    Payload: { "indicator_ids": ["1", "3", "5"] }
+    """
+    try:
+        payload = request.json or {}
+        ids_to_sync = payload.get('indicator_ids', [])
+        
+        if not ids_to_sync:
+            return jsonify({'success': False, 'message': 'No indicator_ids provided for sync'}), 400
+            
+        history_data = get_scraped_history()
+        synced_count = 0
+        details = []
+        
+        # Month mapping for JS ID logic backward compatibility
+        month_names_en = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        
+        for ind_id in ids_to_sync:
+            # Find the indicator configuration
+            indicator_conf = next((ind for ind in targetIndicators if str(ind['id']) == str(ind_id)), None)
+            if not indicator_conf or not indicator_conf.get('refUrl'):
+                details.append({'id': ind_id, 'status': 'skipped', 'reason': 'No config or refUrl'})
+                continue
+                
+            ref_url = indicator_conf['refUrl']
+            scraped_rows = scrape_forex_history(ref_url)
+            
+            if not scraped_rows:
+                details.append({'id': ind_id, 'status': 'failed', 'reason': 'Scraper returned no data'})
+                continue
+                
+            if str(ind_id) not in history_data:
+                history_data[str(ind_id)] = []
+                
+            added_for_ind = 0
+            # Merge new rows into history
+            for row in scraped_rows:
+                # E.g., row['date'] = "Feb 13, 2026"
+                date_str = row['date']
+                
+                # Check uniqueness (ignore missing days or matching months)
+                # But here we have exact dates from FF, so we can just match exact date
+                exists = False
+                for existing_entry in history_data[str(ind_id)]:
+                    # Match by month and year to avoid duplicate entries for the same month's release
+                    # (Unless it's an indicator that releases multiple times a month, 
+                    # but FF calendar dates are exact, so exact string match is safer)
+                    if existing_entry['date'].lower() == date_str.lower():
+                        exists = True
+                        break
+                        
+                if not exists:
+                    history_data[str(ind_id)].append({
+                        "date": date_str,
+                        "actual": row.get("actual", ""),
+                        "forecast": row.get("forecast", ""),
+                        "previous": row.get("previous", ""),
+                        "movementBefore": "",  # To be filled manually later
+                        "movementAfter": ""
+                    })
+                    added_for_ind += 1
+            
+            synced_count += added_for_ind
+            details.append({'id': ind_id, 'status': 'success', 'added': added_for_ind})
+            
+        if synced_count > 0:
+            save_scraped_history(history_data)
+            
+        return jsonify({
+            'success': True,
+            'message': f'Sync complete. Added {synced_count} new historical records.',
+            'details': details
+        })
+        
+    except Exception as error:
+        print("Sync API error:", error)
+        return jsonify({
+            'success': False,
+            'message': 'Failed to sync history.',
             'error': str(error)
         }), 500
 

@@ -12,8 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await fetch(`${API_BASE}/api/indicators`);
             const data = await res.json();
             if (data.success && data.data) {
-                ['indicator', 'ocr-indicator'].forEach(id => {
+                ['indicator', 'ocr-indicator', 'sync-indicator'].forEach(id => {
                     const sel = document.getElementById(id);
+                    if (!sel) return;
                     sel.innerHTML = '<option value="">-- Pilih Indikator --</option>';
                     data.data.forEach(ind => {
                         const opt = document.createElement('option');
@@ -62,6 +63,75 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         return await res.json();
     };
+
+    // ─── AUTO WEB SYNC ─────────────────────────────────────────────
+    const btnSyncSingle = document.getElementById('btn-sync-single');
+    const btnSyncAll = document.getElementById('btn-sync-all');
+    const syncProgress = document.getElementById('sync-progress');
+    const syncStatusText = document.getElementById('sync-status-text');
+
+    const runSync = async (indicatorIds) => {
+        syncProgress.classList.remove('d-none');
+        btnSyncSingle.disabled = true;
+        btnSyncAll.disabled = true;
+
+        try {
+            const res = await fetch(`${API_BASE}/api/sync-history`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ indicator_ids: indicatorIds })
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                showAlert('success', data.message, 'sync-alert');
+                // Automatically log to table
+                if (data.details) {
+                    data.details.forEach(d => {
+                        if (d.status === 'success' && d.added > 0) {
+                            addLog(d.id, { date: 'AUTO SYNC', actual: `${d.added} rows added` }, 'sync');
+                        }
+                    });
+                }
+            } else {
+                showAlert('danger', `Sync gagal: ${data.message}`, 'sync-alert');
+            }
+        } catch (err) {
+            showAlert('danger', 'Gagal terhubung ke server saat sync.', 'sync-alert');
+        } finally {
+            syncProgress.classList.add('d-none');
+            btnSyncSingle.disabled = false;
+            btnSyncAll.disabled = false;
+        }
+    };
+
+    btnSyncSingle.addEventListener('click', () => {
+        const indId = document.getElementById('sync-indicator').value;
+        if (!indId) {
+            showAlert('warning', 'Pilih indikator terlebih dahulu.', 'sync-alert');
+            return;
+        }
+        syncStatusText.textContent = `Menarik data untuk indikator ID ${indId}...`;
+        runSync([indId]);
+    });
+
+    btnSyncAll.addEventListener('click', async () => {
+        if (!confirm("Anda yakin ingin menyinkronkan 52 indikator? Ini membutuhkan waktu sekitar 1-2 menit.")) return;
+
+        syncStatusText.textContent = "Menyinkronkan semua data web... Jangan tutup halaman ini.";
+
+        // Fetch all indicator IDs
+        try {
+            const res = await fetch(`${API_BASE}/api/indicators`);
+            const data = await res.json();
+            if (data.success && data.data) {
+                const allIds = data.data.map(ind => ind.id);
+                runSync(allIds);
+            }
+        } catch (e) {
+            showAlert('danger', 'Gagal mendapatkan daftar indikator.', 'sync-alert');
+        }
+    });
 
     // ─── Manual Form ───────────────────────────────────────────────
     document.getElementById('admin-form').addEventListener('submit', async (e) => {
