@@ -92,7 +92,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 if script_dir not in sys.path:
     sys.path.append(script_dir)
 
-from scraper import scrape_forex_history
+from _scraper import scrape_forex_history
 
 # Initialize Firebase via env or local file
 db = None
