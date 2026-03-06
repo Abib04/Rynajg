@@ -84,12 +84,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await res.json();
 
             if (data.success) {
-                showAlert('success', data.message, 'sync-alert');
+                let successMsg = data.message;
+                const failures = data.details ? data.details.filter(d => d.status === 'failed') : [];
+                if (failures.length > 0) {
+                    successMsg += ` (${failures.length} gagal. Cek log di bawah.)`;
+                }
+                showAlert(failures.length > 0 ? 'warning' : 'success', successMsg, 'sync-alert');
+
                 // Automatically log to table
                 if (data.details) {
                     data.details.forEach(d => {
-                        if (d.status === 'success' && d.added > 0) {
+                        if (d.status === 'success' && d.added >= 0) {
                             addLog(d.id, { date: 'AUTO SYNC', actual: `${d.added} rows added` }, 'sync');
+                        } else if (d.status === 'failed') {
+                            addLog(d.id, { date: 'SYNC ERROR', actual: d.reason || 'Unknown error' }, 'error');
                         }
                     });
                 }

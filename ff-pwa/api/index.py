@@ -119,19 +119,29 @@ def scrape_forex_history(url):
     try:
         req = urllib.request.Request(
             url, 
-            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'}
+            headers={
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Cache-Control': 'no-cache',
+                'Pragma': 'no-cache'
+            }
         )
-        with urllib.request.urlopen(req, timeout=10) as response:
-            html = response.read().decode('utf-8')
+        with urllib.request.urlopen(req, timeout=15) as response:
+            html = response.read().decode('utf-8', errors='ignore')
             
         soup = BeautifulSoup(html, 'html.parser')
+        html_title = soup.title.string.strip() if soup.title else "No Title"
         
-        table = soup.find('table', class_='calendar__table')
+        # Check for Cloudflare/Access Denied
+        if "Just a moment" in html_title or "Access Denied" in html_title or "Attention Required!" in html_title:
+            return {"error": f"Blocked by Cloudflare/Protection: {html_title}", "html_title": html_title}
+
+        table = soup.find('table', class_=re.compile(r'calendar__table'))
         if not table:
-            print(f"No .calendar__table found on {url}")
-            return []
+            return {"error": "Table '.calendar__table' not found", "html_title": html_title}
             
-        rows = table.find_all('tr', class_='calendar__row')
+        rows = table.find_all('tr', class_=re.compile(r'calendar__row'))
         history_list = []
         
         for row in rows:
@@ -146,6 +156,7 @@ def scrape_forex_history(url):
                 for_text = forecast_td.get_text(separator=" ", strip=True) if forecast_td else ""
                 prev_text = previous_td.get_text(separator=" ", strip=True) if previous_td else ""
                 
+                # Flexible date matching
                 date_match = re.search(r'([A-Z][a-z]{2})\s+(\d{1,2}),\s+(\d{4})', date_text)
                 if date_match and act_text:
                     clean_date = f"{date_match.group(1)} {date_match.group(2)}, {date_match.group(3)}"
@@ -158,11 +169,12 @@ def scrape_forex_history(url):
                         "movementAfter": ""
                     })
 
-        return history_list
+        return {"data": history_list, "html_title": html_title}
 
     except Exception as e:
-        print(f"Error scraping {url}: {str(e)}")
-        return []
+        error_msg = str(e)
+        print(f"Error scraping {url}: {error_msg}")
+        return {"error": error_msg, "html_title": "Exception"}
 
 # Initialize Firebase via env or local file
 db = None
@@ -493,10 +505,18 @@ def sync_history():
                 continue
                 
             ref_url = indicator_conf['refUrl']
-            scraped_rows = scrape_forex_history(ref_url)
+            scraped_result = scrape_forex_history(ref_url)
             
+            scraped_rows = scraped_result.get("data", [])
+            error = scraped_result.get("error")
+            html_title = scraped_result.get("html_title", "")
+            
+            if error:
+                details.append({'id': ind_id, 'status': 'failed', 'reason': error, 'title': html_title})
+                continue
+                
             if not scraped_rows:
-                details.append({'id': ind_id, 'status': 'failed', 'reason': 'Scraper returned no data'})
+                details.append({'id': ind_id, 'status': 'failed', 'reason': 'Scraper found no rows in table', 'title': html_title})
                 continue
                 
             if str(ind_id) not in history_data:
