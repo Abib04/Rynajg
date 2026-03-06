@@ -311,6 +311,8 @@ def save_manual_data():
         movementAfter = payload.get('movementAfter', '')
         if isinstance(movementAfter, str):
             movementAfter = movementAfter.strip()
+            
+        is_partial = payload.get('is_partial_update', False)
         
         if not indicator_id or not date_str:
             return jsonify({'success': False, 'message': 'Indicator ID and Date are required'}), 400
@@ -333,11 +335,28 @@ def save_manual_data():
         updated = False
         for i, existing_entry in enumerate(history_data[indicator_id]):
             if existing_entry['date'].lower() == date_str.lower():
-                history_data[indicator_id][i] = entry
+                if is_partial:
+                    # Update only provided fields, keep everything else
+                    for key in ['actual', 'forecast', 'previous', 'movementBefore', 'movementAfter']:
+                        if key in payload:
+                            existing_entry[key] = payload[key]
+                    entry = existing_entry # For the response
+                else:
+                    history_data[indicator_id][i] = entry
                 updated = True
                 break
                 
         if not updated:
+            if is_partial:
+                # If doing a partial update on a non-existent row, initialize empty strings for missing ones
+                entry = {
+                    "date": date_str,
+                    "actual": payload.get('actual', ''),
+                    "forecast": payload.get('forecast', ''),
+                    "previous": payload.get('previous', ''),
+                    "movementBefore": payload.get('movementBefore', ''),
+                    "movementAfter": payload.get('movementAfter', '')
+                }
             history_data[indicator_id].append(entry)
             
         save_scraped_history(history_data)

@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td class="text-center">-</td>
                     <td class="text-center">-</td>
                     <td class="text-center">-</td>
-                    <td class="text-center data-cell">-</td>
+                    <td class="text-center">-</td>
                     <td class="text-center data-cell">-</td>
                     <td class="text-center data-cell">-</td>
                     <td class="text-center text-secondary" style="font-size: 0.75rem;">Percentage (%)</td>
@@ -118,8 +118,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td class="indicator-name" title="${row.name}">${row.name}</td>
                     <td class="text-center text-muted" style="font-weight: 500;">${row.category || '-'}</td>
                     <td class="text-center">${row.date || ''}</td>
-                    <td class="text-center">${row.movementBefore || '-'}</td>
-                    <td class="text-center">${row.movementAfter || '-'}</td>
+                    <td class="text-center">
+                        <input type="number" step="any" class="form-control form-control-sm text-center bg-transparent border-0 text-white p-0 quick-edit-mvmt" 
+                            data-id="${row.id}" data-date="${row.date}" data-field="movementBefore" 
+                            value="${row.movementBefore || ''}" placeholder="-" style="width: 60px; margin: 0 auto; box-shadow: none;">
+                    </td>
+                    <td class="text-center">
+                        <input type="number" step="any" class="form-control form-control-sm text-center bg-transparent border-0 text-white p-0 quick-edit-mvmt" 
+                            data-id="${row.id}" data-date="${row.date}" data-field="movementAfter" 
+                            value="${row.movementAfter || ''}" placeholder="-" style="width: 60px; margin: 0 auto; box-shadow: none;">
+                    </td>
                     <td class="text-center data-cell">${row.last || '-'}</td>
                     <td class="text-center data-cell">${row.forecast || '-'}</td>
                     <td class="text-center data-cell ${valClass}">${row.actual || '-'}</td>
@@ -134,6 +142,54 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
         tableBody.innerHTML = rowsHtml;
+        // Attach event listeners for inline editing Movement
+        document.querySelectorAll('.quick-edit-mvmt').forEach(input => {
+            input.addEventListener('change', async (e) => {
+                const el = e.target;
+                const indId = el.dataset.id;
+                const rDate = el.dataset.date;
+                const field = el.dataset.field;
+                const val = el.value;
+
+                if (!indId || !rDate) return;
+
+                // Set visual feedback
+                const origBg = el.style.backgroundColor;
+                el.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+
+                try {
+                    const payload = {
+                        indicator_id: indId,
+                        date: rDate,
+                        [field]: val,
+                        is_partial_update: true
+                    };
+
+                    const response = await fetch('/api/save_manual_data', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        el.style.color = '#4ade80'; // Success green flash
+                        setTimeout(() => el.style.color = '', 2000);
+
+                        // Update our local cache so export tool gets it
+                        const rowData = allFetchedData.find(d => d.id == indId && d.date == rDate);
+                        if (rowData) rowData[field] = val;
+                    } else {
+                        el.style.color = '#ef4444'; // Error red flash
+                    }
+                } catch (err) {
+                    console.error("Failed to save movement:", err);
+                    el.style.color = '#ef4444';
+                } finally {
+                    el.style.backgroundColor = origBg;
+                }
+            });
+        });
     };
 
     const fetchData = async () => {
