@@ -137,21 +137,42 @@ def scrape_forex_history(url):
         if "Just a moment" in html_title or "Access Denied" in html_title or "Attention Required!" in html_title:
             return {"error": f"Blocked by Cloudflare/Protection: {html_title}", "html_title": html_title}
 
-        table = soup.find('table', class_=re.compile(r'calendar__table'))
+        # Try multiple table classes often used for History
+        table = soup.find('table', class_=re.compile(r'calendar__(history-)?table'))
         if not table:
-            return {"error": "Table '.calendar__table' not found", "html_title": html_title}
+            # Fallback: find any table that has headers like 'Actual' or 'History'
+            all_tables = soup.find_all('table')
+            for t in all_tables:
+                if "Actual" in t.get_text() and "Forecast" in t.get_text():
+                    table = t
+                    break
+                    
+        if not table:
+            return {"error": "History table not found on page", "html_title": html_title}
             
-        rows = table.find_all('tr', class_=re.compile(r'calendar__row'))
+        # Rows can be 'tr' with various classes
+        rows = table.find_all('tr', class_=re.compile(r'calendar(history)?__row'))
+        if not rows:
+            # Fallback to all tr in tbody
+            tbody = table.find('tbody')
+            rows = tbody.find_all('tr') if tbody else table.find_all('tr')
+            
         history_list = []
         
         for row in rows:
-            date_td = row.find('td', class_='calendar__date')
-            actual_td = row.find('td', class_='calendar__actual')
-            forecast_td = row.find('td', class_='calendar__forecast')
-            previous_td = row.find('td', class_='calendar__previous')
+            # Try specific classes first, then general names
+            date_td = row.find('td', class_=re.compile(r'date|history'))
+            actual_td = row.find('td', class_=re.compile(r'actual'))
+            forecast_td = row.find('td', class_=re.compile(r'forecast'))
+            previous_td = row.find('td', class_=re.compile(r'previous'))
             
             if date_td and actual_td:
                 date_text = date_td.get_text(separator=" ", strip=True) 
+                # FF dates are often inside an <a>
+                date_link = date_td.find('a')
+                if date_link:
+                    date_text = date_link.get_text(strip=True)
+                
                 act_text = actual_td.get_text(separator=" ", strip=True)
                 for_text = forecast_td.get_text(separator=" ", strip=True) if forecast_td else ""
                 prev_text = previous_td.get_text(separator=" ", strip=True) if previous_td else ""
