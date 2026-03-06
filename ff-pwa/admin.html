@@ -233,6 +233,19 @@
                             </div>
                         </div>
 
+                        <div class="row mt-2">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-secondary small">Movement Before Date</label>
+                                <input type="number" step="any" class="form-control" id="movement-before"
+                                    placeholder="e.g. 50">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label text-secondary small">Movement after Date</label>
+                                <input type="number" step="any" class="form-control" id="movement-after"
+                                    placeholder="e.g. -20">
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary btn-submit w-100 py-2 mt-2" id="save-btn">
                             Save to Firebase
                         </button>
@@ -254,12 +267,14 @@
                             <th>Actual</th>
                             <th>Forecast</th>
                             <th>Previous</th>
+                            <th>Mvmt Before</th>
+                            <th>Mvmt After</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody id="log-body">
                         <tr>
-                            <td colspan="6" class="text-center text-muted py-3">No data saved yet.</td>
+                            <td colspan="8" class="text-center text-muted py-3">No data saved yet.</td>
                         </tr>
                     </tbody>
                 </table>

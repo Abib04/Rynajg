@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <td class="text-success">${entry.actual || '-'}</td>
             <td>${entry.forecast || '-'}</td>
             <td>${entry.previous || '-'}</td>
+            <td>${entry.movementBefore || '-'}</td>
+            <td>${entry.movementAfter || '-'}</td>
             <td><span class="badge ${status === 'added' ? 'bg-primary' : 'bg-warning text-dark'}">${status}</span></td>`;
         logBody.prepend(row);
         logEntries.push(entry);
@@ -69,7 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
             date: document.getElementById('date').value.trim(),
             actual: document.getElementById('actual').value.trim(),
             forecast: document.getElementById('forecast').value.trim(),
-            previous: document.getElementById('previous').value.trim()
+            previous: document.getElementById('previous').value.trim(),
+            movementBefore: document.getElementById('movement-before').value.trim(),
+            movementAfter: document.getElementById('movement-after').value.trim()
         };
         if (!indicatorId || !entry.date) { showAlert('danger', 'Indikator dan Tanggal wajib diisi!'); return; }
 
@@ -83,6 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('actual').value = '';
                 document.getElementById('forecast').value = '';
                 document.getElementById('previous').value = '';
+                document.getElementById('movement-before').value = '';
+                document.getElementById('movement-after').value = '';
             } else {
                 showAlert('danger', `Error: ${data.message}`);
             }
@@ -269,6 +275,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 actual: cleanValue(valueWords[0] || ''),
                 forecast: cleanValue(valueWords[1] || ''),
                 previous: cleanValue(valueWords[2] || ''),
+                movementBefore: '',
+                movementAfter: ''
             });
         }
 
@@ -303,6 +311,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 actual: cleanValue(nums[0] || ''),
                 forecast: cleanValue(nums[1] || ''),
                 previous: cleanValue(nums[2] || ''),
+                movementBefore: '',
+                movementAfter: ''
             });
         }
         return rows;
@@ -353,6 +363,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 <input class="ocr-field" data-idx="${i}" data-field="previous"
                     value="${row.previous}" placeholder="e.g. 0.1%"
                     style="${inputStyle}" title="Previous" />
+                <label style="font-size:0.78rem; color:#94a3b8; margin:0;">Mvmt Bef:</label>
+                <input class="ocr-field" type="number" step="any" data-idx="${i}" data-field="movementBefore"
+                    value="${row.movementBefore || ''}" placeholder="e.g. 50"
+                    style="${inputStyle.replace('width: 80px', 'width: 60px')}" title="Movement Before" />
+                <label style="font-size:0.78rem; color:#94a3b8; margin:0;">Mvmt Aft:</label>
+                <input class="ocr-field" type="number" step="any" data-idx="${i}" data-field="movementAfter"
+                    value="${row.movementAfter || ''}" placeholder="e.g. -20"
+                    style="${inputStyle.replace('width: 80px', 'width: 60px')}" title="Movement After" />
                 <button class="btn btn-outline-danger btn-sm py-0 ms-auto"
                     onclick="removeRow(${i})" style="font-size:0.7rem;">✕</button>
             `;

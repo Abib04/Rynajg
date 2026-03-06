@@ -252,6 +252,8 @@ def scrape_api():
                             result_row['actual'] = entry['actual']
                             result_row['forecast'] = entry['forecast']
                             result_row['last'] = entry['previous']
+                            result_row['movementBefore'] = entry.get('movementBefore', '')
+                            result_row['movementAfter'] = entry.get('movementAfter', '')
                             found_real = True
                             break
 
@@ -303,6 +305,12 @@ def save_manual_data():
         actual = payload.get('actual', '').strip()
         forecast = payload.get('forecast', '').strip()
         previous = payload.get('previous', '').strip()
+        movementBefore = payload.get('movementBefore', '')
+        if isinstance(movementBefore, str):
+            movementBefore = movementBefore.strip()
+        movementAfter = payload.get('movementAfter', '')
+        if isinstance(movementAfter, str):
+            movementAfter = movementAfter.strip()
         
         if not indicator_id or not date_str:
             return jsonify({'success': False, 'message': 'Indicator ID and Date are required'}), 400
@@ -316,7 +324,9 @@ def save_manual_data():
             "date": date_str,
             "actual": actual,
             "forecast": forecast,
-            "previous": previous
+            "previous": previous,
+            "movementBefore": movementBefore,
+            "movementAfter": movementAfter
         }
         
         # Check if date already exists for this indicator, if so, update it. If not, append.
