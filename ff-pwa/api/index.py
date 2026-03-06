@@ -5,10 +5,26 @@ import os
 import time
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+import traceback
 
 app = Flask(__name__)
 CORS(app)
 PORT = 3000
+
+@app.route('/api/health')
+def health():
+    return jsonify({"status": "ok", "message": "Backend is alive!"})
+
+@app.errorhandler(Exception)
+def handle_exception(e):
+    # Log the full traceback to stdout (shows up in Vercel logs)
+    print("UNHANDLED EXCEPTION:", traceback.format_exc())
+    return jsonify({
+        "success": False,
+        "message": "Internal Server Error",
+        "error": str(e),
+        "traceback": traceback.format_exc() if app.debug else None
+    }), 500
 
 # The exact indicators user requested
 targetIndicators = [
@@ -86,13 +102,67 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 import sys
 import os
+from bs4 import BeautifulSoup
+import re
 
-# Add the 'api' directory to the path so Vercel can find sibling imports
-script_dir = os.path.dirname(os.path.abspath(__file__))
-if script_dir not in sys.path:
-    sys.path.append(script_dir)
+# Helper to normalize values
+def clean_value(val_str):
+    if not val_str:
+        return ""
+    return val_str.strip()
 
-from _scraper import scrape_forex_history
+def scrape_forex_history(url):
+    """
+    Fetches the HTML of a ForexFactory calendar item using urllib and parses its historical data.
+    """
+    print(f"Scraping {url} ...")
+    try:
+        req = urllib.request.Request(
+            url, 
+            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'}
+        )
+        with urllib.request.urlopen(req, timeout=10) as response:
+            html = response.read().decode('utf-8')
+            
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        table = soup.find('table', class_='calendar__table')
+        if not table:
+            print(f"No .calendar__table found on {url}")
+            return []
+            
+        rows = table.find_all('tr', class_='calendar__row')
+        history_list = []
+        
+        for row in rows:
+            date_td = row.find('td', class_='calendar__date')
+            actual_td = row.find('td', class_='calendar__actual')
+            forecast_td = row.find('td', class_='calendar__forecast')
+            previous_td = row.find('td', class_='calendar__previous')
+            
+            if date_td and actual_td:
+                date_text = date_td.get_text(separator=" ", strip=True) 
+                act_text = actual_td.get_text(separator=" ", strip=True)
+                for_text = forecast_td.get_text(separator=" ", strip=True) if forecast_td else ""
+                prev_text = previous_td.get_text(separator=" ", strip=True) if previous_td else ""
+                
+                date_match = re.search(r'([A-Z][a-z]{2})\s+(\d{1,2}),\s+(\d{4})', date_text)
+                if date_match and act_text:
+                    clean_date = f"{date_match.group(1)} {date_match.group(2)}, {date_match.group(3)}"
+                    history_list.append({
+                        "date": clean_date,
+                        "actual": clean_value(act_text),
+                        "forecast": clean_value(for_text),
+                        "previous": clean_value(prev_text),
+                        "movementBefore": "", 
+                        "movementAfter": ""
+                    })
+
+        return history_list
+
+    except Exception as e:
+        print(f"Error scraping {url}: {str(e)}")
+        return []
 
 # Initialize Firebase via env or local file
 db = None
@@ -110,7 +180,9 @@ if not firebase_admin._apps:
             firebase_admin.initialize_app(cred)
             db = firestore.client()
     except Exception as e:
-        print("Failed to initialize Firebase:", e)
+        print("CRITICAL: Failed to initialize Firebase:", e)
+        # Don't crash the whole app, just log it. 
+        # Endpoints using 'db' should check if it's None.
 
 def get_scraped_history():
     history_data = {}
@@ -196,8 +268,12 @@ def scrape_api():
                             try:
                                 dt = datetime.fromisoformat(item['date'])
                                 date_str = f"{month_names_en[dt.month - 1]} {dt.day}, {dt.year}"
-                            except ValueError:
+                                year_val = dt.year
+                                month_pre = month_names_en[dt.month - 1]
+                            except Exception:
                                 date_str = item.get('date', '').split('T')[0]
+                                year_val = datetime.now().year
+                                month_pre = ""
                                 
                             entry = {
                                 "date": date_str,
@@ -210,7 +286,11 @@ def scrape_api():
                                 history_data[ind_id] = []
                             
                             # Prevent duplicates for the same month/year
-                            exists = any(e['date'].endswith(str(dt.year)) and e['date'].startswith(month_names_en[dt.month - 1]) for e in history_data[ind_id])
+                            exists = False
+                            if month_pre:
+                                exists = any(e['date'].endswith(str(year_val)) and e['date'].startswith(month_pre) for e in history_data[ind_id])
+                            else:
+                                exists = any(e['date'] == date_str for e in history_data[ind_id])
                             
                             if not exists:
                                 history_data[ind_id].append(entry)
