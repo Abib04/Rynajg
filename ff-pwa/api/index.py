@@ -9,7 +9,7 @@ import traceback
 
 app = Flask(__name__)
 CORS(app)
-PORT = 3000
+PORT = 5000
 
 @app.route('/api/health')
 def health():
@@ -138,7 +138,7 @@ def scrape_forex_history(url):
             return {"error": f"Blocked by Cloudflare/Protection: {html_title}", "html_title": html_title}
 
         # Try multiple table classes often used for History
-        table = soup.find('table', class_=re.compile(r'calendar__(history-)?table'))
+        table = soup.find('table', class_=re.compile(r'calendar__(history-)?table|calendar__history|history__table'))
         if not table:
             # Fallback: find any table that has headers like 'Actual' or 'History'
             all_tables = soup.find_all('table')
@@ -165,6 +165,12 @@ def scrape_forex_history(url):
             actual_td = row.find('td', class_=re.compile(r'actual'))
             forecast_td = row.find('td', class_=re.compile(r'forecast'))
             previous_td = row.find('td', class_=re.compile(r'previous'))
+            
+            # Fallback to nth-child if classes are missing
+            if not date_td or not actual_td:
+                tds = row.find_all('td')
+                if len(tds) >= 8:
+                    date_td, actual_td, forecast_td, previous_td = tds[0], tds[5], tds[6], tds[7]
             
             if date_td and actual_td:
                 date_text = date_td.get_text(separator=" ", strip=True) 

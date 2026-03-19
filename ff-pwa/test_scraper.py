@@ -1,63 +1,62 @@
-from playwright.sync_api import sync_playwright
-from playwright_stealth import Stealth
+import urllib.request
+from bs4 import BeautifulSoup
+import re
 
-testUrl = 'https://www.forexfactory.com/calendar/78-us-cpi-mm'
+def clean_value(val_str):
+    if not val_str: return ""
+    return val_str.strip()
 
-def run(playwright):
-    browser = playwright.chromium.launch(headless=True)
-    context = browser.new_context(
-        user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-        viewport={"width": 1920, "height": 1080}
-    )
-    page = context.new_page()
-    
-    # Apply stealth tactics
-    Stealth().apply_stealth_sync(page)
-    
-    print('Fetching:', testUrl)
+def scrape_forex_history(url):
+    print(f"Testing URL: {url}")
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'}
+    req = urllib.request.Request(url, headers=headers)
     
     try:
-        page.goto(testUrl, wait_until='domcontentloaded', timeout=30000)
-        
-        # Wait for either the table or Cloudflare challenge to be visible
-        page.wait_for_selector('.calendar__table', timeout=15000)
-        
-        rows = []
-        row_elements = page.query_selector_all('.calendar__table tr')
-        for row in row_elements:
-            actual_el = row.query_selector('.calendar__actual')
-            if actual_el:
-                date_el = row.query_selector('.calendar__date')
-                forecast_el = row.query_selector('.calendar__forecast')
-                previous_el = row.query_selector('.calendar__previous')
-                
-                date = date_el.inner_text().strip() if date_el else ''
-                actual = actual_el.inner_text().strip() if actual_el else ''
-                forecast = forecast_el.inner_text().strip() if forecast_el else ''
-                previous = previous_el.inner_text().strip() if previous_el else ''
-                
-                if date:
-                    rows.append({
-                        'date': date,
-                        'actual': actual,
-                        'forecast': forecast,
-                        'previous': previous
-                    })
-                    
-        print(f'Found {len(rows)} historical rows.')
-        if len(rows) > 0:
-            print('Sample Row:', rows[0])
+        with urllib.request.urlopen(req, timeout=15) as response:
+            html = response.read().decode('utf-8')
+            print(f"Page size: {len(html)} characters")
             
-    except Exception as e:
-        print('Scraping failed:', str(e))
-        content = page.content()
-        print('Page snippet:', content[:500])
-        with open("error_page.html", "w", encoding="utf-8") as f:
-            f.write(content)
-        print("Full error page saved to error_page.html")
-            
-    finally:
-        browser.close()
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        # Check for common blocking indicators
+        if "Cloudflare" in soup.title.string if soup.title else "":
+            print("BLOCKED BY CLOUDFLARE")
+            return []
 
-with sync_playwright() as playwright:
-    run(playwright)
+        table = soup.find('table', class_='calendar__table')
+        if not table:
+            print("No .calendar__table found")
+            # Print a bit of the body to see what we got
+            print("Body snippet:", soup.body.get_text()[:500] if soup.body else "No body")
+            return []
+            
+        rows = table.find_all('tr', class_='calendar__row')
+        print(f"Found {len(rows)} potential rows")
+        
+        history_list = []
+        for row in rows:
+            date_td = row.find('td', class_='calendar__date')
+            actual_td = row.find('td', class_='calendar__actual')
+            
+            if date_td and actual_td:
+                date_text = date_td.get_text(separator=" ", strip=True) 
+                act_text = actual_td.get_text(separator=" ", strip=True)
+                
+                # Regex to match "Feb 13, 2026" or similar
+                date_match = re.search(r'([A-Z][a-z]{2})\s+(\d{1,2}),\s+(\d{4})', date_text)
+                if date_match and act_text:
+                    clean_date = f"{date_match.group(1)} {date_match.group(2)}, {date_match.group(3)}"
+                    print(f"Matched: {clean_date} | Actual: {act_text}")
+                    history_list.append({"date": clean_date, "actual": act_text})
+        
+        return history_list
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return []
+
+if __name__ == "__main__":
+    # Test with Indicator 5
+    test_url = "https://www.forexfactory.com/calendar/90-us-import-prices-mm"
+    results = scrape_forex_history(test_url)
+    print(f"\nTotal results found: {len(results)}")
