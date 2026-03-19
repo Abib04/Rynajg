@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recap Tahunan - Forex Factory Data</title>
+
+    <!-- PWA Requirements -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121826">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .recap-table th {
+            font-size: 0.75rem;
+            padding: 0.5rem 0.25rem;
+            white-space: nowrap;
+        }
+        .recap-table td {
+            font-size: 0.7rem;
+            padding: 0.4rem 0.25rem;
+            border: 1px solid #1e293b;
+        }
+        .val-pair {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        .val-act { font-weight: 700; color: #f8fafc; }
+        .val-fore { font-size: 0.65rem; color: #94a3b8; }
+        
+        .bg-odd { background-color: #0f172a; }
+        .bg-even { background-color: #1e293b; }
+        
+        .sticky-col {
+            position: sticky;
+            left: 0;
+            background-color: #111827;
+            z-index: 10;
+            border-right: 2px solid #334155;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container" style="max-width: 98%;">
+        <!-- Header Section -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div>
+                    <h1>Recap Tahunan (1 Tahun Terakhir)</h1>
+                    <p class="subtitle">Rekapitulasi Data Actual / Forecast bulanan</p>
+                </div>
+                <div class="header-actions">
+                    <a href="index.html" class="btn-primary" style="background: #334155; text-decoration: none; display: inline-flex; align-items: center;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                        Kembali Ke Dashboard
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="table-card">
+                <div class="table-responsive" style="max-height: 80vh;">
+                    <table id="recap-table" class="recap-table">
+                        <thead id="recap-head">
+                            <!-- Months will be injected here -->
+                        </thead>
+                        <tbody id="recap-body">
+                            <tr>
+                                <td colspan="13" class="loading-cell">
+                                    <div class="loader"></div>
+                                    <p>Menyusun rekapitulasi data...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="recap.js"></script>
+</body>
+
+</html>
