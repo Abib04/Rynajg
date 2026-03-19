@@ -379,21 +379,32 @@ def scrape_api():
                         if e_date.startswith(current_month_en) and e_date.endswith(current_year_str):
                             month_entries.append(entry)
                     
-                    # Sort entries by day number
+                    # Sort entries by day number (descending to get latest easily if needed)
                     def extract_day(e):
                         d_m = re.search(r'(\d{1,2})', e['date'])
                         return int(d_m.group(1)) if d_m else 0
-                    month_entries.sort(key=extract_day)
                     
-                    if len(month_entries) >= target_occurrence:
-                        entry = month_entries[target_occurrence - 1]
+                    month_entries.sort(key=extract_day) # Ascending: [Week 1, Week 2, ...]
+                    
+                    if week_match:
+                        # For W1, W2, etc. pick the specific occurrence
+                        if len(month_entries) >= target_occurrence:
+                            entry = month_entries[target_occurrence - 1]
+                            found_real = True
+                    else:
+                        # For normal indicators, if there are multiple, take the LATEST one in the month
+                        # (as requested by user: "ambil paling baru saja")
+                        if month_entries:
+                            entry = month_entries[-1] # Last element after ascending sort is the latest day
+                            found_real = True
+
+                    if found_real:
                         result_row['date'] = entry['date']
                         result_row['actual'] = entry['actual']
                         result_row['forecast'] = entry['forecast']
                         result_row['last'] = entry['previous']
                         result_row['movementBefore'] = entry.get('movementBefore', '')
                         result_row['movementAfter'] = entry.get('movementAfter', '')
-                        found_real = True
 
                 if not found_real and indicator['dateType'] == 'specific':
                     try:
