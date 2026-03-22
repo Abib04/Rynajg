@@ -94,7 +94,16 @@ targetIndicators = [
     { "id": 49, "name": "Natural Gas Storage (W4)", "category": "Others", "dateType": "specific", "day": 26, "refUrl": "https://www.forexfactory.com/calendar/26-us-natural-gas-storage" },
     { "id": 50, "name": "Housing Starts", "category": "Others", "dateType": "specific", "day": 19, "refUrl": "https://www.forexfactory.com/calendar/199-us-housing-starts" },
     { "id": 51, "name": "Building Permits", "category": "Others", "dateType": "specific", "day": 19, "refUrl": "https://www.forexfactory.com/calendar/198-us-building-permits" },
-    { "id": 52, "name": "Miscellaneous", "category": "Others", "dateType": "specific", "day": 15, "refUrl": "https://www.forexfactory.com/" }
+    { "id": 52, "name": "Miscellaneous", "category": "Others", "dateType": "specific", "day": 15, "refUrl": "https://www.forexfactory.com/" },
+
+    # Australia
+    { "id": 101, "name": "RBA Rate Statement", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/22-au-rba-rate-statement" },
+    { "id": 102, "name": "CPI q/q", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/38-au-cpi-qq" },
+    { "id": 103, "name": "PPI q/q", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/37-au-ppi-qq" },
+    { "id": 104, "name": "GDP q/q", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/31-au-gdp-qq" },
+    { "id": 105, "name": "Retail Sales m/m", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/110-au-retail-sales-mm" },
+    { "id": 106, "name": "Unemployment Rate", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/54-au-unemployment-rate" },
+    { "id": 107, "name": "Employment Change", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/73-au-employment-change" }
 ]
 
 import urllib.request

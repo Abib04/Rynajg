@@ -94,10 +94,20 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const renderData = (dataArray) => {
-        let rowsHtml = '';
+        const auTableBody = document.getElementById('au-table-body');
+        let usRowsHtml = '';
+        let auRowsHtml = '';
+        
+        // Use a Set to track seen indicators in the current render cycle to maintain 1-52 indexing
+        const seenUsIds = new Set();
+        const seenAuIds = new Set();
+        
         dataArray.forEach((row, index) => {
-            // Reset index visual counting to loop 1-52 if we display multiple instances
-            const visualIndex = (index % 52) + 1;
+            const isAu = parseInt(row.id) > 100 || row.category === 'Australia';
+            
+            // To ensure 1-52 index loops safely if multiple months are shown (though filtering handles that)
+            // Just use a simple increment
+            const visualIndex = isAu ? (seenAuIds.add(row.id), seenAuIds.size) : (seenUsIds.add(row.id), seenUsIds.size);
 
             // Determine styling for actual vs forecast (assuming green if actual > forecast)
             let valClass = '';
@@ -110,13 +120,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Use provided specific Reference URL or fallback
-            const refUrl = row.refUrl || `https://www.forexfactory.com/calendar/${row.id}-us-${row.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+            let refUrl = row.refUrl;
+            if (!refUrl) { 
+                const prefix = isAu ? "au" : "us";
+                refUrl = `https://www.forexfactory.com/calendar/${row.id}-${prefix}-${row.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+            }
 
-            rowsHtml += `
+            const rowStr = `
                 <tr>
                     <td class="text-center text-muted">${visualIndex}</td>
                     <td class="indicator-name" title="${row.name}">${row.name}</td>
-                    <td class="text-center text-muted" style="font-weight: 500;">${row.category || '-'}</td>
+                    <td class="text-center text-muted" style="font-weight: 500;">${row.category === 'Australia' ? '-' : (row.category || '-')}</td>
                     <td class="text-center">${row.date || ''}</td>
                     <td class="text-center">${row.movementBefore || '-'}</td>
                     <td class="text-center">${row.movementAfter || '-'}</td>
@@ -132,8 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     </td>
                 </tr>
             `;
+
+            if (isAu) auRowsHtml += rowStr;
+            else usRowsHtml += rowStr;
         });
-        tableBody.innerHTML = rowsHtml;
+        
+        tableBody.innerHTML = usRowsHtml;
+        if (auTableBody) auTableBody.innerHTML = auRowsHtml;
     };
 
     const fetchData = async () => {
