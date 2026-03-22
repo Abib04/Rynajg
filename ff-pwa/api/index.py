@@ -395,7 +395,13 @@ def scrape_api():
                     month_entries.sort(key=extract_day)
                     
                     if len(month_entries) >= target_occurrence:
-                        entry = month_entries[target_occurrence - 1]
+                        if week_match:
+                            # If it's W1, W2, etc., pick the exact occurrence
+                            entry = month_entries[target_occurrence - 1]
+                        else:
+                            # For all other standard indicators, always pick the LATEST release in the month
+                            entry = month_entries[-1]
+                            
                         result_row['date'] = entry['date']
                         result_row['actual'] = entry['actual']
                         result_row['forecast'] = entry['forecast']
