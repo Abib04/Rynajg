@@ -1,2312 +1,2312 @@
 {
-    "1": [
-        {
-            "date": "Mar 11, 2026",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Feb 13, 2026",
-            "actual": "0.2%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Jan 13, 2026",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Oct 24, 2025",
-            "actual": "0.3%",
-            "forecast": "0.4%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Sep 11, 2025",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Aug 12, 2025",
-            "actual": "0.2%",
-            "forecast": "0.2%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Jul 15, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Jun 11, 2025",
-            "actual": "0.1%",
-            "forecast": "0.2%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "May 13, 2025",
-            "actual": "0.2%",
-            "forecast": "0.3%",
-            "previous": "-0.1%"
-        },
-        {
-            "date": "Apr 10, 2025",
-            "actual": "-0.1%",
-            "forecast": "0.1%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Mar 12, 2025",
-            "actual": "0.2%",
-            "forecast": "0.3%",
-            "previous": "0.5%"
-        },
-        {
-            "date": "Feb 12, 2025",
-            "actual": "0.5%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Jan 15, 2025",
-            "actual": "0.4%",
-            "forecast": "0.4%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Dec 11, 2024",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Nov 13, 2024",
-            "actual": "0.2%",
-            "forecast": "0.2%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Oct 10, 2024",
-            "actual": "0.2%",
-            "forecast": "0.1%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Sep 11, 2024",
-            "actual": "0.2%",
-            "forecast": "0.2%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Aug 14, 2024",
-            "actual": "0.2%",
-            "forecast": "0.2%",
-            "previous": "-0.1%"
-        },
-        {
-            "date": "Jul 11, 2024",
-            "actual": "-0.1%",
-            "forecast": "0.1%",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Jun 12, 2024",
-            "actual": "0.0%",
-            "forecast": "0.1%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "May 15, 2024",
-            "actual": "0.3%",
-            "forecast": "0.4%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Apr 10, 2024",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Mar 12, 2024",
-            "actual": "0.4%",
-            "forecast": "0.4%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Feb 13, 2024",
-            "actual": "0.3%",
-            "forecast": "0.2%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Jan 11, 2024",
-            "actual": "0.3%",
-            "forecast": "0.2%",
-            "previous": "0.1%"
-        }
-    ],
-    "2": [
-        {
-            "date": "Mar 11, 2026",
-            "actual": "0.2%",
-            "forecast": "0.2%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Feb 13, 2026",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Jan 13, 2026",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Oct 24, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Sep 11, 2025",
-            "actual": "0.3%",
-            "forecast": "0.2%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Aug 12, 2025",
-            "actual": "0.3%",
-            "forecast": "0.2%",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Jul 15, 2025",
-            "actual": "0.1%",
-            "forecast": "0.2%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Jun 11, 2025",
-            "actual": "0.2%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "May 13, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Apr 10, 2025",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Mar 12, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Feb 12, 2025",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Jan 15, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Dec 11, 2024",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Nov 13, 2024",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Oct 10, 2024",
-            "actual": "0.3%",
-            "forecast": "0.2%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Sep 11, 2024",
-            "actual": "0.3%",
-            "forecast": "0.2%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Aug 14, 2024",
-            "actual": "0.2%",
-            "forecast": "0.2%",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Jul 11, 2024",
-            "actual": "0.1%",
-            "forecast": "0.2%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Jun 12, 2024",
-            "actual": "0.2%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "May 15, 2024",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Apr 10, 2024",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Mar 12, 2024",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Feb 13, 2024",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Jan 11, 2024",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        }
-    ],
-    "3": [
-        {
-            "date": "Mar 18, 2026",
-            "actual": "0.7%",
-            "forecast": "0.3%",
-            "previous": "0.5%"
-        },
-        {
-            "date": "Feb 27, 2026",
-            "actual": "0.5%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Jan 14, 2026",
-            "actual": "0.2%",
-            "forecast": "0.2%",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Nov 25, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "-0.1%"
-        },
-        {
-            "date": "Sep 10, 2025",
-            "actual": "-0.1%",
-            "forecast": "0.3%",
-            "previous": "0.7%"
-        },
-        {
-            "date": "Aug 14, 2025",
-            "actual": "0.9%",
-            "forecast": "0.2%",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Jul 16, 2025",
-            "actual": "0.0%",
-            "forecast": "0.2%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Jun 12, 2025",
-            "actual": "0.1%",
-            "forecast": "0.2%",
-            "previous": "-0.2%"
-        },
-        {
-            "date": "May 15, 2025",
-            "actual": "-0.5%",
-            "forecast": "0.2%",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Apr 11, 2025",
-            "actual": "-0.4%",
-            "forecast": "0.2%",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Mar 13, 2025",
-            "actual": "0.0%",
-            "forecast": "0.3%",
-            "previous": "0.6%"
-        },
-        {
-            "date": "Feb 13, 2025",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.5%"
-        },
-        {
-            "date": "Jan 14, 2025",
-            "actual": "0.2%",
-            "forecast": "0.4%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Dec 12, 2024",
-            "actual": "0.4%",
-            "forecast": "0.2%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Nov 14, 2024",
-            "actual": "0.2%",
-            "forecast": "0.2%",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Oct 11, 2024",
-            "actual": "0.0%",
-            "forecast": "0.1%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Sep 12, 2024",
-            "actual": "0.2%",
-            "forecast": "0.1%",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Aug 13, 2024",
-            "actual": "0.1%",
-            "forecast": "0.2%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Jul 12, 2024",
-            "actual": "0.2%",
-            "forecast": "0.1%",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Jun 13, 2024",
-            "actual": "-0.2%",
-            "forecast": "0.1%",
-            "previous": "0.5%"
-        },
-        {
-            "date": "May 14, 2024",
-            "actual": "0.5%",
-            "forecast": "0.3%",
-            "previous": "-0.1%"
-        },
-        {
-            "date": "Apr 11, 2024",
-            "actual": "0.2%",
-            "forecast": "0.3%",
-            "previous": "0.6%"
-        },
-        {
-            "date": "Mar 14, 2024",
-            "actual": "0.6%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        }
-    ],
-    "4": [
-        {
-            "date": "Mar 18, 2026",
-            "actual": "0.5%",
-            "forecast": "0.3%",
-            "previous": "0.8%"
-        },
-        {
-            "date": "Feb 27 , 2026",
-            "actual": "0.8%",
-            "forecast": "0.3%",
-            "previous": "0.6%"
-        },
-        {
-            "date": "Jan 14, 2026",
-            "actual": "0.0%",
-            "forecast": "0.2%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Nov 25, 2025",
-            "actual": "0.1%",
-            "forecast": "0.2%",
-            "previous": "-0.1%"
-        },
-        {
-            "date": "Sep 10, 2025",
-            "actual": "-0.1%",
-            "forecast": "0.3%",
-            "previous": "0.7%"
-        },
-        {
-            "date": "Aug 14, 2025",
-            "actual": "0.9%",
-            "forecast": "0.2%",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Jul 16, 2025",
-            "actual": "0.0%",
-            "forecast": "0.2%",
-            "previous": "0.4%"
-        }
-    ],
-    "5": [
-        {
-            "date": "Feb 20, 2026",
-            "actual": "2.7%",
-            "forecast": "0.2%",
-            "previous": "-0.9%"
-        },
-        {
-            "date": "Jan 21, 2026",
-            "actual": "-0.6%",
-            "forecast": "0.3%",
-            "previous": "1.1%"
-        },
-        {
-            "date": "Dec 22, 2025",
-            "actual": "0.9%",
-            "forecast": "0.3%",
-            "previous": "1.7%"
-        },
-        {
-            "date": "Nov 20, 2025",
-            "actual": "1.5%",
-            "forecast": "0.3%",
-            "previous": "1.0%"
-        },
-        {
-            "date": "Oct 20, 2025",
-            "actual": "0.8%",
-            "forecast": "0.2%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Sep 22, 2025",
-            "actual": "0.5%",
-            "forecast": "0.2%",
-            "previous": "0.7%"
-        },
-        {
-            "date": "Aug 21, 2025",
-            "actual": "0.7%",
-            "forecast": "0.3%",
-            "previous": "0.5%"
-        },
-        {
-            "date": "Jul 21, 2025",
-            "actual": "0.4%",
-            "forecast": "0.1%",
-            "previous": "-0.5%"
-        }
-    ],
-    "6": [
-        {
-            "date": "Mar 13, 2026",
-            "actual": "0.4%",
-            "forecast": "0.4%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Feb 20, 2026",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Jan 22, 2026",
-            "actual": "0.2%",
-            "forecast": "0.2%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Dec 5, 2025",
-            "actual": "0.2%",
-            "forecast": "0.2%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Sep 26, 2025",
-            "actual": "0.2%",
-            "forecast": "0.2%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Aug 29, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Jul 31, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Jun 27, 2025",
-            "actual": "0.2%",
-            "forecast": "0.1%",
-            "previous": "0.1%"
-        }
-    ],
-    "7": [
-        {
-            "date": "Mar 6, 2026",
-            "actual": "-92K",
-            "forecast": "58K",
-            "previous": "126K"
-        },
-        {
-            "date": "Feb 11, 2026",
-            "actual": "130K",
-            "forecast": "66K",
-            "previous": "48K"
-        },
-        {
-            "date": "Jan 9, 2026",
-            "actual": "50K",
-            "forecast": "66K",
-            "previous": "56K"
-        },
-        {
-            "date": "Dec 16, 2025",
-            "actual": "64K",
-            "forecast": "51K",
-            "previous": "-105K"
-        },
-        {
-            "date": "Nov 20, 2025",
-            "actual": "119K",
-            "forecast": "53K",
-            "previous": "-4K"
-        },
-        {
-            "date": "Sep 5, 2025",
-            "actual": "22K",
-            "forecast": "75K",
-            "previous": "79K"
-        },
-        {
-            "date": "Aug 1, 2025",
-            "actual": "73K",
-            "forecast": "106K",
-            "previous": "14K"
-        }
-    ],
-    "8": [
-        {
-            "date": "Mar 6, 2026",
-            "actual": "-92K",
-            "forecast": "58K",
-            "previous": "126K"
-        },
-        {
-            "date": "Feb 11, 2026",
-            "actual": "130K",
-            "forecast": "66K",
-            "previous": "48K"
-        },
-        {
-            "date": "Jan 9, 2026",
-            "actual": "50K",
-            "forecast": "66K",
-            "previous": "56K"
-        },
-        {
-            "date": "Dec 16, 2025",
-            "actual": "64K",
-            "forecast": "51K",
-            "previous": "-105K"
-        },
-        {
-            "date": "Nov 20, 2025",
-            "actual": "119K",
-            "forecast": "53K",
-            "previous": "-4K"
-        },
-        {
-            "date": "Sep 5, 2025",
-            "actual": "22K",
-            "forecast": "75K",
-            "previous": "79K"
-        },
-        {
-            "date": "Aug 1, 2025",
-            "actual": "73K",
-            "forecast": "106K",
-            "previous": "14K"
-        }
-    ],
-    "9": [
-        {
-            "date": "Mar 6, 2026",
-            "actual": "4.4%",
-            "forecast": "4.3%",
-            "previous": "4.3%"
-        },
-        {
-            "date": "Feb 11, 2026",
-            "actual": "4.3%",
-            "forecast": "4.4%",
-            "previous": "4.4%"
-        },
-        {
-            "date": "Jan 9, 2026",
-            "actual": "4.4%",
-            "forecast": "4.5%",
-            "previous": "4.6%"
-        },
-        {
-            "date": "Dec 16, 2025",
-            "actual": "4.6%",
-            "forecast": "4.5%",
-            "previous": "4.4%"
-        },
-        {
-            "date": "Nov 20, 2025",
-            "actual": "4.4%",
-            "forecast": "4.3%",
-            "previous": "4.3%"
-        },
-        {
-            "date": "Sep 5, 2025",
-            "actual": "4.3%",
-            "forecast": "4.3%",
-            "previous": "4.2%"
-        },
-        {
-            "date": "Aug 1, 2025",
-            "actual": "4.2%",
-            "forecast": "4.2%",
-            "previous": "4.1%"
-        },
-        {
-            "date": "Jul 3, 2025",
-            "actual": "4.1%",
-            "forecast": "4.3%",
-            "previous": "4.2%"
-        }
-    ],
-    "10": [
-        {
-            "date": "Mar 6, 2026",
-            "actual": "-92K",
-            "forecast": "58K",
-            "previous": "126K"
-        },
-        {
-            "date": "Feb 11, 2026",
-            "actual": "130K",
-            "forecast": "66K",
-            "previous": "48K"
-        },
-        {
-            "date": "Jan 9, 2026",
-            "actual": "50K",
-            "forecast": "66K",
-            "previous": "56K"
-        },
-        {
-            "date": "Dec 16, 2025",
-            "actual": "64K",
-            "forecast": "51K",
-            "previous": "-105K"
-        },
-        {
-            "date": "Nov 20, 2025",
-            "actual": "119K",
-            "forecast": "53K",
-            "previous": "-4K"
-        },
-        {
-            "date": "Sep 5, 2025",
-            "actual": "22K",
-            "forecast": "75K",
-            "previous": "79K"
-        },
-        {
-            "date": "Aug 1, 2025",
-            "actual": "73K",
-            "forecast": "106K",
-            "previous": "14K"
-        }
-    ],
-    "11": [
-        {
-            "date": "Mar 6, 2026",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Feb 11, 2026",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Jan 9, 2026",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Dec 16, 2025",
-            "actual": "0.1%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Nov 20, 2025",
-            "actual": "0.2%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Sep 5, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Aug 1, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.2%"
-        }
-    ],
-    "12": [
-        {
-            "date": "Mar 5, 2026",
-            "actual": "213K",
-            "forecast": "215K",
-            "previous": "213K"
-        },
-        {
-            "date": "Feb 5, 2026",
-            "actual": "231K",
-            "forecast": "212K",
-            "previous": "209K"
-        },
-        {
-            "date": "Jan 15, 2026",
-            "actual": "198K",
-            "forecast": "215K",
-            "previous": "207K"
-        }
-    ],
-    "13": [
-        {
-            "date": "Mar 12, 2026",
-            "actual": "213K",
-            "forecast": "214K",
-            "previous": "214K"
-        },
-        {
-            "date": "Feb 12, 2026",
-            "actual": "227K",
-            "forecast": "222K",
-            "previous": "232K"
-        },
-        {
-            "date": "Jan 22, 2026",
-            "actual": "200K",
-            "forecast": "209K",
-            "previous": "199K"
-        }
-    ],
-    "14": [
-        {
-            "date": "Mar 19, 2026",
-            "actual": "205K",
-            "forecast": "215K",
-            "previous": "213K"
-        },
-        {
-            "date": "Feb 19, 2026",
-            "actual": "206K",
-            "forecast": "223K",
-            "previous": "229K"
-        },
-        {
-            "date": "Jan 29, 2026",
-            "actual": "209K",
-            "forecast": "206K",
-            "previous": "210K"
-        }
-    ],
-    "15": [
-        {
-            "date": "Feb 26, 2026",
-            "actual": "212K",
-            "forecast": "217K",
-            "previous": "208K"
-        }
-    ],
-    "16": [
-        {
-            "date": "Mar 4, 2026",
-            "actual": "63K",
-            "forecast": "50K",
-            "previous": "11K"
-        },
-        {
-            "date": "Feb 4, 2026",
-            "actual": "22K",
-            "forecast": "46K",
-            "previous": "37K"
-        },
-        {
-            "date": "Jan 7, 2026",
-            "actual": "41K",
-            "forecast": "49K",
-            "previous": "-29K"
-        },
-        {
-            "date": "Dec 3, 2025",
-            "actual": "-32K",
-            "forecast": "5K",
-            "previous": "47K"
-        },
-        {
-            "date": "Nov 5, 2025",
-            "actual": "42K",
-            "forecast": "32K",
-            "previous": "-29K"
-        },
-        {
-            "date": "Oct 1, 2025",
-            "actual": "-32K",
-            "forecast": "52K",
-            "previous": "-3K"
-        },
-        {
-            "date": "Sep 4, 2025",
-            "actual": "54K",
-            "forecast": "73K",
-            "previous": "106K"
-        },
-        {
-            "date": "Jul 30, 2025",
-            "actual": "104K",
-            "forecast": "77K",
-            "previous": "-23K"
-        }
-    ],
-    "17": [
-        {
-            "date": "Mar 16, 2026",
-            "actual": "0.4%",
-            "forecast": "",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Feb 17, 2026",
-            "actual": "0.2%",
-            "forecast": "",
-            "previous": "-0.4%"
-        },
-        {
-            "date": "Jan 19, 2026",
-            "actual": "-0.4%",
-            "forecast": "",
-            "previous": "-0.1%"
-        },
-        {
-            "date": "Dec 15, 2025",
-            "actual": "-0.1%",
-            "forecast": "",
-            "previous": "0.6%"
-        },
-        {
-            "date": "Nov 17, 2025",
-            "actual": "0.6%",
-            "forecast": "",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Oct 21, 2025",
-            "actual": "0.2%",
-            "forecast": "",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Sep 16, 2025",
-            "actual": "0.0%",
-            "forecast": "",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Aug 19, 2025",
-            "actual": "0.1%",
-            "forecast": "",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Jul 15, 2025",
-            "actual": "0.1%",
-            "forecast": "",
-            "previous": "0.6%"
-        }
-    ],
-    "18": [
-        {
-            "date": "Mar 16, 2026",
-            "actual": "0.4%",
-            "forecast": "",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Feb 17, 2026",
-            "actual": "0.2%",
-            "forecast": "",
-            "previous": "-0.4%"
-        },
-        {
-            "date": "Jan 19, 2026",
-            "actual": "-0.4%",
-            "forecast": "",
-            "previous": "-0.1%"
-        },
-        {
-            "date": "Dec 15, 2025",
-            "actual": "-0.1%",
-            "forecast": "",
-            "previous": "0.6%"
-        },
-        {
-            "date": "Nov 17, 2025",
-            "actual": "0.6%",
-            "forecast": "",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Oct 21, 2025",
-            "actual": "0.2%",
-            "forecast": "",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Sep 16, 2025",
-            "actual": "0.0%",
-            "forecast": "",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Aug 19, 2025",
-            "actual": "0.1%",
-            "forecast": "",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Jul 15, 2025",
-            "actual": "0.1%",
-            "forecast": "",
-            "previous": "0.6%"
-        }
-    ],
-    "19": [
-        {
-            "date": "Mar 16, 2026",
-            "actual": "0.4%",
-            "forecast": "",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Feb 17, 2026",
-            "actual": "0.2%",
-            "forecast": "",
-            "previous": "-0.4%"
-        },
-        {
-            "date": "Jan 19, 2026",
-            "actual": "-0.4%",
-            "forecast": "",
-            "previous": "-0.1%"
-        },
-        {
-            "date": "Dec 15, 2025",
-            "actual": "-0.1%",
-            "forecast": "",
-            "previous": "0.6%"
-        },
-        {
-            "date": "Nov 17, 2025",
-            "actual": "0.6%",
-            "forecast": "",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Oct 21, 2025",
-            "actual": "0.2%",
-            "forecast": "",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Sep 16, 2025",
-            "actual": "0.0%",
-            "forecast": "",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Aug 19, 2025",
-            "actual": "0.1%",
-            "forecast": "",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Jul 15, 2025",
-            "actual": "0.1%",
-            "forecast": "",
-            "previous": "0.6%"
-        }
-    ],
-    "21": [
-        {
-            "date": "Mar 6, 2026",
-            "actual": "0.0%",
-            "forecast": "0.1%",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Feb 10, 2026",
-            "actual": "0.0%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Jan 14, 2026",
-            "actual": "0.5%",
-            "forecast": "0.4%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Dec 16, 2025",
-            "actual": "0.4%",
-            "forecast": "0.2%",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Nov 25, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.6%"
-        },
-        {
-            "date": "Sep 16, 2025",
-            "actual": "0.7%",
-            "forecast": "0.4%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Aug 15, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.8%"
-        },
-        {
-            "date": "Jul 17, 2025",
-            "actual": "0.5%",
-            "forecast": "0.3%",
-            "previous": "-0.2%"
-        }
-    ],
-    "22": [
-        {
-            "date": "Mar 6, 2026",
-            "actual": "-0.2%",
-            "forecast": "-0.3%",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Feb 10, 2026",
-            "actual": "0.0%",
-            "forecast": "0.4%",
-            "previous": "0.6%"
-        },
-        {
-            "date": "Jan 14, 2026",
-            "actual": "0.6%",
-            "forecast": "0.5%",
-            "previous": "-0.1%"
-        },
-        {
-            "date": "Dec 16, 2025",
-            "actual": "0.0%",
-            "forecast": "0.1%",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Nov 25, 2025",
-            "actual": "0.2%",
-            "forecast": "0.4%",
-            "previous": "0.6%"
-        },
-        {
-            "date": "Sep 16, 2025",
-            "actual": "0.6%",
-            "forecast": "0.2%",
-            "previous": "0.6%"
-        },
-        {
-            "date": "Aug 15, 2025",
-            "actual": "0.5%",
-            "forecast": "0.6%",
-            "previous": "0.9%"
-        },
-        {
-            "date": "Jul 17, 2025",
-            "actual": "0.6%",
-            "forecast": "0.1%",
-            "previous": "-0.9%"
-        }
-    ],
-    "23": [
-        {
-            "date": "Mar 6, 2026",
-            "actual": "0.0%",
-            "forecast": "0.1%",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Feb 10, 2026",
-            "actual": "0.0%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Jan 14, 2026",
-            "actual": "0.5%",
-            "forecast": "0.4%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Dec 16, 2025",
-            "actual": "0.4%",
-            "forecast": "0.2%",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Nov 25, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.6%"
-        },
-        {
-            "date": "Sep 16, 2025",
-            "actual": "0.7%",
-            "forecast": "0.4%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Aug 15, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.8%"
-        },
-        {
-            "date": "Jul 17, 2025",
-            "actual": "0.5%",
-            "forecast": "0.3%",
-            "previous": "-0.2%"
-        }
-    ],
-    "24": [
-        {
-            "date": "Mar 13, 2026",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Feb 20, 2026",
-            "actual": "0.4%",
-            "forecast": "0.4%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Jan 22, 2026",
-            "actual": "0.5%",
-            "forecast": "0.5%",
-            "previous": "0.5%"
-        },
-        {
-            "date": "Dec 5, 2025",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.5%"
-        },
-        {
-            "date": "Sep 26, 2025",
-            "actual": "0.6%",
-            "forecast": "0.5%",
-            "previous": "0.5%"
-        },
-        {
-            "date": "Aug 29, 2025",
-            "actual": "0.5%",
-            "forecast": "0.5%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Jul 31, 2025",
-            "actual": "0.3%",
-            "forecast": "0.4%",
-            "previous": "0.0%"
-        },
-        {
-            "date": "Jun 27, 2025",
-            "actual": "-0.1%",
-            "forecast": "0.1%",
-            "previous": "0.2%"
-        }
-    ],
-    "25": [
-        {
-            "date": "Mar 13, 2026",
-            "actual": "0.4%",
-            "forecast": "0.5%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Feb 20, 2026",
-            "actual": "0.3%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Jan 22, 2026",
-            "actual": "0.3%",
-            "forecast": "0.4%",
-            "previous": "0.1%"
-        },
-        {
-            "date": "Dec 5, 2025",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Sep 26, 2025",
-            "actual": "0.4%",
-            "forecast": "0.3%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Aug 29, 2025",
-            "actual": "0.4%",
-            "forecast": "0.4%",
-            "previous": "0.3%"
-        },
-        {
-            "date": "Jul 31, 2025",
-            "actual": "0.3%",
-            "forecast": "0.2%",
-            "previous": "-0.4%"
-        },
-        {
-            "date": "Jun 27, 2025",
-            "actual": "-0.4%",
-            "forecast": "0.3%",
-            "previous": "0.7%"
-        }
-    ],
-    "26": [
-        {
-            "date": "Mar 2, 2026",
-            "actual": "52.4",
-            "forecast": "51.7",
-            "previous": "52.6"
-        },
-        {
-            "date": "Feb 2, 2026",
-            "actual": "52.6",
-            "forecast": "48.5",
-            "previous": "47.9"
-        },
-        {
-            "date": "Jan 5, 2026",
-            "actual": "47.9",
-            "forecast": "48.3",
-            "previous": "48.2"
-        },
-        {
-            "date": "Dec 1, 2025",
-            "actual": "48.2",
-            "forecast": "49.0",
-            "previous": "48.7"
-        },
-        {
-            "date": "Nov 3, 2025",
-            "actual": "48.7",
-            "forecast": "49.4",
-            "previous": "49.1"
-        },
-        {
-            "date": "Oct 1, 2025",
-            "actual": "49.1",
-            "forecast": "49.0",
-            "previous": "48.7"
-        },
-        {
-            "date": "Sep 2, 2025",
-            "actual": "48.7",
-            "forecast": "49.0",
-            "previous": "48.0"
-        },
-        {
-            "date": "Aug 1, 2025",
-            "actual": "48.0",
-            "forecast": "49.5",
-            "previous": "49.0"
-        }
-    ],
-    "27": [
-        {
-            "date": "Mar 4, 2026",
-            "actual": "56.1",
-            "forecast": "53.5",
-            "previous": "53.8"
-        },
-        {
-            "date": "Feb 4, 2026",
-            "actual": "53.8",
-            "forecast": "53.5",
-            "previous": "54.4"
-        },
-        {
-            "date": "Jan 7, 2026",
-            "actual": "54.4",
-            "forecast": "52.2",
-            "previous": "52.6"
-        },
-        {
-            "date": "Dec 3, 2025",
-            "actual": "52.6",
-            "forecast": "52.0",
-            "previous": "52.4"
-        },
-        {
-            "date": "Nov 5, 2025",
-            "actual": "52.4",
-            "forecast": "50.7",
-            "previous": "50.0"
-        },
-        {
-            "date": "Oct 3, 2025",
-            "actual": "50.0",
-            "forecast": "51.8",
-            "previous": "52.0"
-        },
-        {
-            "date": "Sep 4, 2025",
-            "actual": "52.0",
-            "forecast": "50.9",
-            "previous": "50.1"
-        },
-        {
-            "date": "Aug 5, 2025",
-            "actual": "50.1",
-            "forecast": "51.5",
-            "previous": "50.8"
-        }
-    ],
-    "29": [
-        {
-            "date": "Feb 24, 2026",
-            "actual": "91.2",
-            "forecast": "87.4",
-            "previous": "89.0"
-        },
-        {
-            "date": "Jan 27, 2026",
-            "actual": "84.5",
-            "forecast": "90.6",
-            "previous": "94.2"
-        },
-        {
-            "date": "Dec 23, 2025",
-            "actual": "89.1",
-            "forecast": "91.7",
-            "previous": "92.9"
-        },
-        {
-            "date": "Nov 25, 2025",
-            "actual": "88.7",
-            "forecast": "93.4",
-            "previous": "95.5"
-        },
-        {
-            "date": "Oct 28, 2025",
-            "actual": "94.6",
-            "forecast": "93.4",
-            "previous": "95.6"
-        },
-        {
-            "date": "Sep 30, 2025",
-            "actual": "94.2",
-            "forecast": "96.0",
-            "previous": "97.8"
-        },
-        {
-            "date": "Aug 26, 2025",
-            "actual": "97.4",
-            "forecast": "96.4",
-            "previous": "98.7"
-        },
-        {
-            "date": "Jul 29, 2025",
-            "actual": "97.2",
-            "forecast": "95.9",
-            "previous": "95.2"
-        }
-    ],
-    "30": [
-        {
-            "date": "Mar 9, 2026",
-            "actual": "0.7%",
-            "forecast": "2.0%",
-            "previous": "2.3%"
-        },
-        {
-            "date": "Feb 9, 2026",
-            "actual": "2.3%",
-            "forecast": "1.3%",
-            "previous": "1.0%"
-        },
-        {
-            "date": "Jan 12, 2026",
-            "actual": "1.0%",
-            "forecast": "1.3%",
-            "previous": "1.2%"
-        },
-        {
-            "date": "Dec 8, 2025",
-            "actual": "1.2%",
-            "forecast": "2.6%",
-            "previous": "1.5%"
-        },
-        {
-            "date": "Nov 10, 2025",
-            "actual": "1.5%",
-            "forecast": "2.4%",
-            "previous": "2.0%"
-        },
-        {
-            "date": "Oct 13, 2025",
-            "actual": "2.0%",
-            "forecast": "2.5%",
-            "previous": "2.9%"
-        },
-        {
-            "date": "Sep 8, 2025",
-            "actual": "2.9%",
-            "forecast": "2.0%",
-            "previous": "1.8%"
-        },
-        {
-            "date": "Aug 11, 2025",
-            "actual": "1.8%",
-            "forecast": "2.1%",
-            "previous": "2.7%"
-        },
-        {
-            "date": "Jul 14, 2025",
-            "actual": "2.7%",
-            "forecast": "1.2%",
-            "previous": "0.6%"
-        }
-    ],
-    "31": [
-        {
-            "date": "Feb 26, 2026",
-            "actual": "1.8%",
-            "forecast": "0.1%",
-            "previous": "-0.9%"
-        },
-        {
-            "date": "Jan 29, 2026",
-            "actual": "-0.9%",
-            "forecast": "0.7%",
-            "previous": "1.1%"
-        },
-        {
-            "date": "Dec 25, 2025",
-            "actual": "1.0%",
-            "forecast": "0.9%",
-            "previous": "1.7%"
-        },
-        {
-            "date": "Nov 27, 2025",
-            "actual": "1.7%",
-            "forecast": "0.8%",
-            "previous": "0.2%"
-        },
-        {
-            "date": "Oct 30, 2025",
-            "actual": "0.5%",
-            "forecast": "0.8%",
-            "previous": "-0.9%"
-        },
-        {
-            "date": "Sep 29, 2025",
-            "actual": "-1.1%",
-            "forecast": "1.1%",
-            "previous": "0.4%"
-        },
-        {
-            "date": "Aug 28, 2025",
-            "actual": "0.3%",
-            "forecast": "1.6%",
-            "previous": "1.9%"
-        },
-        {
-            "date": "Jul 30, 2025",
-            "actual": "2.0%",
-            "forecast": "1.8%",
-            "previous": "1.9%"
-        }
-    ],
-    "32": [
-        {
-            "date": "Mar 18, 2026",
-            "actual": "3.75%",
-            "forecast": "3.75%",
-            "previous": "3.75%"
-        },
-        {
-            "date": "Jan 28, 2026",
-            "actual": "3.75%",
-            "forecast": "3.75%",
-            "previous": "3.75%"
-        },
-        {
-            "date": "Dec 10, 2025",
-            "actual": "3.75%",
-            "forecast": "3.75%",
-            "previous": "4.00%"
-        },
-        {
-            "date": "Oct 29, 2025",
-            "actual": "4.00%",
-            "forecast": "4.00%",
-            "previous": "4.25%"
-        },
-        {
-            "date": "Sep 17, 2025",
-            "actual": "4.25%",
-            "forecast": "4.25%",
-            "previous": "4.50%"
-        },
-        {
-            "date": "Jul 30, 2025",
-            "actual": "4.50%",
-            "forecast": "4.50%",
-            "previous": "4.50%"
-        },
-        {
-            "date": "Jun 18, 2025",
-            "actual": "4.50%",
-            "forecast": "4.50%",
-            "previous": "4.50%"
-        },
-        {
-            "date": "May 7, 2025",
-            "actual": "4.50%",
-            "forecast": "4.50%",
-            "previous": "4.50%"
-        },
-        {
-            "date": "Mar 19, 2025",
-            "actual": "4.50%",
-            "forecast": "4.50%",
-            "previous": "4.50%"
-        }
-    ],
-    "33": [
-        {
-            "date": "Mar 18, 2026",
-            "actual": "3.75%",
-            "forecast": "3.75%",
-            "previous": "3.75%"
-        },
-        {
-            "date": "Jan 28, 2026",
-            "actual": "3.75%",
-            "forecast": "3.75%",
-            "previous": "3.75%"
-        },
-        {
-            "date": "Dec 10, 2025",
-            "actual": "3.75%",
-            "forecast": "3.75%",
-            "previous": "4.00%"
-        },
-        {
-            "date": "Oct 29, 2025",
-            "actual": "4.00%",
-            "forecast": "4.00%",
-            "previous": "4.25%"
-        },
-        {
-            "date": "Sep 17, 2025",
-            "actual": "4.25%",
-            "forecast": "4.25%",
-            "previous": "4.50%"
-        },
-        {
-            "date": "Jul 30, 2025",
-            "actual": "4.50%",
-            "forecast": "4.50%",
-            "previous": "4.50%"
-        },
-        {
-            "date": "Jun 18, 2025",
-            "actual": "4.50%",
-            "forecast": "4.50%",
-            "previous": "4.50%"
-        },
-        {
-            "date": "May 7, 2025",
-            "actual": "4.50%",
-            "forecast": "4.50%",
-            "previous": "4.50%"
-        },
-        {
-            "date": "Mar 19, 2025",
-            "actual": "4.50%",
-            "forecast": "4.50%",
-            "previous": "4.50%"
-        }
-    ],
-    "34": [
-        {
-            "date": "Feb 20, 2026",
-            "actual": "1.4%",
-            "forecast": "2.8%",
-            "previous": "4.4%"
-        },
-        {
-            "date": "Jul 30, 2025",
-            "actual": "3.0%",
-            "forecast": "2.5%",
-            "previous": "-0.5%"
-        },
-        {
-            "date": "Apr 30, 2025",
-            "actual": "-0.3%",
-            "forecast": "0.2%",
-            "previous": "2.4%"
-        },
-        {
-            "date": "Jan 30, 2025",
-            "actual": "2.3%",
-            "forecast": "2.7%",
-            "previous": "3.1%"
-        },
-        {
-            "date": "Oct 30, 2024",
-            "actual": "2.8%",
-            "forecast": "3.0%",
-            "previous": "3.0%"
-        },
-        {
-            "date": "Jul 25, 2024",
-            "actual": "2.8%",
-            "forecast": "2.0%",
-            "previous": "1.4%"
-        },
-        {
-            "date": "Apr 25, 2024",
-            "actual": "1.6%",
-            "forecast": "2.5%",
-            "previous": "3.4%"
-        },
-        {
-            "date": "Jan 25, 2024",
-            "actual": "3.3%",
-            "forecast": "2.0%",
-            "previous": "4.9%"
-        }
-    ],
-    "35": [
-        {
-            "date": "Feb 20, 2026",
-            "actual": "3.6%",
-            "forecast": "2.8%",
-            "previous": "3.8%"
-        },
-        {
-            "date": "Jul 30, 2025",
-            "actual": "2.0%",
-            "forecast": "2.2%",
-            "previous": "3.8%"
-        },
-        {
-            "date": "Apr 30, 2025",
-            "actual": "3.7%",
-            "forecast": "3.1%",
-            "previous": "2.3%"
-        },
-        {
-            "date": "Jan 30, 2025",
-            "actual": "2.2%",
-            "forecast": "2.5%",
-            "previous": "1.9%"
-        },
-        {
-            "date": "Oct 30, 2024",
-            "actual": "1.8%",
-            "forecast": "1.9%",
-            "previous": "2.5%"
-        },
-        {
-            "date": "Jul 25, 2024",
-            "actual": "2.3%",
-            "forecast": "2.6%",
-            "previous": "3.1%"
-        },
-        {
-            "date": "Apr 25, 2024",
-            "actual": "3.1%",
-            "forecast": "3.0%",
-            "previous": "1.6%"
-        },
-        {
-            "date": "Jan 25, 2024",
-            "actual": "1.5%",
-            "forecast": "2.3%",
-            "previous": "3.3%"
-        }
-    ],
-    "37": [
-        {
-            "date": "Mar 12, 2026",
-            "actual": "-54.5B",
-            "forecast": "-66.6B",
-            "previous": "-72.9B"
-        },
-        {
-            "date": "Feb 19, 2026",
-            "actual": "-70.3B",
-            "forecast": "-55.5B",
-            "previous": "-53.0B"
-        },
-        {
-            "date": "Jan 8, 2026",
-            "actual": "-29.4B",
-            "forecast": "-58.1B",
-            "previous": "-48.1B"
-        },
-        {
-            "date": "Dec 11, 2025",
-            "actual": "-52.8B",
-            "forecast": "-62.5B",
-            "previous": "-59.3B"
-        },
-        {
-            "date": "Nov 19, 2025",
-            "actual": "-59.6B",
-            "forecast": "-61.3B",
-            "previous": "-78.2B"
-        },
-        {
-            "date": "Sep 4, 2025",
-            "actual": "-78.3B",
-            "forecast": "-77.7B",
-            "previous": "-59.1B"
-        },
-        {
-            "date": "Aug 5, 2025",
-            "actual": "-60.2B",
-            "forecast": "-62.6B",
-            "previous": "-71.7B"
-        },
-        {
-            "date": "Jul 3, 2025",
-            "actual": "-71.5B",
-            "forecast": "-69.9B",
-            "previous": "-60.3B"
-        }
-    ],
-    "38": [
-        {
-            "date": "Mar 12, 2026",
-            "actual": "-3.6B",
-            "forecast": "-1.1B",
-            "previous": "-1.3B"
-        },
-        {
-            "date": "Feb 19, 2026",
-            "actual": "-1.3B",
-            "forecast": "-2.1B",
-            "previous": "-2.6B"
-        },
-        {
-            "date": "Jan 8, 2026",
-            "actual": "-0.6B",
-            "forecast": "-1.4B",
-            "previous": "0.2B"
-        },
-        {
-            "date": "Dec 11, 2025",
-            "actual": "0.2B",
-            "forecast": "-4.4B",
-            "previous": "-6.4B"
-        },
-        {
-            "date": "Oct 7, 2025",
-            "actual": "-6.3B",
-            "forecast": "-5.7B",
-            "previous": "-3.8B"
-        },
-        {
-            "date": "Sep 4, 2025",
-            "actual": "-4.9B",
-            "forecast": "-5.2B",
-            "previous": "-6.0B"
-        },
-        {
-            "date": "Aug 5, 2025",
-            "actual": "-5.9B",
-            "forecast": "-5.8B",
-            "previous": "-5.5B"
-        },
-        {
-            "date": "Jul 3, 2025",
-            "actual": "-5.9B",
-            "forecast": "-6.0B",
-            "previous": "-7.6B"
-        }
-    ],
-    "39": [
-        {
-            "date": "Mar 13, 2026",
-            "actual": "-14.4B",
-            "forecast": "-22.2B",
-            "previous": "-22.7B"
-        },
-        {
-            "date": "Feb 12, 2026",
-            "actual": "-22.7B",
-            "forecast": "-22.3B",
-            "previous": "-23.6B"
-        },
-        {
-            "date": "Jan 15, 2026",
-            "actual": "-23.7B",
-            "forecast": "-20.3B",
-            "previous": "-24.2B"
-        },
-        {
-            "date": "Dec 12, 2025",
-            "actual": "-22.5B",
-            "forecast": "-19.1B",
-            "previous": "-18.9B"
-        },
-        {
-            "date": "Nov 13, 2025",
-            "actual": "-18.9B",
-            "forecast": "-20.8B",
-            "previous": "-19.5B"
-        },
-        {
-            "date": "Oct 16, 2025",
-            "actual": "-21.2B",
-            "forecast": "-21.8B",
-            "previous": "-20.6B"
-        },
-        {
-            "date": "Sep 12, 2025",
-            "actual": "-22.2B",
-            "forecast": "-21.6B",
-            "previous": "-22.2B"
-        },
-        {
-            "date": "Aug 14, 2025",
-            "actual": "-22.2B",
-            "forecast": "-21.7B",
-            "previous": "-22.1B"
-        },
-        {
-            "date": "Jul 11, 2025",
-            "actual": "-21.7B",
-            "forecast": "-21.1B",
-            "previous": "-22.4B"
-        }
-    ],
-    "40": [
-        {
-            "date": "Mar 13, 2026",
-            "actual": "-14.4B",
-            "forecast": "-22.2B",
-            "previous": "-22.7B"
-        },
-        {
-            "date": "Feb 12, 2026",
-            "actual": "-22.7B",
-            "forecast": "-22.3B",
-            "previous": "-23.6B"
-        },
-        {
-            "date": "Jan 15, 2026",
-            "actual": "-23.7B",
-            "forecast": "-20.3B",
-            "previous": "-24.2B"
-        },
-        {
-            "date": "Dec 12, 2025",
-            "actual": "-22.5B",
-            "forecast": "-19.1B",
-            "previous": "-18.9B"
-        },
-        {
-            "date": "Nov 13, 2025",
-            "actual": "-18.9B",
-            "forecast": "-20.8B",
-            "previous": "-19.5B"
-        },
-        {
-            "date": "Oct 16, 2025",
-            "actual": "-21.2B",
-            "forecast": "-21.8B",
-            "previous": "-20.6B"
-        },
-        {
-            "date": "Sep 12, 2025",
-            "actual": "-22.2B",
-            "forecast": "-21.6B",
-            "previous": "-22.2B"
-        },
-        {
-            "date": "Aug 14, 2025",
-            "actual": "-22.2B",
-            "forecast": "-21.7B",
-            "previous": "-22.1B"
-        },
-        {
-            "date": "Jul 11, 2025",
-            "actual": "-21.7B",
-            "forecast": "-21.1B",
-            "previous": "-22.4B"
-        }
-    ],
-    "41": [
-        {
-            "date": "Mar 11, 2026",
-            "actual": "4.22|2.4",
-            "forecast": "",
-            "previous": "4.18|2.4"
-        },
-        {
-            "date": "Feb 11, 2026",
-            "actual": "4.18|2.4",
-            "forecast": "",
-            "previous": "4.17|2.6"
-        },
-        {
-            "date": "Jan 12, 2026",
-            "actual": "4.17|2.6",
-            "forecast": "",
-            "previous": "4.18|2.6"
-        },
-        {
-            "date": "Dec 9, 2025",
-            "actual": "4.18|2.6",
-            "forecast": "",
-            "previous": "4.07|2.4"
-        },
-        {
-            "date": "Nov 12, 2025",
-            "actual": "4.07|2.4",
-            "forecast": "",
-            "previous": "4.12|2.5"
-        },
-        {
-            "date": "Oct 8, 2025",
-            "actual": "4.12|2.5",
-            "forecast": "",
-            "previous": "4.03|2.7"
-        },
-        {
-            "date": "Sep 10, 2025",
-            "actual": "4.03|2.7",
-            "forecast": "",
-            "previous": "4.26|2.4"
-        },
-        {
-            "date": "Aug 6, 2025",
-            "actual": "4.26|2.4",
-            "forecast": "",
-            "previous": "4.36|2.6"
-        },
-        {
-            "date": "Jul 9, 2025",
-            "actual": "4.36|2.6",
-            "forecast": "",
-            "previous": "4.42|2.5"
-        }
-    ],
-    "42": [
-        {
-            "date": "Mar 4, 2026",
-            "actual": "3.5M",
-            "forecast": "3.0M",
-            "previous": "16.0M"
-        },
-        {
-            "date": "Feb 4, 2026",
-            "actual": "-3.5M",
-            "forecast": "-2.0M",
-            "previous": "-2.3M"
-        },
-        {
-            "date": "Jan 14, 2026",
-            "actual": "3.4M",
-            "forecast": "-1.7M",
-            "previous": "-3.8M"
-        }
-    ],
-    "43": [
-        {
-            "date": "Mar 11, 2026",
-            "actual": "3.8M",
-            "forecast": "2.8M",
-            "previous": "3.5M"
-        },
-        {
-            "date": "Feb 11, 2026",
-            "actual": "8.5M",
-            "forecast": "-0.2M",
-            "previous": "-3.5M"
-        },
-        {
-            "date": "Jan 22, 2026",
-            "actual": "3.6M",
-            "forecast": "-1.0M",
-            "previous": "3.4M"
-        }
-    ],
-    "44": [
-        {
-            "date": "Mar 18, 2026",
-            "actual": "6.2M",
-            "forecast": "-1.5M",
-            "previous": "3.8M"
-        },
-        {
-            "date": "Feb 19, 2026",
-            "actual": "-9.0M",
-            "forecast": "1.7M",
-            "previous": "8.5M"
-        },
-        {
-            "date": "Jan 28, 2026",
-            "actual": "-2.3M",
-            "forecast": "-0.2M",
-            "previous": "3.6M"
-        }
-    ],
-    "45": [
-        {
-            "date": "Feb 25, 2026",
-            "actual": "16.0M",
-            "forecast": "1.8M",
-            "previous": "-9.0M"
-        }
-    ],
-    "46": [
-        {
-            "date": "Mar 5, 2026",
-            "actual": "-132B",
-            "forecast": "-122B",
-            "previous": "-52B"
-        },
-        {
-            "date": "Feb 5, 2026",
-            "actual": "-360B",
-            "forecast": "-379B",
-            "previous": "-242B"
-        },
-        {
-            "date": "Jan 15, 2026",
-            "actual": "-71B",
-            "forecast": "-89B",
-            "previous": "-119B"
-        }
-    ],
-    "47": [
-        {
-            "date": "Mar 12, 2026",
-            "actual": "-38B",
-            "forecast": "-42B",
-            "previous": "-132B"
-        },
-        {
-            "date": "Feb 12, 2026",
-            "actual": "-249B",
-            "forecast": "-256B",
-            "previous": "-360B"
-        },
-        {
-            "date": "Jan 22, 2026",
-            "actual": "-120B",
-            "forecast": "-90B",
-            "previous": "-71B"
-        }
-    ],
-    "48": [
-        {
-            "date": "Mar 19, 2026",
-            "actual": "35B",
-            "forecast": "39B",
-            "previous": "-38B"
-        },
-        {
-            "date": "Feb 19, 2026",
-            "actual": "-144B",
-            "forecast": "-148B",
-            "previous": "-249B"
-        },
-        {
-            "date": "Jan 29, 2026",
-            "actual": "-242B",
-            "forecast": "-237B",
-            "previous": "-120B"
-        }
-    ],
-    "49": [
-        {
-            "date": "Feb 26, 2026",
-            "actual": "-52B",
-            "forecast": "-36B",
-            "previous": "-144B"
-        }
-    ],
-    "50": [
-        {
-            "date": "Mar 12, 2026",
-            "actual": "1.49M",
-            "forecast": "1.34M",
-            "previous": "1.39M"
-        },
-        {
-            "date": "Feb 18, 2026",
-            "actual": "1.40M",
-            "forecast": "1.31M",
-            "previous": "1.32M"
-        },
-        {
-            "date": "Jan 9, 2026",
-            "actual": "1.25M",
-            "forecast": "1.33M",
-            "previous": "1.31M"
-        },
-        {
-            "date": "Sep 17, 2025",
-            "actual": "1.31M",
-            "forecast": "1.37M",
-            "previous": "1.43M"
-        },
-        {
-            "date": "Aug 19, 2025",
-            "actual": "1.43M",
-            "forecast": "1.29M",
-            "previous": "1.36M"
-        },
-        {
-            "date": "Jul 18, 2025",
-            "actual": "1.32M",
-            "forecast": "1.29M",
-            "previous": "1.26M"
-        },
-        {
-            "date": "Jun 18, 2025",
-            "actual": "1.26M",
-            "forecast": "1.35M",
-            "previous": "1.39M"
-        }
-    ],
-    "51": [
-        {
-            "date": "Mar 12, 2026",
-            "actual": "1.38M",
-            "forecast": "1.42M",
-            "previous": "1.45M"
-        },
-        {
-            "date": "Feb 18, 2026",
-            "actual": "1.45M",
-            "forecast": "1.40M",
-            "previous": "1.39M"
-        },
-        {
-            "date": "Jan 9, 2026",
-            "actual": "1.41M",
-            "forecast": "1.35M",
-            "previous": "1.42M"
-        },
-        {
-            "date": "Sep 17, 2025",
-            "actual": "1.31M",
-            "forecast": "1.37M",
-            "previous": "1.35M"
-        },
-        {
-            "date": "Aug 19, 2025",
-            "actual": "1.35M",
-            "forecast": "1.39M",
-            "previous": "1.40M"
-        },
-        {
-            "date": "Jul 18, 2025",
-            "actual": "1.40M",
-            "forecast": "1.39M",
-            "previous": "1.39M"
-        },
-        {
-            "date": "Jun 18, 2025",
-            "actual": "1.39M",
-            "forecast": "1.42M",
-            "previous": "1.42M"
-        }
-    ]
+  "1": [
+    {
+      "date": "Mar 11, 2026",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Feb 13, 2026",
+      "actual": "0.2%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Jan 13, 2026",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Oct 24, 2025",
+      "actual": "0.3%",
+      "forecast": "0.4%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Sep 11, 2025",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Aug 12, 2025",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Jul 15, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Jun 11, 2025",
+      "actual": "0.1%",
+      "forecast": "0.2%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "May 13, 2025",
+      "actual": "0.2%",
+      "forecast": "0.3%",
+      "previous": "-0.1%"
+    },
+    {
+      "date": "Apr 10, 2025",
+      "actual": "-0.1%",
+      "forecast": "0.1%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Mar 12, 2025",
+      "actual": "0.2%",
+      "forecast": "0.3%",
+      "previous": "0.5%"
+    },
+    {
+      "date": "Feb 12, 2025",
+      "actual": "0.5%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Jan 15, 2025",
+      "actual": "0.4%",
+      "forecast": "0.4%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Dec 11, 2024",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Nov 13, 2024",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Oct 10, 2024",
+      "actual": "0.2%",
+      "forecast": "0.1%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Sep 11, 2024",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Aug 14, 2024",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "-0.1%"
+    },
+    {
+      "date": "Jul 11, 2024",
+      "actual": "-0.1%",
+      "forecast": "0.1%",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Jun 12, 2024",
+      "actual": "0.0%",
+      "forecast": "0.1%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "May 15, 2024",
+      "actual": "0.3%",
+      "forecast": "0.4%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Apr 10, 2024",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Mar 12, 2024",
+      "actual": "0.4%",
+      "forecast": "0.4%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Feb 13, 2024",
+      "actual": "0.3%",
+      "forecast": "0.2%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Jan 11, 2024",
+      "actual": "0.3%",
+      "forecast": "0.2%",
+      "previous": "0.1%"
+    }
+  ],
+  "2": [
+    {
+      "date": "Mar 11, 2026",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Feb 13, 2026",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Jan 13, 2026",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Oct 24, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Sep 11, 2025",
+      "actual": "0.3%",
+      "forecast": "0.2%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Aug 12, 2025",
+      "actual": "0.3%",
+      "forecast": "0.2%",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Jul 15, 2025",
+      "actual": "0.1%",
+      "forecast": "0.2%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Jun 11, 2025",
+      "actual": "0.2%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "May 13, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Apr 10, 2025",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Mar 12, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Feb 12, 2025",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Jan 15, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Dec 11, 2024",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Nov 13, 2024",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Oct 10, 2024",
+      "actual": "0.3%",
+      "forecast": "0.2%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Sep 11, 2024",
+      "actual": "0.3%",
+      "forecast": "0.2%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Aug 14, 2024",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Jul 11, 2024",
+      "actual": "0.1%",
+      "forecast": "0.2%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Jun 12, 2024",
+      "actual": "0.2%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "May 15, 2024",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Apr 10, 2024",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Mar 12, 2024",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Feb 13, 2024",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Jan 11, 2024",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    }
+  ],
+  "3": [
+    {
+      "date": "Mar 18, 2026",
+      "actual": "0.7%",
+      "forecast": "0.3%",
+      "previous": "0.5%"
+    },
+    {
+      "date": "Feb 27, 2026",
+      "actual": "0.5%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Jan 14, 2026",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Nov 25, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "-0.1%"
+    },
+    {
+      "date": "Sep 10, 2025",
+      "actual": "-0.1%",
+      "forecast": "0.3%",
+      "previous": "0.7%"
+    },
+    {
+      "date": "Aug 14, 2025",
+      "actual": "0.9%",
+      "forecast": "0.2%",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Jul 16, 2025",
+      "actual": "0.0%",
+      "forecast": "0.2%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Jun 12, 2025",
+      "actual": "0.1%",
+      "forecast": "0.2%",
+      "previous": "-0.2%"
+    },
+    {
+      "date": "May 15, 2025",
+      "actual": "-0.5%",
+      "forecast": "0.2%",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Apr 11, 2025",
+      "actual": "-0.4%",
+      "forecast": "0.2%",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Mar 13, 2025",
+      "actual": "0.0%",
+      "forecast": "0.3%",
+      "previous": "0.6%"
+    },
+    {
+      "date": "Feb 13, 2025",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.5%"
+    },
+    {
+      "date": "Jan 14, 2025",
+      "actual": "0.2%",
+      "forecast": "0.4%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Dec 12, 2024",
+      "actual": "0.4%",
+      "forecast": "0.2%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Nov 14, 2024",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Oct 11, 2024",
+      "actual": "0.0%",
+      "forecast": "0.1%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Sep 12, 2024",
+      "actual": "0.2%",
+      "forecast": "0.1%",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Aug 13, 2024",
+      "actual": "0.1%",
+      "forecast": "0.2%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Jul 12, 2024",
+      "actual": "0.2%",
+      "forecast": "0.1%",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Jun 13, 2024",
+      "actual": "-0.2%",
+      "forecast": "0.1%",
+      "previous": "0.5%"
+    },
+    {
+      "date": "May 14, 2024",
+      "actual": "0.5%",
+      "forecast": "0.3%",
+      "previous": "-0.1%"
+    },
+    {
+      "date": "Apr 11, 2024",
+      "actual": "0.2%",
+      "forecast": "0.3%",
+      "previous": "0.6%"
+    },
+    {
+      "date": "Mar 14, 2024",
+      "actual": "0.6%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    }
+  ],
+  "4": [
+    {
+      "date": "Mar 18, 2026",
+      "actual": "0.5%",
+      "forecast": "0.3%",
+      "previous": "0.8%"
+    },
+    {
+      "date": "Feb 27 , 2026",
+      "actual": "0.8%",
+      "forecast": "0.3%",
+      "previous": "0.6%"
+    },
+    {
+      "date": "Jan 14, 2026",
+      "actual": "0.0%",
+      "forecast": "0.2%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Nov 25, 2025",
+      "actual": "0.1%",
+      "forecast": "0.2%",
+      "previous": "-0.1%"
+    },
+    {
+      "date": "Sep 10, 2025",
+      "actual": "-0.1%",
+      "forecast": "0.3%",
+      "previous": "0.7%"
+    },
+    {
+      "date": "Aug 14, 2025",
+      "actual": "0.9%",
+      "forecast": "0.2%",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Jul 16, 2025",
+      "actual": "0.0%",
+      "forecast": "0.2%",
+      "previous": "0.4%"
+    }
+  ],
+  "5": [
+    {
+      "date": "Feb 20, 2026",
+      "actual": "2.7%",
+      "forecast": "0.2%",
+      "previous": "-0.9%"
+    },
+    {
+      "date": "Jan 21, 2026",
+      "actual": "-0.6%",
+      "forecast": "0.3%",
+      "previous": "1.1%"
+    },
+    {
+      "date": "Dec 22, 2025",
+      "actual": "0.9%",
+      "forecast": "0.3%",
+      "previous": "1.7%"
+    },
+    {
+      "date": "Nov 20, 2025",
+      "actual": "1.5%",
+      "forecast": "0.3%",
+      "previous": "1.0%"
+    },
+    {
+      "date": "Oct 20, 2025",
+      "actual": "0.8%",
+      "forecast": "0.2%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Sep 22, 2025",
+      "actual": "0.5%",
+      "forecast": "0.2%",
+      "previous": "0.7%"
+    },
+    {
+      "date": "Aug 21, 2025",
+      "actual": "0.7%",
+      "forecast": "0.3%",
+      "previous": "0.5%"
+    },
+    {
+      "date": "Jul 21, 2025",
+      "actual": "0.4%",
+      "forecast": "0.1%",
+      "previous": "-0.5%"
+    }
+  ],
+  "6": [
+    {
+      "date": "Mar 13, 2026",
+      "actual": "0.4%",
+      "forecast": "0.4%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Feb 20, 2026",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Jan 22, 2026",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Dec 5, 2025",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Sep 26, 2025",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Aug 29, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Jul 31, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Jun 27, 2025",
+      "actual": "0.2%",
+      "forecast": "0.1%",
+      "previous": "0.1%"
+    }
+  ],
+  "7": [
+    {
+      "date": "Mar 6, 2026",
+      "actual": "-92K",
+      "forecast": "58K",
+      "previous": "126K"
+    },
+    {
+      "date": "Feb 11, 2026",
+      "actual": "130K",
+      "forecast": "66K",
+      "previous": "48K"
+    },
+    {
+      "date": "Jan 9, 2026",
+      "actual": "50K",
+      "forecast": "66K",
+      "previous": "56K"
+    },
+    {
+      "date": "Dec 16, 2025",
+      "actual": "64K",
+      "forecast": "51K",
+      "previous": "-105K"
+    },
+    {
+      "date": "Nov 20, 2025",
+      "actual": "119K",
+      "forecast": "53K",
+      "previous": "-4K"
+    },
+    {
+      "date": "Sep 5, 2025",
+      "actual": "22K",
+      "forecast": "75K",
+      "previous": "79K"
+    },
+    {
+      "date": "Aug 1, 2025",
+      "actual": "73K",
+      "forecast": "106K",
+      "previous": "14K"
+    }
+  ],
+  "8": [
+    {
+      "date": "Mar 6, 2026",
+      "actual": "-92K",
+      "forecast": "58K",
+      "previous": "126K"
+    },
+    {
+      "date": "Feb 11, 2026",
+      "actual": "130K",
+      "forecast": "66K",
+      "previous": "48K"
+    },
+    {
+      "date": "Jan 9, 2026",
+      "actual": "50K",
+      "forecast": "66K",
+      "previous": "56K"
+    },
+    {
+      "date": "Dec 16, 2025",
+      "actual": "64K",
+      "forecast": "51K",
+      "previous": "-105K"
+    },
+    {
+      "date": "Nov 20, 2025",
+      "actual": "119K",
+      "forecast": "53K",
+      "previous": "-4K"
+    },
+    {
+      "date": "Sep 5, 2025",
+      "actual": "22K",
+      "forecast": "75K",
+      "previous": "79K"
+    },
+    {
+      "date": "Aug 1, 2025",
+      "actual": "73K",
+      "forecast": "106K",
+      "previous": "14K"
+    }
+  ],
+  "9": [
+    {
+      "date": "Mar 6, 2026",
+      "actual": "4.4%",
+      "forecast": "4.3%",
+      "previous": "4.3%"
+    },
+    {
+      "date": "Feb 11, 2026",
+      "actual": "4.3%",
+      "forecast": "4.4%",
+      "previous": "4.4%"
+    },
+    {
+      "date": "Jan 9, 2026",
+      "actual": "4.4%",
+      "forecast": "4.5%",
+      "previous": "4.6%"
+    },
+    {
+      "date": "Dec 16, 2025",
+      "actual": "4.6%",
+      "forecast": "4.5%",
+      "previous": "4.4%"
+    },
+    {
+      "date": "Nov 20, 2025",
+      "actual": "4.4%",
+      "forecast": "4.3%",
+      "previous": "4.3%"
+    },
+    {
+      "date": "Sep 5, 2025",
+      "actual": "4.3%",
+      "forecast": "4.3%",
+      "previous": "4.2%"
+    },
+    {
+      "date": "Aug 1, 2025",
+      "actual": "4.2%",
+      "forecast": "4.2%",
+      "previous": "4.1%"
+    },
+    {
+      "date": "Jul 3, 2025",
+      "actual": "4.1%",
+      "forecast": "4.3%",
+      "previous": "4.2%"
+    }
+  ],
+  "10": [
+    {
+      "date": "Mar 6, 2026",
+      "actual": "-92K",
+      "forecast": "58K",
+      "previous": "126K"
+    },
+    {
+      "date": "Feb 11, 2026",
+      "actual": "130K",
+      "forecast": "66K",
+      "previous": "48K"
+    },
+    {
+      "date": "Jan 9, 2026",
+      "actual": "50K",
+      "forecast": "66K",
+      "previous": "56K"
+    },
+    {
+      "date": "Dec 16, 2025",
+      "actual": "64K",
+      "forecast": "51K",
+      "previous": "-105K"
+    },
+    {
+      "date": "Nov 20, 2025",
+      "actual": "119K",
+      "forecast": "53K",
+      "previous": "-4K"
+    },
+    {
+      "date": "Sep 5, 2025",
+      "actual": "22K",
+      "forecast": "75K",
+      "previous": "79K"
+    },
+    {
+      "date": "Aug 1, 2025",
+      "actual": "73K",
+      "forecast": "106K",
+      "previous": "14K"
+    }
+  ],
+  "11": [
+    {
+      "date": "Mar 6, 2026",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Feb 11, 2026",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Jan 9, 2026",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Dec 16, 2025",
+      "actual": "0.1%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Nov 20, 2025",
+      "actual": "0.2%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Sep 5, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Aug 1, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.2%"
+    }
+  ],
+  "12": [
+    {
+      "date": "Mar 5, 2026",
+      "actual": "213K",
+      "forecast": "215K",
+      "previous": "213K"
+    },
+    {
+      "date": "Feb 5, 2026",
+      "actual": "231K",
+      "forecast": "212K",
+      "previous": "209K"
+    },
+    {
+      "date": "Jan 15, 2026",
+      "actual": "198K",
+      "forecast": "215K",
+      "previous": "207K"
+    }
+  ],
+  "13": [
+    {
+      "date": "Mar 12, 2026",
+      "actual": "213K",
+      "forecast": "214K",
+      "previous": "214K"
+    },
+    {
+      "date": "Feb 12, 2026",
+      "actual": "227K",
+      "forecast": "222K",
+      "previous": "232K"
+    },
+    {
+      "date": "Jan 22, 2026",
+      "actual": "200K",
+      "forecast": "209K",
+      "previous": "199K"
+    }
+  ],
+  "14": [
+    {
+      "date": "Mar 19, 2026",
+      "actual": "205K",
+      "forecast": "215K",
+      "previous": "213K"
+    },
+    {
+      "date": "Feb 19, 2026",
+      "actual": "206K",
+      "forecast": "223K",
+      "previous": "229K"
+    },
+    {
+      "date": "Jan 29, 2026",
+      "actual": "209K",
+      "forecast": "206K",
+      "previous": "210K"
+    }
+  ],
+  "15": [
+    {
+      "date": "Feb 26, 2026",
+      "actual": "212K",
+      "forecast": "217K",
+      "previous": "208K"
+    }
+  ],
+  "16": [
+    {
+      "date": "Mar 4, 2026",
+      "actual": "63K",
+      "forecast": "50K",
+      "previous": "11K"
+    },
+    {
+      "date": "Feb 4, 2026",
+      "actual": "22K",
+      "forecast": "46K",
+      "previous": "37K"
+    },
+    {
+      "date": "Jan 7, 2026",
+      "actual": "41K",
+      "forecast": "49K",
+      "previous": "-29K"
+    },
+    {
+      "date": "Dec 3, 2025",
+      "actual": "-32K",
+      "forecast": "5K",
+      "previous": "47K"
+    },
+    {
+      "date": "Nov 5, 2025",
+      "actual": "42K",
+      "forecast": "32K",
+      "previous": "-29K"
+    },
+    {
+      "date": "Oct 1, 2025",
+      "actual": "-32K",
+      "forecast": "52K",
+      "previous": "-3K"
+    },
+    {
+      "date": "Sep 4, 2025",
+      "actual": "54K",
+      "forecast": "73K",
+      "previous": "106K"
+    },
+    {
+      "date": "Jul 30, 2025",
+      "actual": "104K",
+      "forecast": "77K",
+      "previous": "-23K"
+    }
+  ],
+  "17": [
+    {
+      "date": "Mar 16, 2026",
+      "actual": "0.4%",
+      "forecast": "",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Feb 17, 2026",
+      "actual": "0.2%",
+      "forecast": "",
+      "previous": "-0.4%"
+    },
+    {
+      "date": "Jan 19, 2026",
+      "actual": "-0.4%",
+      "forecast": "",
+      "previous": "-0.1%"
+    },
+    {
+      "date": "Dec 15, 2025",
+      "actual": "-0.1%",
+      "forecast": "",
+      "previous": "0.6%"
+    },
+    {
+      "date": "Nov 17, 2025",
+      "actual": "0.6%",
+      "forecast": "",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Oct 21, 2025",
+      "actual": "0.2%",
+      "forecast": "",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Sep 16, 2025",
+      "actual": "0.0%",
+      "forecast": "",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Aug 19, 2025",
+      "actual": "0.1%",
+      "forecast": "",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Jul 15, 2025",
+      "actual": "0.1%",
+      "forecast": "",
+      "previous": "0.6%"
+    }
+  ],
+  "18": [
+    {
+      "date": "Mar 16, 2026",
+      "actual": "0.4%",
+      "forecast": "",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Feb 17, 2026",
+      "actual": "0.2%",
+      "forecast": "",
+      "previous": "-0.4%"
+    },
+    {
+      "date": "Jan 19, 2026",
+      "actual": "-0.4%",
+      "forecast": "",
+      "previous": "-0.1%"
+    },
+    {
+      "date": "Dec 15, 2025",
+      "actual": "-0.1%",
+      "forecast": "",
+      "previous": "0.6%"
+    },
+    {
+      "date": "Nov 17, 2025",
+      "actual": "0.6%",
+      "forecast": "",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Oct 21, 2025",
+      "actual": "0.2%",
+      "forecast": "",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Sep 16, 2025",
+      "actual": "0.0%",
+      "forecast": "",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Aug 19, 2025",
+      "actual": "0.1%",
+      "forecast": "",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Jul 15, 2025",
+      "actual": "0.1%",
+      "forecast": "",
+      "previous": "0.6%"
+    }
+  ],
+  "19": [
+    {
+      "date": "Mar 16, 2026",
+      "actual": "0.4%",
+      "forecast": "",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Feb 17, 2026",
+      "actual": "0.2%",
+      "forecast": "",
+      "previous": "-0.4%"
+    },
+    {
+      "date": "Jan 19, 2026",
+      "actual": "-0.4%",
+      "forecast": "",
+      "previous": "-0.1%"
+    },
+    {
+      "date": "Dec 15, 2025",
+      "actual": "-0.1%",
+      "forecast": "",
+      "previous": "0.6%"
+    },
+    {
+      "date": "Nov 17, 2025",
+      "actual": "0.6%",
+      "forecast": "",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Oct 21, 2025",
+      "actual": "0.2%",
+      "forecast": "",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Sep 16, 2025",
+      "actual": "0.0%",
+      "forecast": "",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Aug 19, 2025",
+      "actual": "0.1%",
+      "forecast": "",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Jul 15, 2025",
+      "actual": "0.1%",
+      "forecast": "",
+      "previous": "0.6%"
+    }
+  ],
+  "21": [
+    {
+      "date": "Mar 6, 2026",
+      "actual": "0.0%",
+      "forecast": "0.1%",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Feb 10, 2026",
+      "actual": "0.0%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Jan 14, 2026",
+      "actual": "0.5%",
+      "forecast": "0.4%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Dec 16, 2025",
+      "actual": "0.4%",
+      "forecast": "0.2%",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Nov 25, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.6%"
+    },
+    {
+      "date": "Sep 16, 2025",
+      "actual": "0.7%",
+      "forecast": "0.4%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Aug 15, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.8%"
+    },
+    {
+      "date": "Jul 17, 2025",
+      "actual": "0.5%",
+      "forecast": "0.3%",
+      "previous": "-0.2%"
+    }
+  ],
+  "22": [
+    {
+      "date": "Mar 6, 2026",
+      "actual": "-0.2%",
+      "forecast": "-0.3%",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Feb 10, 2026",
+      "actual": "0.0%",
+      "forecast": "0.4%",
+      "previous": "0.6%"
+    },
+    {
+      "date": "Jan 14, 2026",
+      "actual": "0.6%",
+      "forecast": "0.5%",
+      "previous": "-0.1%"
+    },
+    {
+      "date": "Dec 16, 2025",
+      "actual": "0.0%",
+      "forecast": "0.1%",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Nov 25, 2025",
+      "actual": "0.2%",
+      "forecast": "0.4%",
+      "previous": "0.6%"
+    },
+    {
+      "date": "Sep 16, 2025",
+      "actual": "0.6%",
+      "forecast": "0.2%",
+      "previous": "0.6%"
+    },
+    {
+      "date": "Aug 15, 2025",
+      "actual": "0.5%",
+      "forecast": "0.6%",
+      "previous": "0.9%"
+    },
+    {
+      "date": "Jul 17, 2025",
+      "actual": "0.6%",
+      "forecast": "0.1%",
+      "previous": "-0.9%"
+    }
+  ],
+  "23": [
+    {
+      "date": "Mar 6, 2026",
+      "actual": "0.0%",
+      "forecast": "0.1%",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Feb 10, 2026",
+      "actual": "0.0%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Jan 14, 2026",
+      "actual": "0.5%",
+      "forecast": "0.4%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Dec 16, 2025",
+      "actual": "0.4%",
+      "forecast": "0.2%",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Nov 25, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.6%"
+    },
+    {
+      "date": "Sep 16, 2025",
+      "actual": "0.7%",
+      "forecast": "0.4%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Aug 15, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.8%"
+    },
+    {
+      "date": "Jul 17, 2025",
+      "actual": "0.5%",
+      "forecast": "0.3%",
+      "previous": "-0.2%"
+    }
+  ],
+  "24": [
+    {
+      "date": "Mar 13, 2026",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Feb 20, 2026",
+      "actual": "0.4%",
+      "forecast": "0.4%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Jan 22, 2026",
+      "actual": "0.5%",
+      "forecast": "0.5%",
+      "previous": "0.5%"
+    },
+    {
+      "date": "Dec 5, 2025",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.5%"
+    },
+    {
+      "date": "Sep 26, 2025",
+      "actual": "0.6%",
+      "forecast": "0.5%",
+      "previous": "0.5%"
+    },
+    {
+      "date": "Aug 29, 2025",
+      "actual": "0.5%",
+      "forecast": "0.5%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Jul 31, 2025",
+      "actual": "0.3%",
+      "forecast": "0.4%",
+      "previous": "0.0%"
+    },
+    {
+      "date": "Jun 27, 2025",
+      "actual": "-0.1%",
+      "forecast": "0.1%",
+      "previous": "0.2%"
+    }
+  ],
+  "25": [
+    {
+      "date": "Mar 13, 2026",
+      "actual": "0.4%",
+      "forecast": "0.5%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Feb 20, 2026",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Jan 22, 2026",
+      "actual": "0.3%",
+      "forecast": "0.4%",
+      "previous": "0.1%"
+    },
+    {
+      "date": "Dec 5, 2025",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Sep 26, 2025",
+      "actual": "0.4%",
+      "forecast": "0.3%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Aug 29, 2025",
+      "actual": "0.4%",
+      "forecast": "0.4%",
+      "previous": "0.3%"
+    },
+    {
+      "date": "Jul 31, 2025",
+      "actual": "0.3%",
+      "forecast": "0.2%",
+      "previous": "-0.4%"
+    },
+    {
+      "date": "Jun 27, 2025",
+      "actual": "-0.4%",
+      "forecast": "0.3%",
+      "previous": "0.7%"
+    }
+  ],
+  "26": [
+    {
+      "date": "Mar 2, 2026",
+      "actual": "52.4",
+      "forecast": "51.7",
+      "previous": "52.6"
+    },
+    {
+      "date": "Feb 2, 2026",
+      "actual": "52.6",
+      "forecast": "48.5",
+      "previous": "47.9"
+    },
+    {
+      "date": "Jan 5, 2026",
+      "actual": "47.9",
+      "forecast": "48.3",
+      "previous": "48.2"
+    },
+    {
+      "date": "Dec 1, 2025",
+      "actual": "48.2",
+      "forecast": "49.0",
+      "previous": "48.7"
+    },
+    {
+      "date": "Nov 3, 2025",
+      "actual": "48.7",
+      "forecast": "49.4",
+      "previous": "49.1"
+    },
+    {
+      "date": "Oct 1, 2025",
+      "actual": "49.1",
+      "forecast": "49.0",
+      "previous": "48.7"
+    },
+    {
+      "date": "Sep 2, 2025",
+      "actual": "48.7",
+      "forecast": "49.0",
+      "previous": "48.0"
+    },
+    {
+      "date": "Aug 1, 2025",
+      "actual": "48.0",
+      "forecast": "49.5",
+      "previous": "49.0"
+    }
+  ],
+  "27": [
+    {
+      "date": "Mar 4, 2026",
+      "actual": "56.1",
+      "forecast": "53.5",
+      "previous": "53.8"
+    },
+    {
+      "date": "Feb 4, 2026",
+      "actual": "53.8",
+      "forecast": "53.5",
+      "previous": "54.4"
+    },
+    {
+      "date": "Jan 7, 2026",
+      "actual": "54.4",
+      "forecast": "52.2",
+      "previous": "52.6"
+    },
+    {
+      "date": "Dec 3, 2025",
+      "actual": "52.6",
+      "forecast": "52.0",
+      "previous": "52.4"
+    },
+    {
+      "date": "Nov 5, 2025",
+      "actual": "52.4",
+      "forecast": "50.7",
+      "previous": "50.0"
+    },
+    {
+      "date": "Oct 3, 2025",
+      "actual": "50.0",
+      "forecast": "51.8",
+      "previous": "52.0"
+    },
+    {
+      "date": "Sep 4, 2025",
+      "actual": "52.0",
+      "forecast": "50.9",
+      "previous": "50.1"
+    },
+    {
+      "date": "Aug 5, 2025",
+      "actual": "50.1",
+      "forecast": "51.5",
+      "previous": "50.8"
+    }
+  ],
+  "29": [
+    {
+      "date": "Feb 24, 2026",
+      "actual": "91.2",
+      "forecast": "87.4",
+      "previous": "89.0"
+    },
+    {
+      "date": "Jan 27, 2026",
+      "actual": "84.5",
+      "forecast": "90.6",
+      "previous": "94.2"
+    },
+    {
+      "date": "Dec 23, 2025",
+      "actual": "89.1",
+      "forecast": "91.7",
+      "previous": "92.9"
+    },
+    {
+      "date": "Nov 25, 2025",
+      "actual": "88.7",
+      "forecast": "93.4",
+      "previous": "95.5"
+    },
+    {
+      "date": "Oct 28, 2025",
+      "actual": "94.6",
+      "forecast": "93.4",
+      "previous": "95.6"
+    },
+    {
+      "date": "Sep 30, 2025",
+      "actual": "94.2",
+      "forecast": "96.0",
+      "previous": "97.8"
+    },
+    {
+      "date": "Aug 26, 2025",
+      "actual": "97.4",
+      "forecast": "96.4",
+      "previous": "98.7"
+    },
+    {
+      "date": "Jul 29, 2025",
+      "actual": "97.2",
+      "forecast": "95.9",
+      "previous": "95.2"
+    }
+  ],
+  "30": [
+    {
+      "date": "Mar 9, 2026",
+      "actual": "0.7%",
+      "forecast": "2.0%",
+      "previous": "2.3%"
+    },
+    {
+      "date": "Feb 9, 2026",
+      "actual": "2.3%",
+      "forecast": "1.3%",
+      "previous": "1.0%"
+    },
+    {
+      "date": "Jan 12, 2026",
+      "actual": "1.0%",
+      "forecast": "1.3%",
+      "previous": "1.2%"
+    },
+    {
+      "date": "Dec 8, 2025",
+      "actual": "1.2%",
+      "forecast": "2.6%",
+      "previous": "1.5%"
+    },
+    {
+      "date": "Nov 10, 2025",
+      "actual": "1.5%",
+      "forecast": "2.4%",
+      "previous": "2.0%"
+    },
+    {
+      "date": "Oct 13, 2025",
+      "actual": "2.0%",
+      "forecast": "2.5%",
+      "previous": "2.9%"
+    },
+    {
+      "date": "Sep 8, 2025",
+      "actual": "2.9%",
+      "forecast": "2.0%",
+      "previous": "1.8%"
+    },
+    {
+      "date": "Aug 11, 2025",
+      "actual": "1.8%",
+      "forecast": "2.1%",
+      "previous": "2.7%"
+    },
+    {
+      "date": "Jul 14, 2025",
+      "actual": "2.7%",
+      "forecast": "1.2%",
+      "previous": "0.6%"
+    }
+  ],
+  "31": [
+    {
+      "date": "Feb 26, 2026",
+      "actual": "1.8%",
+      "forecast": "0.1%",
+      "previous": "-0.9%"
+    },
+    {
+      "date": "Jan 29, 2026",
+      "actual": "-0.9%",
+      "forecast": "0.7%",
+      "previous": "1.1%"
+    },
+    {
+      "date": "Dec 25, 2025",
+      "actual": "1.0%",
+      "forecast": "0.9%",
+      "previous": "1.7%"
+    },
+    {
+      "date": "Nov 27, 2025",
+      "actual": "1.7%",
+      "forecast": "0.8%",
+      "previous": "0.2%"
+    },
+    {
+      "date": "Oct 30, 2025",
+      "actual": "0.5%",
+      "forecast": "0.8%",
+      "previous": "-0.9%"
+    },
+    {
+      "date": "Sep 29, 2025",
+      "actual": "-1.1%",
+      "forecast": "1.1%",
+      "previous": "0.4%"
+    },
+    {
+      "date": "Aug 28, 2025",
+      "actual": "0.3%",
+      "forecast": "1.6%",
+      "previous": "1.9%"
+    },
+    {
+      "date": "Jul 30, 2025",
+      "actual": "2.0%",
+      "forecast": "1.8%",
+      "previous": "1.9%"
+    }
+  ],
+  "32": [
+    {
+      "date": "Mar 18, 2026",
+      "actual": "3.75%",
+      "forecast": "3.75%",
+      "previous": "3.75%"
+    },
+    {
+      "date": "Jan 28, 2026",
+      "actual": "3.75%",
+      "forecast": "3.75%",
+      "previous": "3.75%"
+    },
+    {
+      "date": "Dec 10, 2025",
+      "actual": "3.75%",
+      "forecast": "3.75%",
+      "previous": "4.00%"
+    },
+    {
+      "date": "Oct 29, 2025",
+      "actual": "4.00%",
+      "forecast": "4.00%",
+      "previous": "4.25%"
+    },
+    {
+      "date": "Sep 17, 2025",
+      "actual": "4.25%",
+      "forecast": "4.25%",
+      "previous": "4.50%"
+    },
+    {
+      "date": "Jul 30, 2025",
+      "actual": "4.50%",
+      "forecast": "4.50%",
+      "previous": "4.50%"
+    },
+    {
+      "date": "Jun 18, 2025",
+      "actual": "4.50%",
+      "forecast": "4.50%",
+      "previous": "4.50%"
+    },
+    {
+      "date": "May 7, 2025",
+      "actual": "4.50%",
+      "forecast": "4.50%",
+      "previous": "4.50%"
+    },
+    {
+      "date": "Mar 19, 2025",
+      "actual": "4.50%",
+      "forecast": "4.50%",
+      "previous": "4.50%"
+    }
+  ],
+  "33": [
+    {
+      "date": "Mar 18, 2026",
+      "actual": "3.75%",
+      "forecast": "3.75%",
+      "previous": "3.75%"
+    },
+    {
+      "date": "Jan 28, 2026",
+      "actual": "3.75%",
+      "forecast": "3.75%",
+      "previous": "3.75%"
+    },
+    {
+      "date": "Dec 10, 2025",
+      "actual": "3.75%",
+      "forecast": "3.75%",
+      "previous": "4.00%"
+    },
+    {
+      "date": "Oct 29, 2025",
+      "actual": "4.00%",
+      "forecast": "4.00%",
+      "previous": "4.25%"
+    },
+    {
+      "date": "Sep 17, 2025",
+      "actual": "4.25%",
+      "forecast": "4.25%",
+      "previous": "4.50%"
+    },
+    {
+      "date": "Jul 30, 2025",
+      "actual": "4.50%",
+      "forecast": "4.50%",
+      "previous": "4.50%"
+    },
+    {
+      "date": "Jun 18, 2025",
+      "actual": "4.50%",
+      "forecast": "4.50%",
+      "previous": "4.50%"
+    },
+    {
+      "date": "May 7, 2025",
+      "actual": "4.50%",
+      "forecast": "4.50%",
+      "previous": "4.50%"
+    },
+    {
+      "date": "Mar 19, 2025",
+      "actual": "4.50%",
+      "forecast": "4.50%",
+      "previous": "4.50%"
+    }
+  ],
+  "34": [
+    {
+      "date": "Feb 20, 2026",
+      "actual": "1.4%",
+      "forecast": "2.8%",
+      "previous": "4.4%"
+    },
+    {
+      "date": "Jul 30, 2025",
+      "actual": "3.0%",
+      "forecast": "2.5%",
+      "previous": "-0.5%"
+    },
+    {
+      "date": "Apr 30, 2025",
+      "actual": "-0.3%",
+      "forecast": "0.2%",
+      "previous": "2.4%"
+    },
+    {
+      "date": "Jan 30, 2025",
+      "actual": "2.3%",
+      "forecast": "2.7%",
+      "previous": "3.1%"
+    },
+    {
+      "date": "Oct 30, 2024",
+      "actual": "2.8%",
+      "forecast": "3.0%",
+      "previous": "3.0%"
+    },
+    {
+      "date": "Jul 25, 2024",
+      "actual": "2.8%",
+      "forecast": "2.0%",
+      "previous": "1.4%"
+    },
+    {
+      "date": "Apr 25, 2024",
+      "actual": "1.6%",
+      "forecast": "2.5%",
+      "previous": "3.4%"
+    },
+    {
+      "date": "Jan 25, 2024",
+      "actual": "3.3%",
+      "forecast": "2.0%",
+      "previous": "4.9%"
+    }
+  ],
+  "35": [
+    {
+      "date": "Feb 20, 2026",
+      "actual": "3.6%",
+      "forecast": "2.8%",
+      "previous": "3.8%"
+    },
+    {
+      "date": "Jul 30, 2025",
+      "actual": "2.0%",
+      "forecast": "2.2%",
+      "previous": "3.8%"
+    },
+    {
+      "date": "Apr 30, 2025",
+      "actual": "3.7%",
+      "forecast": "3.1%",
+      "previous": "2.3%"
+    },
+    {
+      "date": "Jan 30, 2025",
+      "actual": "2.2%",
+      "forecast": "2.5%",
+      "previous": "1.9%"
+    },
+    {
+      "date": "Oct 30, 2024",
+      "actual": "1.8%",
+      "forecast": "1.9%",
+      "previous": "2.5%"
+    },
+    {
+      "date": "Jul 25, 2024",
+      "actual": "2.3%",
+      "forecast": "2.6%",
+      "previous": "3.1%"
+    },
+    {
+      "date": "Apr 25, 2024",
+      "actual": "3.1%",
+      "forecast": "3.0%",
+      "previous": "1.6%"
+    },
+    {
+      "date": "Jan 25, 2024",
+      "actual": "1.5%",
+      "forecast": "2.3%",
+      "previous": "3.3%"
+    }
+  ],
+  "37": [
+    {
+      "date": "Mar 12, 2026",
+      "actual": "-54.5B",
+      "forecast": "-66.6B",
+      "previous": "-72.9B"
+    },
+    {
+      "date": "Feb 19, 2026",
+      "actual": "-70.3B",
+      "forecast": "-55.5B",
+      "previous": "-53.0B"
+    },
+    {
+      "date": "Jan 8, 2026",
+      "actual": "-29.4B",
+      "forecast": "-58.1B",
+      "previous": "-48.1B"
+    },
+    {
+      "date": "Dec 11, 2025",
+      "actual": "-52.8B",
+      "forecast": "-62.5B",
+      "previous": "-59.3B"
+    },
+    {
+      "date": "Nov 19, 2025",
+      "actual": "-59.6B",
+      "forecast": "-61.3B",
+      "previous": "-78.2B"
+    },
+    {
+      "date": "Sep 4, 2025",
+      "actual": "-78.3B",
+      "forecast": "-77.7B",
+      "previous": "-59.1B"
+    },
+    {
+      "date": "Aug 5, 2025",
+      "actual": "-60.2B",
+      "forecast": "-62.6B",
+      "previous": "-71.7B"
+    },
+    {
+      "date": "Jul 3, 2025",
+      "actual": "-71.5B",
+      "forecast": "-69.9B",
+      "previous": "-60.3B"
+    }
+  ],
+  "38": [
+    {
+      "date": "Mar 12, 2026",
+      "actual": "-3.6B",
+      "forecast": "-1.1B",
+      "previous": "-1.3B"
+    },
+    {
+      "date": "Feb 19, 2026",
+      "actual": "-1.3B",
+      "forecast": "-2.1B",
+      "previous": "-2.6B"
+    },
+    {
+      "date": "Jan 8, 2026",
+      "actual": "-0.6B",
+      "forecast": "-1.4B",
+      "previous": "0.2B"
+    },
+    {
+      "date": "Dec 11, 2025",
+      "actual": "0.2B",
+      "forecast": "-4.4B",
+      "previous": "-6.4B"
+    },
+    {
+      "date": "Oct 7, 2025",
+      "actual": "-6.3B",
+      "forecast": "-5.7B",
+      "previous": "-3.8B"
+    },
+    {
+      "date": "Sep 4, 2025",
+      "actual": "-4.9B",
+      "forecast": "-5.2B",
+      "previous": "-6.0B"
+    },
+    {
+      "date": "Aug 5, 2025",
+      "actual": "-5.9B",
+      "forecast": "-5.8B",
+      "previous": "-5.5B"
+    },
+    {
+      "date": "Jul 3, 2025",
+      "actual": "-5.9B",
+      "forecast": "-6.0B",
+      "previous": "-7.6B"
+    }
+  ],
+  "39": [
+    {
+      "date": "Mar 13, 2026",
+      "actual": "-14.4B",
+      "forecast": "-22.2B",
+      "previous": "-22.7B"
+    },
+    {
+      "date": "Feb 12, 2026",
+      "actual": "-22.7B",
+      "forecast": "-22.3B",
+      "previous": "-23.6B"
+    },
+    {
+      "date": "Jan 15, 2026",
+      "actual": "-23.7B",
+      "forecast": "-20.3B",
+      "previous": "-24.2B"
+    },
+    {
+      "date": "Dec 12, 2025",
+      "actual": "-22.5B",
+      "forecast": "-19.1B",
+      "previous": "-18.9B"
+    },
+    {
+      "date": "Nov 13, 2025",
+      "actual": "-18.9B",
+      "forecast": "-20.8B",
+      "previous": "-19.5B"
+    },
+    {
+      "date": "Oct 16, 2025",
+      "actual": "-21.2B",
+      "forecast": "-21.8B",
+      "previous": "-20.6B"
+    },
+    {
+      "date": "Sep 12, 2025",
+      "actual": "-22.2B",
+      "forecast": "-21.6B",
+      "previous": "-22.2B"
+    },
+    {
+      "date": "Aug 14, 2025",
+      "actual": "-22.2B",
+      "forecast": "-21.7B",
+      "previous": "-22.1B"
+    },
+    {
+      "date": "Jul 11, 2025",
+      "actual": "-21.7B",
+      "forecast": "-21.1B",
+      "previous": "-22.4B"
+    }
+  ],
+  "40": [
+    {
+      "date": "Mar 13, 2026",
+      "actual": "-14.4B",
+      "forecast": "-22.2B",
+      "previous": "-22.7B"
+    },
+    {
+      "date": "Feb 12, 2026",
+      "actual": "-22.7B",
+      "forecast": "-22.3B",
+      "previous": "-23.6B"
+    },
+    {
+      "date": "Jan 15, 2026",
+      "actual": "-23.7B",
+      "forecast": "-20.3B",
+      "previous": "-24.2B"
+    },
+    {
+      "date": "Dec 12, 2025",
+      "actual": "-22.5B",
+      "forecast": "-19.1B",
+      "previous": "-18.9B"
+    },
+    {
+      "date": "Nov 13, 2025",
+      "actual": "-18.9B",
+      "forecast": "-20.8B",
+      "previous": "-19.5B"
+    },
+    {
+      "date": "Oct 16, 2025",
+      "actual": "-21.2B",
+      "forecast": "-21.8B",
+      "previous": "-20.6B"
+    },
+    {
+      "date": "Sep 12, 2025",
+      "actual": "-22.2B",
+      "forecast": "-21.6B",
+      "previous": "-22.2B"
+    },
+    {
+      "date": "Aug 14, 2025",
+      "actual": "-22.2B",
+      "forecast": "-21.7B",
+      "previous": "-22.1B"
+    },
+    {
+      "date": "Jul 11, 2025",
+      "actual": "-21.7B",
+      "forecast": "-21.1B",
+      "previous": "-22.4B"
+    }
+  ],
+  "41": [
+    {
+      "date": "Mar 11, 2026",
+      "actual": "4.22|2.4",
+      "forecast": "",
+      "previous": "4.18|2.4"
+    },
+    {
+      "date": "Feb 11, 2026",
+      "actual": "4.18|2.4",
+      "forecast": "",
+      "previous": "4.17|2.6"
+    },
+    {
+      "date": "Jan 12, 2026",
+      "actual": "4.17|2.6",
+      "forecast": "",
+      "previous": "4.18|2.6"
+    },
+    {
+      "date": "Dec 9, 2025",
+      "actual": "4.18|2.6",
+      "forecast": "",
+      "previous": "4.07|2.4"
+    },
+    {
+      "date": "Nov 12, 2025",
+      "actual": "4.07|2.4",
+      "forecast": "",
+      "previous": "4.12|2.5"
+    },
+    {
+      "date": "Oct 8, 2025",
+      "actual": "4.12|2.5",
+      "forecast": "",
+      "previous": "4.03|2.7"
+    },
+    {
+      "date": "Sep 10, 2025",
+      "actual": "4.03|2.7",
+      "forecast": "",
+      "previous": "4.26|2.4"
+    },
+    {
+      "date": "Aug 6, 2025",
+      "actual": "4.26|2.4",
+      "forecast": "",
+      "previous": "4.36|2.6"
+    },
+    {
+      "date": "Jul 9, 2025",
+      "actual": "4.36|2.6",
+      "forecast": "",
+      "previous": "4.42|2.5"
+    }
+  ],
+  "42": [
+    {
+      "date": "Mar 4, 2026",
+      "actual": "3.5M",
+      "forecast": "3.0M",
+      "previous": "16.0M"
+    },
+    {
+      "date": "Feb 4, 2026",
+      "actual": "-3.5M",
+      "forecast": "-2.0M",
+      "previous": "-2.3M"
+    },
+    {
+      "date": "Jan 14, 2026",
+      "actual": "3.4M",
+      "forecast": "-1.7M",
+      "previous": "-3.8M"
+    }
+  ],
+  "43": [
+    {
+      "date": "Mar 11, 2026",
+      "actual": "3.8M",
+      "forecast": "2.8M",
+      "previous": "3.5M"
+    },
+    {
+      "date": "Feb 11, 2026",
+      "actual": "8.5M",
+      "forecast": "-0.2M",
+      "previous": "-3.5M"
+    },
+    {
+      "date": "Jan 22, 2026",
+      "actual": "3.6M",
+      "forecast": "-1.0M",
+      "previous": "3.4M"
+    }
+  ],
+  "44": [
+    {
+      "date": "Mar 18, 2026",
+      "actual": "6.2M",
+      "forecast": "-1.5M",
+      "previous": "3.8M"
+    },
+    {
+      "date": "Feb 19, 2026",
+      "actual": "-9.0M",
+      "forecast": "1.7M",
+      "previous": "8.5M"
+    },
+    {
+      "date": "Jan 28, 2026",
+      "actual": "-2.3M",
+      "forecast": "-0.2M",
+      "previous": "3.6M"
+    }
+  ],
+  "45": [
+    {
+      "date": "Feb 25, 2026",
+      "actual": "16.0M",
+      "forecast": "1.8M",
+      "previous": "-9.0M"
+    }
+  ],
+  "46": [
+    {
+      "date": "Mar 5, 2026",
+      "actual": "-132B",
+      "forecast": "-122B",
+      "previous": "-52B"
+    },
+    {
+      "date": "Feb 5, 2026",
+      "actual": "-360B",
+      "forecast": "-379B",
+      "previous": "-242B"
+    },
+    {
+      "date": "Jan 15, 2026",
+      "actual": "-71B",
+      "forecast": "-89B",
+      "previous": "-119B"
+    }
+  ],
+  "47": [
+    {
+      "date": "Mar 12, 2026",
+      "actual": "-38B",
+      "forecast": "-42B",
+      "previous": "-132B"
+    },
+    {
+      "date": "Feb 12, 2026",
+      "actual": "-249B",
+      "forecast": "-256B",
+      "previous": "-360B"
+    },
+    {
+      "date": "Jan 22, 2026",
+      "actual": "-120B",
+      "forecast": "-90B",
+      "previous": "-71B"
+    }
+  ],
+  "48": [
+    {
+      "date": "Mar 19, 2026",
+      "actual": "35B",
+      "forecast": "39B",
+      "previous": "-38B"
+    },
+    {
+      "date": "Feb 19, 2026",
+      "actual": "-144B",
+      "forecast": "-148B",
+      "previous": "-249B"
+    },
+    {
+      "date": "Jan 29, 2026",
+      "actual": "-242B",
+      "forecast": "-237B",
+      "previous": "-120B"
+    }
+  ],
+  "49": [
+    {
+      "date": "Feb 26, 2026",
+      "actual": "-52B",
+      "forecast": "-36B",
+      "previous": "-144B"
+    }
+  ],
+  "50": [
+    {
+      "date": "Mar 12, 2026",
+      "actual": "1.49M",
+      "forecast": "1.34M",
+      "previous": "1.39M"
+    },
+    {
+      "date": "Feb 18, 2026",
+      "actual": "1.40M",
+      "forecast": "1.31M",
+      "previous": "1.32M"
+    },
+    {
+      "date": "Jan 9, 2026",
+      "actual": "1.25M",
+      "forecast": "1.33M",
+      "previous": "1.31M"
+    },
+    {
+      "date": "Sep 17, 2025",
+      "actual": "1.31M",
+      "forecast": "1.37M",
+      "previous": "1.43M"
+    },
+    {
+      "date": "Aug 19, 2025",
+      "actual": "1.43M",
+      "forecast": "1.29M",
+      "previous": "1.36M"
+    },
+    {
+      "date": "Jul 18, 2025",
+      "actual": "1.32M",
+      "forecast": "1.29M",
+      "previous": "1.26M"
+    },
+    {
+      "date": "Jun 18, 2025",
+      "actual": "1.26M",
+      "forecast": "1.35M",
+      "previous": "1.39M"
+    }
+  ],
+  "51": [
+    {
+      "date": "Mar 12, 2026",
+      "actual": "1.38M",
+      "forecast": "1.42M",
+      "previous": "1.45M"
+    },
+    {
+      "date": "Feb 18, 2026",
+      "actual": "1.45M",
+      "forecast": "1.40M",
+      "previous": "1.39M"
+    },
+    {
+      "date": "Jan 9, 2026",
+      "actual": "1.41M",
+      "forecast": "1.35M",
+      "previous": "1.42M"
+    },
+    {
+      "date": "Sep 17, 2025",
+      "actual": "1.31M",
+      "forecast": "1.37M",
+      "previous": "1.35M"
+    },
+    {
+      "date": "Aug 19, 2025",
+      "actual": "1.35M",
+      "forecast": "1.39M",
+      "previous": "1.40M"
+    },
+    {
+      "date": "Jul 18, 2025",
+      "actual": "1.40M",
+      "forecast": "1.39M",
+      "previous": "1.39M"
+    },
+    {
+      "date": "Jun 18, 2025",
+      "actual": "1.39M",
+      "forecast": "1.42M",
+      "previous": "1.42M"
+    }
+  ]
 }
