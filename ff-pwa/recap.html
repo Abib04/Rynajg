@@ -4,83 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recap Tahunan - Forex Factory Data</title>
+    <title>Forex Factory Data - Yearly Recap</title>
 
     <!-- PWA Requirements -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#121826">
+    <link rel="apple-touch-icon" href="icon-192.png">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .recap-table th {
-            font-size: 0.75rem;
-            padding: 0.5rem 0.25rem;
-            white-space: nowrap;
-        }
-        .recap-table td {
-            font-size: 0.7rem;
-            padding: 0.4rem 0.25rem;
-            border: 1px solid #1e293b;
-        }
-        .val-pair {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-        }
-        .val-act { font-weight: 700; color: #f8fafc; }
-        .val-fore { font-size: 0.65rem; color: #94a3b8; }
-        
-        .bg-odd { background-color: #0f172a; }
-        .bg-even { background-color: #1e293b; }
-        
-        .sticky-col {
-            position: sticky;
-            left: 0;
-            background-color: #111827;
-            z-index: 10;
-            border-right: 2px solid #334155;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="dashboard-container" style="max-width: 98%;">
+    <div class="dashboard-container">
         <!-- Header Section -->
         <header class="dashboard-header">
             <div class="header-content">
                 <div>
-                    <h1>Recap Tahunan (1 Tahun Terakhir)</h1>
-                    <p class="subtitle">Rekapitulasi Data Actual / Forecast bulanan</p>
+                    <h1>1-Year Data Recap</h1>
+                    <p class="subtitle">Monthly Actual & Forecast Summary</p>
                 </div>
                 <div class="header-actions">
-                    <a href="index.html" class="btn-primary" style="background: #334155; text-decoration: none; display: inline-flex; align-items: center;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
-                            <polyline points="15 18 9 12 15 6"></polyline>
+                    <div class="status-indicator">
+                        <span class="dot"></span>
+                        <span id="last-updated">Menunggu Data...</span>
+                    </div>
+                    <a href="index.html" class="btn-primary" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); margin-right: 0.5rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
                         </svg>
-                        Kembali Ke Dashboard
+                        Back to Dashboard
+                    </a>
+                    <button id="refresh-btn" class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 2v6h-6"></path>
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                            <path d="M3 3v6h6"></path>
+                        </svg>
+                        Perbarui Data
+                    </button>
+                    <button id="export-recap-btn" class="btn-primary" style="background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); margin-left: 0.5rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Export Excel
                     </button>
                 </div>
             </div>
         </header>
 
         <!-- Main Content -->
-        <main class="dashboard-main">
-            <div class="table-card">
-                <div class="table-responsive" style="max-height: 80vh;">
-                    <table id="recap-table" class="recap-table">
-                        <thead id="recap-head">
-                            <!-- Months will be injected here -->
+        <main class="dashboard-main" style="max-width: 100%; padding-left: 1rem; padding-right: 1rem;">
+            <div class="table-card" style="overflow-x: auto;">
+                <div class="table-responsive">
+                    <table id="recap-table" style="min-width: 1600px;">
+                        <thead id="recap-thead">
+                            <!-- Dynamic headers based on months -->
                         </thead>
                         <tbody id="recap-body">
                             <tr>
-                                <td colspan="13" class="loading-cell">
-                                    <div class="loader"></div>
-                                    <p>Menyusun rekapitulasi data...</p>
+                                <td colspan="15" class="loading-cell text-center" style="padding: 2rem;">
+                                    <div class="loader" style="margin: 0 auto;"></div>
+                                    <p style="margin-top: 1rem;">Mengambil data dari server...</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -90,6 +82,9 @@
         </main>
     </div>
 
+    <!-- ExcelJS for styled Excel export -->
+    <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+    <!-- Recap Logic -->
     <script src="recap.js"></script>
 </body>
 

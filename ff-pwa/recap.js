@@ -1,127 +1,280 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    const recapHead = document.getElementById('recap-head');
-    const recapBody = document.getElementById('recap-body');
+document.addEventListener('DOMContentLoaded', () => {
+    const recapTbody = document.getElementById('recap-body');
+    const recapThead = document.getElementById('recap-thead');
+    const refreshBtn = document.getElementById('refresh-btn');
+    const lastUpdatedEl = document.getElementById('last-updated');
+    const statusDot = document.querySelector('.status-indicator .dot');
+    const exportBtn = document.getElementById('export-recap-btn');
 
-    // Identical list to app.js for consistent ordering
-    const targetIndicators = [
-        { id: 1, name: "CPI (Consumer Price Index)" },
-        { id: 2, name: "Core CPI" },
-        { id: 3, name: "PPI (Producer Price Index)" },
-        { id: 4, name: "Core PPI (Producer Price Index)" },
-        { id: 5, name: "Import/Export Prices" },
-        { id: 6, name: "PCE/Core PCE" },
-        { id: 7, name: "Non-farm Payrolls" },
-        { id: 8, name: "Non-Farm Employment Change" },
-        { id: 9, name: "Unemployment Rate" },
-        { id: 10, name: "Employment Change" },
-        { id: 11, name: "Average Hourly Earnings" },
-        { id: 12, name: "Unemployment Claims (W1)" },
-        { id: 13, name: "Unemployment Claims (W2)" },
-        { id: 14, name: "Unemployment Claims (W3)" },
-        { id: 15, name: "Unemployment Claims (W4)" },
-        { id: 16, name: "ADP Non-Farm Employment Change" },
-        { id: 17, name: "GDP (q/q)" },
-        { id: 18, name: "Final GDP" },
-        { id: 19, name: "Flash GDP" },
-        { id: 20, name: "Industrial Production" },
-        { id: 21, name: "Capacity Utilization" },
-        { id: 22, name: "Retail Sales" },
-        { id: 23, name: "Core Retail Sales" },
-        { id: 24, name: "Personal Spending" },
-        { id: 25, name: "Personal Income" },
-        { id: 26, name: "US ISM Manufacturing PMI" },
-        { id: 27, name: "US ISM Services PMI" },
-        { id: 28, name: "Composite PMI" },
-        { id: 29, name: "US CB Consumer Confidence" },
-        { id: 30, name: "Business Confidence" },
-        { id: 31, name: "ZEW Economic Sentiment" },
-        { id: 32, name: "Interest Rate Decision" },
-        { id: 33, name: "Monetary Policy Statement" },
-        { id: 34, name: "FOMC Minutes" },
-        { id: 35, "name": "Central Bank Press Conference" },
-        { id: 36, "name": "Governor Speech" },
-        { id: 37, "name": "Trade Balance" },
-        { id: 38, "name": "Current Account" },
-        { id: 39, "name": "Foreign Investment" },
-        { id: 40, "name": "Capital Flows" },
-        { id: 41, "name": "Bond Auctions (10Y)" },
-        { id: 42, "name": "Crude Oil Inventories (W1)" },
-        { id: 43, "name": "Crude Oil Inventories (W2)" },
-        { id: 44, "name": "Crude Oil Inventories (W3)" },
-        { id: 45, "name": "Crude Oil Inventories (W4)" },
-        { id: 47, "name": "Natural Gas Storage (W1)" },
-        { id: 48, "name": "Natural Gas Storage (W2)" },
-        { id: 49, "name": "Natural Gas Storage (W3)" },
-        { id: 50, "name": "Natural Gas Storage (W4)" },
-        { id: 51, "name": "Housing Starts" },
-        { id: 52, "name": "Building Permits" }
-    ];
+    let allFetchedData = []; 
+    let uniqueMonths = [];
+    let groupedData = {}; // { [indicatorId]: { name, category, data: { [month]: row } } }
 
-    const fetchAllData = async () => {
+    const yellowIds = new Set([17, 18, 19, 20, 21, 30, 31, 33, 34, 35, 36, 38, 39, 40]);
+
+    // Used to order the indicators properly (same as defaultIndicators logic)
+    const renderTable = () => {
+        // Build table header with months (reverse chronological - newest to oldest from left to right)
+        // Or oldest to newest? Let's do newest to oldest left to right, or follow natural reading.
+        // Let's do natural reading: oldest on the left, newest on the right
+        const sortedMonths = [...uniqueMonths].reverse(); 
+        
+        let headerHtml = `
+            <tr>
+                <th rowspan="2" class="col-xs text-center" style="width: 50px;">No</th>
+                <th rowspan="2" class="col-lg" style="min-width: 250px;">Indicators</th>
+                <th rowspan="2" class="col-md text-center" style="min-width: 150px;">Category</th>
+        `;
+
+        // Month headers
+        sortedMonths.forEach(month => {
+            headerHtml += `<th colspan="2" class="text-center highlight-group">${month}</th>`;
+        });
+        headerHtml += `</tr><tr>`;
+
+        // Actual / Forecast subheaders
+        sortedMonths.forEach(() => {
+            headerHtml += `
+                <th class="text-center th-sub" style="min-width: 80px;">Actual</th>
+                <th class="text-center th-sub" style="min-width: 80px;">Forecast</th>
+            `;
+        });
+        headerHtml += `</tr>`;
+        recapThead.innerHTML = headerHtml;
+
+        // Build table rows
+        let rowsHtml = '';
+        
+        // Ensure order 1-52
+        const ids = Object.keys(groupedData).map(Number).sort((a,b) => a - b);
+        
+        ids.forEach(indId => {
+            const ind = groupedData[indId];
+            const isYellow = yellowIds.has(indId);
+            
+            rowsHtml += `<tr class="${isYellow ? 'bg-yellow' : ''}">`;
+            rowsHtml += `<td class="text-center text-muted">${indId}</td>`;
+            rowsHtml += `<td class="indicator-name" title="${ind.name}">${ind.name}</td>`;
+            rowsHtml += `<td class="text-center text-muted" style="font-weight: 500;">${ind.category || '-'}</td>`;
+
+            sortedMonths.forEach(month => {
+                const dataForMonth = ind.data[month];
+                if (dataForMonth) {
+                    let actClass = '';
+                    const act = parseFloat(dataForMonth.actual);
+                    const fore = parseFloat(dataForMonth.forecast);
+                    if (!isNaN(act) && !isNaN(fore)) {
+                        actClass = act > fore ? 'val-up' : (act < fore ? 'val-down' : '');
+                    }
+                    rowsHtml += `<td class="text-center data-cell fw-bold ${actClass}">${dataForMonth.actual || '-'}</td>`;
+                    rowsHtml += `<td class="text-center data-cell text-muted">${dataForMonth.forecast || '-'}</td>`;
+                } else {
+                    rowsHtml += `<td class="text-center text-muted">-</td>`;
+                    rowsHtml += `<td class="text-center text-muted">-</td>`;
+                }
+            });
+
+            rowsHtml += `</tr>`;
+        });
+
+        recapTbody.innerHTML = rowsHtml;
+    };
+
+    const processData = (rawArray) => {
+        // Assume rawArray contains { id, name, category, monthYear, actual, forecast, ... } for passing 12 months * 52 indicators
+        uniqueMonths = [...new Set(rawArray.map(d => d.monthYear))];
+        groupedData = {};
+
+        rawArray.forEach(row => {
+            const id = parseInt(row.id);
+            if (!groupedData[id]) {
+                groupedData[id] = {
+                    name: row.name,
+                    category: row.category,
+                    data: {} // monthYear -> row
+                };
+            }
+            groupedData[id].data[row.monthYear] = row;
+        });
+
+        renderTable();
+    };
+
+    const fetchRecapData = async () => {
         try {
+            refreshBtn.classList.add('rotating');
+            statusDot.classList.remove('active');
+            statusDot.style.backgroundColor = '#f59e0b';
+
             const response = await fetch('/api/scrape');
+            if (!response.ok) throw new Error("HTTP Error " + response.status);
+
             const result = await response.json();
+            
             if (result.success && result.data) {
-                renderRecap(result.data);
+                allFetchedData = result.data;
+                const timeStr = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                lastUpdatedEl.textContent = `Pembaruan Terakhir: ${timeStr} ${result.cached ? '(Cache)' : '(Real)'}`;
+                
+                statusDot.style.backgroundColor = '';
+                statusDot.classList.add('active');
+
+                processData(allFetchedData);
             } else {
-                recapBody.innerHTML = '<tr><td colspan="13" class="text-center text-danger">Gagal memuat data.</td></tr>';
+                throw new Error("Failed to parse recap data");
             }
         } catch (error) {
-            console.error("Error fetching recap data:", error);
-            recapBody.innerHTML = '<tr><td colspan="13" class="text-center text-danger">Koneksi gagal.</td></tr>';
+            console.error("Fetch Error:", error);
+            lastUpdatedEl.textContent = "Gagal mengambil data";
+            statusDot.style.backgroundColor = '#ef4444';
+            recapTbody.innerHTML = `<tr><td colspan="30" class="text-center text-danger" style="padding:2rem;">Koneksi Gagal. Coba lagi.</td></tr>`;
+        } finally {
+            setTimeout(() => { refreshBtn.classList.remove('rotating'); }, 500);
         }
     };
 
-    const renderRecap = (allData) => {
-        // 1. Get last 12 months in descending order (newest first)
-        const monthsInOrder = [...new Set(allData.map(d => d.monthYear))].filter(Boolean).slice(0, 12);
+    // Export to Excel handling
+    exportBtn.addEventListener('click', async () => {
+        if (allFetchedData.length === 0) {
+            alert('Belum ada data untuk diekspor!');
+            return;
+        }
 
-        // 2. Build Header
-        let headerHtml = `<tr><th class="sticky-col" style="min-width: 250px;">Indicators</th>`;
-        monthsInOrder.forEach(month => {
-            // Shorten month names for table header (e.g. "Maret 2026" -> "Mar '26")
-            const parts = month.split(' ');
-            const monthShort = parts[0].substring(0, 3);
-            const yearShort = parts[1].substring(2);
-            headerHtml += `<th class="text-center">${monthShort} '${yearShort}</th>`;
+        const sortedMonths = [...uniqueMonths].reverse();
+        const ids = Object.keys(groupedData).map(Number).sort((a,b) => a - b);
+        
+        const workbook = new ExcelJS.Workbook();
+        const sheet = workbook.addWorksheet('Yearly Recap');
+
+        // Styles
+        const border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+        const headerFont = { bold: true, color: { argb: 'FFFFFFFF' }, size: 9 };
+        const headerFill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1F3864' } };
+        const subHeaderFill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF2E4796' } };
+        const titleFill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1A1A2E' } };
+        const yellowFill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFFF00' } };
+
+        // Define column widths
+        const cols = [
+            { width: 5 },  // No
+            { width: 30 }, // Indicators
+            { width: 20 }, // Category
+        ];
+        sortedMonths.forEach(() => {
+            cols.push({ width: 10 }); // Actual
+            cols.push({ width: 10 }); // Forecast
         });
-        headerHtml += `</tr>`;
-        recapHead.innerHTML = headerHtml;
+        sheet.columns = cols;
+        const FULL_COLS = cols.length;
 
-        // 3. Build Body per Indicator
-        let bodyHtml = '';
-        targetIndicators.forEach((ind, i) => {
-            bodyHtml += `<tr class="${i % 2 === 0 ? 'bg-even' : 'bg-odd'}">`;
-            bodyHtml += `<td class="sticky-col" style="font-weight: 600; color: #cbd5e1;">${ind.name}</td>`;
+        // Title Row
+        const titleRow = sheet.addRow(['FOREX FACTORY - 1 YEAR RECAP']);
+        sheet.mergeCells(1, 1, 1, FULL_COLS);
+        titleRow.getCell(1).font = { bold: true, size: 14, color: { argb: 'FFFFFFFF' } };
+        titleRow.getCell(1).alignment = { horizontal: 'left', vertical: 'middle' };
+        titleRow.getCell(1).fill = titleFill;
+        titleRow.height = 25;
+        
+        sheet.addRow([]);
 
-            monthsInOrder.forEach(month => {
-                const entry = allData.find(d => d.id === ind.id && d.monthYear === month);
-                if (entry && (entry.actual !== '-' || entry.forecast !== '-')) {
-                    
-                    let colorClass = '';
-                    if (entry.actual !== '-' && entry.forecast !== '-') {
-                        const act = parseFloat(entry.actual);
-                        const fore = parseFloat(entry.forecast);
-                        if (!isNaN(act) && !isNaN(fore)) {
-                            colorClass = act > fore ? 'val-up' : (act < fore ? 'val-down' : '');
-                        }
-                    }
+        // Main Headers (Row 3)
+        const h1 = sheet.addRow(['No', 'Indicators', 'Category']);
+        const h2 = sheet.addRow(['', '', '']); // Sub-headers (Row 4)
+        
+        h1.height = 20;
+        h2.height = 18;
 
-                    bodyHtml += `
-                        <td class="text-center">
-                            <div class="val-pair">
-                                <span class="val-act ${colorClass}">${entry.actual || '-'}</span>
-                                <span class="val-fore">${entry.forecast === '-' ? '' : 'F: ' + entry.forecast}</span>
-                            </div>
-                        </td>`;
-                } else {
-                    bodyHtml += `<td class="text-center text-muted">-</td>`;
-                }
+        // Merge first 3 columns
+        sheet.mergeCells(3, 1, 4, 1);
+        sheet.mergeCells(3, 2, 4, 2);
+        sheet.mergeCells(3, 3, 4, 3);
+        
+        // Format first 3 headers
+        for(let i=1; i<=3; i++) {
+            const cell = h1.getCell(i);
+            cell.font = headerFont;
+            cell.fill = headerFill;
+            cell.alignment = { horizontal: 'center', vertical: 'middle' };
+            cell.border = border;
+            h2.getCell(i).border = border;
+        }
+
+        // Add Month Headers
+        let colIdx = 4;
+        sortedMonths.forEach(month => {
+            const cell = h1.getCell(colIdx);
+            cell.value = month;
+            cell.font = headerFont;
+            cell.fill = headerFill;
+            cell.alignment = { horizontal: 'center', vertical: 'middle' };
+            cell.border = border;
+            
+            // Merge month title over Actual & Forecast
+            sheet.mergeCells(3, colIdx, 3, colIdx + 1);
+            h1.getCell(colIdx+1).border = border;
+
+            // Sub headers
+            const subAct = h2.getCell(colIdx);
+            subAct.value = 'Actual';
+            subAct.font = headerFont;
+            subAct.fill = subHeaderFill;
+            subAct.alignment = { horizontal: 'center', vertical: 'middle' };
+            subAct.border = border;
+
+            const subFore = h2.getCell(colIdx + 1);
+            subFore.value = 'Forecast';
+            subFore.font = headerFont;
+            subFore.fill = subHeaderFill;
+            subFore.alignment = { horizontal: 'center', vertical: 'middle' };
+            subFore.border = border;
+
+            colIdx += 2;
+        });
+
+        // Add Data Rows
+        ids.forEach(indId => {
+            const ind = groupedData[indId];
+            const isYellow = yellowIds.has(indId);
+            const rowFill = isYellow ? yellowFill : null;
+            
+            const rowData = [indId, ind.name, ind.category];
+            sortedMonths.forEach(month => {
+                const dataForMonth = ind.data[month] || {};
+                rowData.push(dataForMonth.actual || '-');
+                rowData.push(dataForMonth.forecast || '-');
             });
-            bodyHtml += `</tr>`;
-        });
-        recapBody.innerHTML = bodyHtml;
-    }
+            
+            const dataRow = sheet.addRow(rowData);
+            dataRow.height = 16;
+            
+            for(let c=1; c<=FULL_COLS; c++) {
+                const cell = dataRow.getCell(c);
+                cell.font = { size: 9, color: { argb: 'FF000000' } };
+                cell.border = border;
+                
+                if (c <= 2) cell.alignment = { horizontal: 'left', vertical: 'middle' };
+                else cell.alignment = { horizontal: 'center', vertical: 'middle' };
+                
+                if (rowFill) cell.fill = rowFill;
 
-    fetchAllData();
+                // Colorize actual based on actual > forecast? Can do optionally.
+                // Keeping black for standard print view
+            }
+        });
+
+        // Download
+        const buffer = await workbook.xlsx.writeBuffer();
+        const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `ForexFactory_Yearly_Recap.xlsx`;
+        a.click();
+        URL.revokeObjectURL(url);
+    });
+
+    refreshBtn.addEventListener('click', fetchRecapData);
+
+    // Initial load
+    fetchRecapData();
 });

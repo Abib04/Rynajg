@@ -9,7 +9,7 @@ import traceback
 
 app = Flask(__name__)
 CORS(app)
-PORT = 5000
+PORT = 3000
 
 @app.route('/api/health')
 def health():
@@ -138,7 +138,7 @@ def scrape_forex_history(url):
             return {"error": f"Blocked by Cloudflare/Protection: {html_title}", "html_title": html_title}
 
         # Try multiple table classes often used for History
-        table = soup.find('table', class_=re.compile(r'calendar__(history-)?table|calendar__history|history__table'))
+        table = soup.find('table', class_=re.compile(r'calendar__(history-)?table'))
         if not table:
             # Fallback: find any table that has headers like 'Actual' or 'History'
             all_tables = soup.find_all('table')
@@ -165,12 +165,6 @@ def scrape_forex_history(url):
             actual_td = row.find('td', class_=re.compile(r'actual'))
             forecast_td = row.find('td', class_=re.compile(r'forecast'))
             previous_td = row.find('td', class_=re.compile(r'previous'))
-            
-            # Fallback to nth-child if classes are missing
-            if not date_td or not actual_td:
-                tds = row.find_all('td')
-                if len(tds) >= 8:
-                    date_td, actual_td, forecast_td, previous_td = tds[0], tds[5], tds[6], tds[7]
             
             if date_td and actual_td:
                 date_text = date_td.get_text(separator=" ", strip=True) 
@@ -385,32 +379,21 @@ def scrape_api():
                         if e_date.startswith(current_month_en) and e_date.endswith(current_year_str):
                             month_entries.append(entry)
                     
-                    # Sort entries by day number (descending to get latest easily if needed)
+                    # Sort entries by day number
                     def extract_day(e):
                         d_m = re.search(r'(\d{1,2})', e['date'])
                         return int(d_m.group(1)) if d_m else 0
+                    month_entries.sort(key=extract_day)
                     
-                    month_entries.sort(key=extract_day) # Ascending: [Week 1, Week 2, ...]
-                    
-                    if week_match:
-                        # For W1, W2, etc. pick the specific occurrence
-                        if len(month_entries) >= target_occurrence:
-                            entry = month_entries[target_occurrence - 1]
-                            found_real = True
-                    else:
-                        # For normal indicators, if there are multiple, take the LATEST one in the month
-                        # (as requested by user: "ambil paling baru saja")
-                        if month_entries:
-                            entry = month_entries[-1] # Last element after ascending sort is the latest day
-                            found_real = True
-
-                    if found_real:
+                    if len(month_entries) >= target_occurrence:
+                        entry = month_entries[target_occurrence - 1]
                         result_row['date'] = entry['date']
                         result_row['actual'] = entry['actual']
                         result_row['forecast'] = entry['forecast']
                         result_row['last'] = entry['previous']
                         result_row['movementBefore'] = entry.get('movementBefore', '')
                         result_row['movementAfter'] = entry.get('movementAfter', '')
+                        found_real = True
 
                 if not found_real and indicator['dateType'] == 'specific':
                     try:

@@ -131,42 +131,21 @@ app.get('/api/scrape', async (req, res) => {
                 };
 
                 // Check if we have real data for this indicator
+                const history = historyData[indicator.id];
+                let foundReal = false;
+
                 if (history && Array.isArray(history)) {
-                    // Sort history for this indicator by day (ascending) to make finding latest easier
-                    const monthEntries = history.filter(entry => {
+                    // Find record matching month and year. FF format: "Feb 13, 2026"
+                    const match = history.find(entry => {
                         return entry.date.startsWith(currentMonthEn) && entry.date.endsWith(currentYearStr);
                     });
 
-                    if (monthEntries.length > 0) {
-                        // Sort by day number
-                        monthEntries.sort((a, b) => {
-                            const dayAMatch = a.date.match(/\s+(\d{1,2}),/);
-                            const dayBMatch = b.date.match(/\s+(\d{1,2}),/);
-                            const dayA = dayAMatch ? parseInt(dayAMatch[1]) : 0;
-                            const dayB = dayBMatch ? parseInt(dayBMatch[1]) : 0;
-                            return dayA - dayB;
-                        });
-
-                        // Check for Weekly occurrence (W1, W2, etc.)
-                        const weekMatch = indicator.name.match(/\(W(\d)\)/);
-                        const targetOccurrence = weekMatch ? parseInt(weekMatch[1]) : 0;
-
-                        let match;
-                        if (targetOccurrence > 0) {
-                            // For W1, W2, etc. pick the specific occurrence
-                            match = monthEntries[targetOccurrence - 1];
-                        } else {
-                            // For normal indicators, take the LATEST one
-                            match = monthEntries[monthEntries.length - 1];
-                        }
-
-                        if (match) {
-                            resultRow.date = match.date;
-                            resultRow.actual = match.actual;
-                            resultRow.forecast = match.forecast;
-                            resultRow.last = match.previous;
-                            foundReal = true;
-                        }
+                    if (match) {
+                        resultRow.date = match.date;
+                        resultRow.actual = match.actual;
+                        resultRow.forecast = match.forecast;
+                        resultRow.last = match.previous;
+                        foundReal = true;
                     }
                 }
 
@@ -196,38 +175,6 @@ app.get('/api/scrape', async (req, res) => {
             error: error.message
         });
     }
-});
-
-// Proxy endpoints to Python backend (port 5000) for sync and manual save
-const http = require('http');
-
-const proxyToPython = (req, res) => {
-    const options = {
-        hostname: 'localhost',
-        port: 5000,
-        path: req.url,
-        method: req.method,
-        headers: req.headers
-    };
-
-    const proxyReq = http.request(options, (proxyRes) => {
-        res.writeHead(proxyRes.statusCode, proxyRes.headers);
-        proxyRes.pipe(res, { end: true });
-    });
-
-    req.pipe(proxyReq, { end: true });
-
-    proxyReq.on('error', (e) => {
-        console.error(`Proxy error: ${e.message}`);
-        res.status(502).json({ success: false, message: "Python backend not reachable on port 5000" });
-    });
-};
-
-app.post('/api/sync-history', proxyToPython);
-app.post('/api/save_manual_data', proxyToPython);
-app.get('/api/indicators', (req, res) => {
-    // Return the indicators from server.js config
-    res.json({ success: true, data: targetIndicators });
 });
 
 app.listen(PORT, () => {
