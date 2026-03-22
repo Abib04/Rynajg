@@ -39,13 +39,13 @@ targetIndicators = [
     # Labour
     { "id": 7, "name": "Non-farm Payrolls", "category": "Labour", "dateType": "specific", "day": 6, "refUrl": "https://www.forexfactory.com/calendar/66-us-non-farm-employment-change" },
     { "id": 8, "name": "Non-Farm Employment Change", "category": "Labour", "dateType": "specific", "day": 6, "refUrl": "https://www.forexfactory.com/calendar/66-us-non-farm-employment-change" },
-    { "id": 9, "name": "Unemployment Rate", "category": "Labour", "dateType": "specific", "day": 6, "refUrl": "https://www.forexfactory.com/calendar/56-us-unemployment-rate" },
-    { "id": 10, "name": "Employment Change", "category": "Labour", "dateType": "specific", "day": 15, "refUrl": "https://www.forexfactory.com/calendar/66-us-non-farm-employment-change" },
-    { "id": 11, "name": "Average Hourly Earnings", "category": "Labour", "dateType": "specific", "day": 6, "refUrl": "https://www.forexfactory.com/calendar/159-us-average-hourly-earnings-mm" },
-    { "id": 12, "name": "Unemployment Claims (W1)", "category": "Labour", "dateType": "specific", "day": 5, "refUrl": "https://www.forexfactory.com/calendar/11-us-unemployment-claims" },
-    { "id": 13, "name": "Unemployment Claims (W2)", "category": "Labour", "dateType": "specific", "day": 12, "refUrl": "https://www.forexfactory.com/calendar/11-us-unemployment-claims" },
-    { "id": 14, "name": "Unemployment Claims (W3)", "category": "Labour", "dateType": "specific", "day": 19, "refUrl": "https://www.forexfactory.com/calendar/11-us-unemployment-claims" },
-    { "id": 15, "name": "Unemployment Claims (W4)", "category": "Labour", "dateType": "specific", "day": 26, "refUrl": "https://www.forexfactory.com/calendar/11-us-unemployment-claims" },
+    { "id": 9, "name": "Unemployment Rate", "category": "Labour", "dateType": "specific", "day": 6, "impact": "high", "better": -1, "refUrl": "https://www.forexfactory.com/calendar/56-us-unemployment-rate" },
+    { "id": 10, "name": "Employment Change", "category": "Labour", "dateType": "specific", "day": 15, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/66-us-non-farm-employment-change" },
+    { "id": 11, "name": "Average Hourly Earnings", "category": "Labour", "dateType": "specific", "day": 6, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/159-us-average-hourly-earnings-mm" },
+    { "id": 12, "name": "Unemployment Claims (W1)", "category": "Labour", "dateType": "specific", "day": 5, "impact": "high", "better": -1, "refUrl": "https://www.forexfactory.com/calendar/11-us-unemployment-claims" },
+    { "id": 13, "name": "Unemployment Claims (W2)", "category": "Labour", "dateType": "specific", "day": 12, "impact": "high", "better": -1, "refUrl": "https://www.forexfactory.com/calendar/11-us-unemployment-claims" },
+    { "id": 14, "name": "Unemployment Claims (W3)", "category": "Labour", "dateType": "specific", "day": 19, "impact": "high", "better": -1, "refUrl": "https://www.forexfactory.com/calendar/11-us-unemployment-claims" },
+    { "id": 15, "name": "Unemployment Claims (W4)", "category": "Labour", "dateType": "specific", "day": 26, "impact": "high", "better": -1, "refUrl": "https://www.forexfactory.com/calendar/11-us-unemployment-claims" },
     { "id": 16, "name": "ADP Non-Farm Employment Change", "category": "Labour", "dateType": "specific", "day": 5, "refUrl": "https://www.forexfactory.com/calendar/75-us-adp-non-farm-employment-change" },
 
     # Economy Growth
@@ -97,13 +97,13 @@ targetIndicators = [
     { "id": 52, "name": "Miscellaneous", "category": "Others", "dateType": "specific", "day": 15, "refUrl": "https://www.forexfactory.com/" },
 
     # Australia
-    { "id": 101, "name": "RBA Rate Statement", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/22-au-rba-rate-statement" },
-    { "id": 102, "name": "CPI q/q", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/38-au-cpi-qq" },
-    { "id": 103, "name": "PPI q/q", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/37-au-ppi-qq" },
-    { "id": 104, "name": "GDP q/q", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/31-au-gdp-qq" },
-    { "id": 105, "name": "Retail Sales m/m", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/110-au-retail-sales-mm" },
-    { "id": 106, "name": "Unemployment Rate", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/54-au-unemployment-rate" },
-    { "id": 107, "name": "Employment Change", "category": "Australia", "dateType": "specific", "day": 1, "refUrl": "https://www.forexfactory.com/calendar/73-au-employment-change" }
+    { "id": 101, "name": "RBA Rate Statement", "category": "Australia", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/22-au-rba-rate-statement" },
+    { "id": 102, "name": "CPI q/q", "category": "Australia", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/38-au-cpi-qq" },
+    { "id": 103, "name": "PPI q/q", "category": "Australia", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/37-au-ppi-qq" },
+    { "id": 104, "name": "GDP q/q", "category": "Australia", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/31-au-gdp-qq" },
+    { "id": 105, "name": "Retail Sales m/m", "category": "Australia", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/110-au-retail-sales-mm" },
+    { "id": 106, "name": "Unemployment Rate", "category": "Australia", "dateType": "specific", "day": 1, "impact": "high", "better": -1, "refUrl": "https://www.forexfactory.com/calendar/54-au-unemployment-rate" },
+    { "id": 107, "name": "Employment Change", "category": "Australia", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/73-au-employment-change" }
 ]
 
 import urllib.request

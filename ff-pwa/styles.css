@@ -267,13 +267,42 @@ tbody tr:hover td {
 }
 
 .val-up {
-    color: #22c55e;
+    color: #22c55e !important;
     font-weight: 600;
 }
 
 .val-down {
-    color: #ef4444;
+    color: #ef4444 !important;
     font-weight: 600;
+}
+
+/* Impact Badge/Dot */
+.impact-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.impact-high {
+    background-color: #ef4444; /* Red */
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+}
+
+.impact-medium {
+    background-color: #f59e0b; /* Orange */
+    box-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+}
+
+.impact-low {
+    background-color: #eab308; /* Yellow */
+}
+
+.indicator-name-container {
+    display: flex;
+    align-items: center;
 }
 
 /* Links */

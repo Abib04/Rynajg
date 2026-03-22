@@ -54,17 +54,29 @@ document.addEventListener('DOMContentLoaded', () => {
             
             rowsHtml += `<tr class="${isYellow ? 'bg-yellow' : ''}">`;
             rowsHtml += `<td class="text-center text-muted">${indId}</td>`;
-            rowsHtml += `<td class="indicator-name" title="${ind.name}">${ind.name}</td>`;
+            rowsHtml += `<td class="indicator-name" title="${ind.name}">
+                <div class="indicator-name-container">
+                    ${ind.impact ? `<span class="impact-dot impact-${ind.impact}"></span>` : ''}
+                    ${ind.name}
+                </div>
+            </td>`;
             rowsHtml += `<td class="text-center text-muted" style="font-weight: 500;">${ind.category || '-'}</td>`;
 
             sortedMonths.forEach(month => {
                 const dataForMonth = ind.data[month];
                 if (dataForMonth) {
                     let actClass = '';
-                    const act = parseFloat(dataForMonth.actual);
-                    const fore = parseFloat(dataForMonth.forecast);
-                    if (!isNaN(act) && !isNaN(fore)) {
-                        actClass = act > fore ? 'val-up' : (act < fore ? 'val-down' : '');
+                    if (dataForMonth.actual && dataForMonth.forecast && dataForMonth.actual !== '-' && dataForMonth.forecast !== '-') {
+                        const act = parseFloat(dataForMonth.actual.replace(/[^0-9.-]/g, ''));
+                        const fore = parseFloat(dataForMonth.forecast.replace(/[^0-9.-]/g, ''));
+                        const betterDir = ind.better || 1;
+                        if (!isNaN(act) && !isNaN(fore) && act !== fore) {
+                            if (betterDir === 1) {
+                                actClass = act > fore ? 'val-up' : 'val-down';
+                            } else {
+                                actClass = act < fore ? 'val-up' : 'val-down';
+                            }
+                        }
                     }
                     rowsHtml += `<td class="text-center data-cell fw-bold ${actClass}">${dataForMonth.actual || '-'}</td>`;
                     rowsHtml += `<td class="text-center data-cell text-muted">${dataForMonth.forecast || '-'}</td>`;
@@ -91,6 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 groupedData[id] = {
                     name: row.name,
                     category: row.category,
+                    impact: row.impact,
+                    better: row.better,
                     data: {} // monthYear -> row
                 };
             }

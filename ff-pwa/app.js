@@ -109,15 +109,24 @@ document.addEventListener('DOMContentLoaded', () => {
             // Just use a simple increment
             const visualIndex = isAu ? (seenAuIds.add(row.id), seenAuIds.size) : (seenUsIds.add(row.id), seenUsIds.size);
 
-            // Determine styling for actual vs forecast (assuming green if actual > forecast)
+            // Determine styling for actual vs forecast
             let valClass = '';
-            if (row.actual && row.forecast) {
-                const act = parseFloat(row.actual);
-                const fore = parseFloat(row.forecast);
-                if (!isNaN(act) && !isNaN(fore)) {
-                    valClass = act > fore ? 'val-up' : (act < fore ? 'val-down' : '');
+            if (row.actual && row.forecast && row.actual !== '-' && row.forecast !== '-') {
+                const act = parseFloat(row.actual.replace(/[^0-9.-]/g, ''));
+                const fore = parseFloat(row.forecast.replace(/[^0-9.-]/g, ''));
+                const betterDir = row.better || 1; // Default: Higher is better
+                if (!isNaN(act) && !isNaN(fore) && act !== fore) {
+                    if (betterDir === 1) {
+                        valClass = act > fore ? 'val-up' : 'val-down';
+                    } else {
+                        valClass = act < fore ? 'val-up' : 'val-down';
+                    }
                 }
             }
+
+            // Impact color (folder equivalent)
+            const impactClass = row.impact ? `impact-${row.impact}` : '';
+            const impactHtml = impactClass ? `<span class="impact-dot ${impactClass}"></span>` : '';
 
             // Use provided specific Reference URL or fallback
             let refUrl = row.refUrl;
@@ -129,7 +138,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowStr = `
                 <tr>
                     <td class="text-center text-muted">${visualIndex}</td>
-                    <td class="indicator-name" title="${row.name}">${row.name}</td>
+                    <td class="indicator-name" title="${row.name}">
+                        <div class="indicator-name-container">${impactHtml}${row.name}</div>
+                    </td>
                     <td class="text-center text-muted" style="font-weight: 500;">${row.category === 'Australia' ? '-' : (row.category || '-')}</td>
                     <td class="text-center">${row.date || ''}</td>
                     <td class="text-center">${row.movementBefore || '-'}</td>
