@@ -2308,5 +2308,43 @@
       "forecast": "1.42M",
       "previous": "1.42M"
     }
+  ],
+  "101": [
+    {
+      "date": "Mar 17, 2026",
+      "actual": "4.35%",
+      "forecast": "4.35%",
+      "previous": "4.35%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Feb 3, 2026",
+      "actual": "4.35%",
+      "forecast": "4.35%",
+      "previous": "4.35%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "102": [
+    {
+      "date": "Mar 25, 2026",
+      "actual": "0.8%",
+      "forecast": "0.8%",
+      "previous": "0.9%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "103": [
+    {
+      "date": "Mar 25, 2026",
+      "actual": "0.5%",
+      "forecast": "0.5%",
+      "previous": "0.6%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
   ]
 }
