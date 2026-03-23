@@ -95,53 +95,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const renderData = (dataArray) => {
         const auTableBody = document.getElementById('au-table-body');
+        const ezTableBody = document.getElementById('ez-table-body');
         let usRowsHtml = '';
         let auRowsHtml = '';
-        
-        // Use a Set to track seen indicators in the current render cycle to maintain 1-52 indexing
+        let ezRowsHtml = '';
+
         const seenUsIds = new Set();
         const seenAuIds = new Set();
-        
-        dataArray.forEach((row, index) => {
-            const isAu = parseInt(row.id) > 100 || row.category === 'Australia';
-            
-            // To ensure 1-52 index loops safely if multiple months are shown (though filtering handles that)
-            // Just use a simple increment
-            const visualIndex = isAu ? (seenAuIds.add(row.id), seenAuIds.size) : (seenUsIds.add(row.id), seenUsIds.size);
+        const seenEzIds = new Set();
 
-            // Determine styling for actual vs forecast
+        const buildRow = (row, visualIndex, categoryLabel) => {
             let valClass = '';
             if (row.actual && row.forecast && row.actual !== '-' && row.forecast !== '-') {
                 const act = parseFloat(row.actual.replace(/[^0-9.-]/g, ''));
                 const fore = parseFloat(row.forecast.replace(/[^0-9.-]/g, ''));
-                const betterDir = row.better || 1; // Default: Higher is better
+                const betterDir = row.better || 1;
                 if (!isNaN(act) && !isNaN(fore) && act !== fore) {
-                    if (betterDir === 1) {
-                        valClass = act > fore ? 'val-up' : 'val-down';
-                    } else {
-                        valClass = act < fore ? 'val-up' : 'val-down';
-                    }
+                    valClass = betterDir === 1 ? (act > fore ? 'val-up' : 'val-down') : (act < fore ? 'val-up' : 'val-down');
                 }
             }
-
-            // Impact color (folder equivalent)
             const impactClass = row.impact ? `impact-${row.impact}` : '';
             const impactHtml = impactClass ? `<span class="impact-dot ${impactClass}"></span>` : '';
+            let refUrl = row.refUrl || `https://www.forexfactory.com/calendar/${row.id}-${row.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 
-            // Use provided specific Reference URL or fallback
-            let refUrl = row.refUrl;
-            if (!refUrl) { 
-                const prefix = isAu ? "au" : "us";
-                refUrl = `https://www.forexfactory.com/calendar/${row.id}-${prefix}-${row.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
-            }
-
-            const rowStr = `
+            return `
                 <tr>
                     <td class="text-center text-muted">${visualIndex}</td>
                     <td class="indicator-name" title="${row.name}">
                         <div class="indicator-name-container">${impactHtml}${row.name}</div>
                     </td>
-                    <td class="text-center text-muted" style="font-weight: 500;">${row.category === 'Australia' ? '-' : (row.category || '-')}</td>
+                    <td class="text-center text-muted" style="font-weight: 500;">${categoryLabel}</td>
                     <td class="text-center">${row.date || ''}</td>
                     <td class="text-center">${row.movementBefore || '-'}</td>
                     <td class="text-center">${row.movementAfter || '-'}</td>
@@ -157,13 +140,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     </td>
                 </tr>
             `;
+        };
 
-            if (isAu) auRowsHtml += rowStr;
-            else usRowsHtml += rowStr;
+        dataArray.forEach((row) => {
+            const id = parseInt(row.id);
+            if (id >= 201 || row.category === 'Euro Area') {
+                seenEzIds.add(row.id);
+                ezRowsHtml += buildRow(row, seenEzIds.size, '-');
+            } else if (id >= 101 || row.category === 'Australia') {
+                seenAuIds.add(row.id);
+                auRowsHtml += buildRow(row, seenAuIds.size, '-');
+            } else {
+                seenUsIds.add(row.id);
+                usRowsHtml += buildRow(row, seenUsIds.size, row.category || '-');
+            }
         });
-        
+
         tableBody.innerHTML = usRowsHtml;
         if (auTableBody) auTableBody.innerHTML = auRowsHtml;
+        if (ezTableBody) ezTableBody.innerHTML = ezRowsHtml;
     };
 
     const fetchData = async () => {
