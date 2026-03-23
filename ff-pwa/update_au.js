@@ -4,12 +4,12 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 
 const targetIndicators = [
-    { id: 101, name: "RBA Rate Statement", category: "Australia", refUrl: "https://www.forexfactory.com/calendar/22-au-rba-rate-statement" },
-    { id: 102, name: "CPI q/q", category: "Australia", refUrl: "https://www.forexfactory.com/calendar/38-au-cpi-qq" },
-    { id: 103, name: "PPI q/q", category: "Australia", refUrl: "https://www.forexfactory.com/calendar/37-au-ppi-qq" },
+    { id: 101, name: "RBA Rate Statement", category: "Australia", refUrl: "https://www.forexfactory.com/calendar/21-au-cash-rate" },
+    { id: 102, name: "CPI m/m", category: "Australia", refUrl: "https://www.forexfactory.com/calendar/98-au-cpi-mm" },
+    { id: 103, name: "PPI q/q", category: "Australia", refUrl: "https://www.forexfactory.com/calendar/97-au-ppi-qq" },
     { id: 104, name: "GDP q/q", category: "Australia", refUrl: "https://www.forexfactory.com/calendar/31-au-gdp-qq" },
     { id: 105, name: "Retail Sales m/m", category: "Australia", refUrl: "https://www.forexfactory.com/calendar/110-au-retail-sales-mm" },
-    { id: 106, name: "Unemployment Rate", category: "Australia", refUrl: "https://www.forexfactory.com/calendar/54-au-unemployment-rate" },
+    { id: 106, name: "Unemployment Rate", category: "Australia", refUrl: "https://www.forexfactory.com/calendar/64-au-unemployment-rate" },
     { id: 107, name: "Employment Change", category: "Australia", refUrl: "https://www.forexfactory.com/calendar/73-au-employment-change" }
 ];
 
