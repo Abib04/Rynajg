@@ -96,13 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderData = (dataArray) => {
         const auTableBody = document.getElementById('au-table-body');
         const ezTableBody = document.getElementById('ez-table-body');
-        let usRowsHtml = '';
-        let auRowsHtml = '';
-        let ezRowsHtml = '';
+        const ukTableBody = document.getElementById('uk-table-body');
+        const jpTableBody = document.getElementById('jp-table-body');
+        const nzTableBody = document.getElementById('nz-table-body');
+        const szTableBody = document.getElementById('sz-table-body');
+        const caTableBody = document.getElementById('ca-table-body');
 
-        const seenUsIds = new Set();
-        const seenAuIds = new Set();
-        const seenEzIds = new Set();
+        let usRows = '', auRows = '', ezRows = '', ukRows = '', jpRows = '', nzRows = '', szRows = '', caRows = '';
+        const seenUs = new Set(), seenAu = new Set(), seenEz = new Set();
+        const seenUk = new Set(), seenJp = new Set(), seenNz = new Set(), seenSz = new Set(), seenCa = new Set();
 
         const buildRow = (row, visualIndex, categoryLabel) => {
             let valClass = '';
@@ -117,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const impactClass = row.impact ? `impact-${row.impact}` : '';
             const impactHtml = impactClass ? `<span class="impact-dot ${impactClass}"></span>` : '';
             let refUrl = row.refUrl || `https://www.forexfactory.com/calendar/${row.id}-${row.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
-
             return `
                 <tr>
                     <td class="text-center text-muted">${visualIndex}</td>
@@ -133,32 +134,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td class="text-center data-cell ${valClass}">${row.actual || '-'}</td>
                     <td class="text-center text-secondary" style="font-size: 0.75rem;">${row.units || 'Percentage (%)'}</td>
                     <td class="text-center">${row.probability || '-'}</td>
-                    <td>
-                        <a href="${refUrl}" class="ref-link" target="_blank" title="${refUrl}">
-                            ${refUrl.replace('https://www.forexfactory.com/calendar/', '')}
-                        </a>
-                    </td>
-                </tr>
-            `;
+                    <td><a href="${refUrl}" class="ref-link" target="_blank" title="${refUrl}">${refUrl.replace('https://www.forexfactory.com/calendar/', '')}</a></td>
+                </tr>`;
         };
 
         dataArray.forEach((row) => {
             const id = parseInt(row.id);
-            if (id >= 201 || row.category === 'Euro Area') {
-                seenEzIds.add(row.id);
-                ezRowsHtml += buildRow(row, seenEzIds.size, '-');
-            } else if (id >= 101 || row.category === 'Australia') {
-                seenAuIds.add(row.id);
-                auRowsHtml += buildRow(row, seenAuIds.size, '-');
-            } else {
-                seenUsIds.add(row.id);
-                usRowsHtml += buildRow(row, seenUsIds.size, row.category || '-');
-            }
+            const cat = row.category;
+            if (id >= 701 || cat === 'Canada')         { seenCa.add(id); caRows += buildRow(row, seenCa.size, '-'); }
+            else if (id >= 601 || cat === 'Swiss')     { seenSz.add(id); szRows += buildRow(row, seenSz.size, '-'); }
+            else if (id >= 501 || cat === 'New Zealand') { seenNz.add(id); nzRows += buildRow(row, seenNz.size, '-'); }
+            else if (id >= 401 || cat === 'Japan')     { seenJp.add(id); jpRows += buildRow(row, seenJp.size, '-'); }
+            else if (id >= 301 || cat === 'United Kingdom') { seenUk.add(id); ukRows += buildRow(row, seenUk.size, '-'); }
+            else if (id >= 201 || cat === 'Euro Area') { seenEz.add(id); ezRows += buildRow(row, seenEz.size, '-'); }
+            else if (id >= 101 || cat === 'Australia') { seenAu.add(id); auRows += buildRow(row, seenAu.size, '-'); }
+            else { seenUs.add(id); usRows += buildRow(row, seenUs.size, row.category || '-'); }
         });
 
-        tableBody.innerHTML = usRowsHtml;
-        if (auTableBody) auTableBody.innerHTML = auRowsHtml;
-        if (ezTableBody) ezTableBody.innerHTML = ezRowsHtml;
+        tableBody.innerHTML = usRows;
+        if (auTableBody) auTableBody.innerHTML = auRows;
+        if (ezTableBody) ezTableBody.innerHTML = ezRows;
+        if (ukTableBody) ukTableBody.innerHTML = ukRows;
+        if (jpTableBody) jpTableBody.innerHTML = jpRows;
+        if (nzTableBody) nzTableBody.innerHTML = nzRows;
+        if (szTableBody) szTableBody.innerHTML = szRows;
+        if (caTableBody) caTableBody.innerHTML = caRows;
     };
 
     const fetchData = async () => {

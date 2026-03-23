@@ -113,7 +113,51 @@ targetIndicators = [
     { "id": 205, "name": "Flash GDP q/q", "category": "Euro Area", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/41-ez-flash-gdp-qq" },
     { "id": 206, "name": "Retail Sales m/m", "category": "Euro Area", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/106-ez-retail-sales-mm" },
     { "id": 207, "name": "Unemployment Rate", "category": "Euro Area", "dateType": "specific", "day": 1, "impact": "high", "better": -1, "refUrl": "https://www.forexfactory.com/calendar/59-ez-unemployment-rate" },
-    { "id": 208, "name": "Employment Change q/q", "category": "Euro Area", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/69-ez-final-employment-change-qq" }
+    { "id": 208, "name": "Employment Change q/q", "category": "Euro Area", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/69-ez-final-employment-change-qq" },
+
+    # United Kingdom (UK)
+    { "id": 301, "name": "UK Official Bank Rate", "category": "United Kingdom", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/75-uk-official-bank-rate" },
+    { "id": 302, "name": "CPI y/y", "category": "United Kingdom", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/64-uk-cpi-yy" },
+    { "id": 303, "name": "Core CPI y/y", "category": "United Kingdom", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/65-uk-core-cpi-yy" },
+    { "id": 304, "name": "PPI m/m", "category": "United Kingdom", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/63-uk-ppi-input-mm" },
+    { "id": 305, "name": "GDP m/m", "category": "United Kingdom", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/284-uk-gdp-mm" },
+    { "id": 306, "name": "Retail Sales m/m", "category": "United Kingdom", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/104-uk-retail-sales-mm" },
+    { "id": 307, "name": "Unemployment Rate", "category": "United Kingdom", "dateType": "specific", "day": 1, "impact": "high", "better": -1, "refUrl": "https://www.forexfactory.com/calendar/86-uk-unemployment-rate" },
+
+    # Japan (JY)
+    { "id": 401, "name": "JN BOJ Policy Rate", "category": "Japan", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/321-jn-boj-policy-rate" },
+    { "id": 402, "name": "National Core CPI y/y", "category": "Japan", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/74-jn-national-core-cpi-yy" },
+    { "id": 403, "name": "BOJ Core CPI y/y", "category": "Japan", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/74-jn-boj-core-cpi-yy" },
+    { "id": 404, "name": "PPI m/m", "category": "Japan", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/63-jn-ppi-mm" },
+    { "id": 405, "name": "Prelim GDP p/q", "category": "Japan", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/451-jn-prelim-gdp-qq" },
+    { "id": 406, "name": "Retail Sales y/y", "category": "Japan", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/115-jn-retail-sales-yy" },
+    { "id": 407, "name": "Unemployment Rate", "category": "Japan", "dateType": "specific", "day": 1, "impact": "high", "better": -1, "refUrl": "https://www.forexfactory.com/calendar/60-jn-unemployment-rate" },
+
+    # New Zealand (NZ)
+    { "id": 501, "name": "NZ Official Cash Rate", "category": "New Zealand", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/320-nz-official-cash-rate" },
+    { "id": 502, "name": "NZ CPI q/q", "category": "New Zealand", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/13-nz-cpi-qq" },
+    { "id": 503, "name": "NZ PPI q/q", "category": "New Zealand", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/30-nz-ppi-input-qq" },
+    { "id": 504, "name": "NZ GDP q/q", "category": "New Zealand", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/14-nz-gdp-qq" },
+    { "id": 505, "name": "NZ Retail Sales q/q", "category": "New Zealand", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/119-nz-retail-sales-qq" },
+    { "id": 506, "name": "Employment Change q/q", "category": "New Zealand", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/117-nz-employment-change-qq" },
+    { "id": 507, "name": "Unemployment Rate q/q", "category": "New Zealand", "dateType": "specific", "day": 1, "impact": "high", "better": -1, "refUrl": "https://www.forexfactory.com/calendar/57-nz-unemployment-rate" },
+
+    # Swiss (SZ / CHF)
+    { "id": 601, "name": "SZ SNB Policy Rate", "category": "Swiss", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/994-sz-snb-policy-rate" },
+    { "id": 602, "name": "SZ CPI m/m", "category": "Swiss", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/108-sz-cpi-mm" },
+    { "id": 603, "name": "SZ PPI m/m", "category": "Swiss", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/26-sz-ppi-mm" },
+    { "id": 604, "name": "SZ GDP q/q", "category": "Swiss", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/26-sz-gdp-qq" },
+    { "id": 605, "name": "SZ Retail Sales q/q", "category": "Swiss", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/32-sz-retail-sales-qq" },
+    { "id": 606, "name": "Unemployment Rate m/m", "category": "Swiss", "dateType": "specific", "day": 1, "impact": "high", "better": -1, "refUrl": "https://www.forexfactory.com/calendar/26-sz-unemployment-rate-mm" },
+
+    # Canada (CA)
+    { "id": 701, "name": "CA Overnight Rate", "category": "Canada", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/11-ca-overnight-rate" },
+    { "id": 702, "name": "CA CPI m/m", "category": "Canada", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/43-ca-cpi-mm" },
+    { "id": 703, "name": "CA PPI m/m", "category": "Canada", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/44-ca-ppi-mm" },
+    { "id": 704, "name": "CA GDP m/m", "category": "Canada", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/56-ca-gdp-mm" },
+    { "id": 705, "name": "CA Retail Sales m/m", "category": "Canada", "dateType": "specific", "day": 1, "impact": "medium", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/104-ca-retail-sales-mm" },
+    { "id": 706, "name": "Employment Change", "category": "Canada", "dateType": "specific", "day": 1, "impact": "high", "better": 1, "refUrl": "https://www.forexfactory.com/calendar/62-ca-employment-change" },
+    { "id": 707, "name": "Unemployment Rate m/m", "category": "Canada", "dateType": "specific", "day": 1, "impact": "high", "better": -1, "refUrl": "https://www.forexfactory.com/calendar/63-ca-unemployment-rate" }
 ]
 
 import urllib.request
