@@ -84,7 +84,17 @@ const targetIndicators = [
     { id: 104, name: "GDP q/q", category: "Australia", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/31-au-gdp-qq" },
     { id: 105, name: "Retail Sales m/m", category: "Australia", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/110-au-retail-sales-mm" },
     { id: 106, name: "Unemployment Rate", category: "Australia", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/54-au-unemployment-rate" },
-    { id: 107, name: "Employment Change", category: "Australia", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/73-au-employment-change" }
+    { id: 107, name: "Employment Change", category: "Australia", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/73-au-employment-change" },
+
+    // Euro Area (EZ - Euro Zone)
+    { id: 201, name: "EZ ECB Main Refinancing Rate", category: "Euro Area", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/12-ez-main-refinancing-rate" },
+    { id: 202, name: "CPI y/y", category: "Euro Area", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/166-ez-final-cpi-yy" },
+    { id: 203, name: "Core CPI y/y", category: "Euro Area", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/167-ez-final-core-cpi-yy" },
+    { id: 204, name: "PPI m/m", category: "Euro Area", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/89-ez-ppi-mm" },
+    { id: 205, name: "Flash GDP q/q", category: "Euro Area", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/41-ez-flash-gdp-qq" },
+    { id: 206, name: "Retail Sales m/m", category: "Euro Area", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/106-ez-retail-sales-mm" },
+    { id: 207, name: "Unemployment Rate", category: "Euro Area", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/59-ez-unemployment-rate" },
+    { id: 208, name: "Employment Change q/q", category: "Euro Area", dateType: "specific", day: 1, refUrl: "https://www.forexfactory.com/calendar/69-ez-final-employment-change-qq" }
 ];
 
 const fs = require('fs');
