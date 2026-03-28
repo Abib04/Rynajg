@@ -2517,6 +2517,534 @@
       "movementAfter": ""
     }
   ],
+  "203": [
+    {
+      "date": "Mar 18, 2026",
+      "actual": "2.4%",
+      "forecast": "2.4%",
+      "previous": "2.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Feb 25, 2026",
+      "actual": "2.2%",
+      "forecast": "2.2%",
+      "previous": "2.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jan 19, 2026",
+      "actual": "2.3%",
+      "forecast": "2.3%",
+      "previous": "2.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 17, 2025",
+      "actual": "2.4%",
+      "forecast": "2.4%",
+      "previous": "2.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Nov 19, 2025",
+      "actual": "2.4%",
+      "forecast": "2.4%",
+      "previous": "2.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 17, 2025",
+      "actual": "2.4%",
+      "forecast": "2.3%",
+      "previous": "2.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 17, 2025",
+      "actual": "2.3%",
+      "forecast": "2.3%",
+      "previous": "2.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Aug 20, 2025",
+      "actual": "2.3%",
+      "forecast": "2.3%",
+      "previous": "2.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "204": [
+    {
+      "date": "Mar 4, 2026",
+      "actual": "0.7%",
+      "forecast": "0.2%",
+      "previous": "-0.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Feb 4, 2026",
+      "actual": "-0.3%",
+      "forecast": "-0.3%",
+      "previous": "0.7%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jan 8, 2026",
+      "actual": "0.5%",
+      "forecast": "0.4%",
+      "previous": "0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 3, 2025",
+      "actual": "0.1%",
+      "forecast": "0.1%",
+      "previous": "-0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Nov 5, 2025",
+      "actual": "-0.1%",
+      "forecast": "0.0%",
+      "previous": "-0.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 3, 2025",
+      "actual": "-0.3%",
+      "forecast": "-0.1%",
+      "previous": "0.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 3, 2025",
+      "actual": "0.4%",
+      "forecast": "0.2%",
+      "previous": "0.8%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Aug 5, 2025",
+      "actual": "0.8%",
+      "forecast": "0.9%",
+      "previous": "-0.6%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "207": [
+    {
+      "date": "Mar 4, 2026",
+      "actual": "6.1%",
+      "forecast": "6.2%",
+      "previous": "6.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jan 30, 2026",
+      "actual": "6.2%",
+      "forecast": "6.3%",
+      "previous": "6.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jan 8, 2026",
+      "actual": "6.3%",
+      "forecast": "6.4%",
+      "previous": "6.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 2, 2025",
+      "actual": "6.4%",
+      "forecast": "6.3%",
+      "previous": "6.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 30, 2025",
+      "actual": "6.3%",
+      "forecast": "6.3%",
+      "previous": "6.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 2, 2025",
+      "actual": "6.3%",
+      "forecast": "6.2%",
+      "previous": "6.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 1, 2025",
+      "actual": "6.2%",
+      "forecast": "6.2%",
+      "previous": "6.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jul 31, 2025",
+      "actual": "6.2%",
+      "forecast": "6.3%",
+      "previous": "6.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "208": [
+    {
+      "date": "Mar 6, 2026",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 5, 2025",
+      "actual": "0.2%",
+      "forecast": "0.1%",
+      "previous": "0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 5, 2025",
+      "actual": "0.1%",
+      "forecast": "0.1%",
+      "previous": "0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jun 6, 2025",
+      "actual": "0.2%",
+      "forecast": "0.3%",
+      "previous": "0.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Mar 7, 2025",
+      "actual": "0.1%",
+      "forecast": "0.1%",
+      "previous": "0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 6, 2024",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 6, 2024",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jun 7, 2024",
+      "actual": "0.3%",
+      "forecast": "0.3%",
+      "previous": "0.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "302": [
+    {
+      "date": "Mar 25, 2026",
+      "actual": "3.0%",
+      "forecast": "3.0%",
+      "previous": "3.0%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Feb 18, 2026",
+      "actual": "3.0%",
+      "forecast": "3.0%",
+      "previous": "3.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jan 21, 2026",
+      "actual": "3.4%",
+      "forecast": "3.3%",
+      "previous": "3.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 17, 2025",
+      "actual": "3.2%",
+      "forecast": "3.5%",
+      "previous": "3.6%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Nov 19, 2025",
+      "actual": "3.6%",
+      "forecast": "3.5%",
+      "previous": "3.8%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 22, 2025",
+      "actual": "3.8%",
+      "forecast": "4.0%",
+      "previous": "3.8%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 17, 2025",
+      "actual": "3.8%",
+      "forecast": "3.8%",
+      "previous": "3.8%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Aug 20, 2025",
+      "actual": "3.8%",
+      "forecast": "3.7%",
+      "previous": "3.6%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "304": [
+    {
+      "date": "Mar 25, 2026",
+      "actual": "-0.5%",
+      "forecast": "0.3%",
+      "previous": "0.0%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Feb 18, 2026",
+      "actual": "0.0%",
+      "forecast": "0.2%",
+      "previous": "-0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jan 21, 2026",
+      "actual": "0.0%",
+      "forecast": "0.1%",
+      "previous": "0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 17, 2025",
+      "actual": "0.1%",
+      "forecast": "0.1%",
+      "previous": "0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Nov 19, 2025",
+      "actual": "0.0%",
+      "forecast": "0.1%",
+      "previous": "0.0%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 22, 2025",
+      "actual": "0.0%",
+      "forecast": "0.2%",
+      "previous": "0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 22, 2025",
+      "actual": "0.1%",
+      "forecast": "",
+      "previous": "0.6%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 22, 2025",
+      "actual": "0.6%",
+      "forecast": "",
+      "previous": "0.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "306": [
+    {
+      "date": "Feb 20, 2026",
+      "actual": "1.8%",
+      "forecast": "0.2%",
+      "previous": "0.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jan 23, 2026",
+      "actual": "0.4%",
+      "forecast": "0.0%",
+      "previous": "-0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 19, 2025",
+      "actual": "-0.1%",
+      "forecast": "0.3%",
+      "previous": "-0.9%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Nov 21, 2025",
+      "actual": "-1.1%",
+      "forecast": "-0.1%",
+      "previous": "0.7%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 24, 2025",
+      "actual": "0.5%",
+      "forecast": "-0.4%",
+      "previous": "0.6%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 19, 2025",
+      "actual": "0.5%",
+      "forecast": "0.4%",
+      "previous": "0.5%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 5, 2025",
+      "actual": "0.6%",
+      "forecast": "0.3%",
+      "previous": "0.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jul 25, 2025",
+      "actual": "0.9%",
+      "forecast": "1.2%",
+      "previous": "-2.8%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "307": [
+    {
+      "date": "Mar 19, 2026",
+      "actual": "5.2%",
+      "forecast": "5.3%",
+      "previous": "5.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Feb 17, 2026",
+      "actual": "5.2%",
+      "forecast": "5.2%",
+      "previous": "5.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jan 20, 2026",
+      "actual": "5.1%",
+      "forecast": "5.1%",
+      "previous": "5.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 16, 2025",
+      "actual": "5.1%",
+      "forecast": "5.1%",
+      "previous": "5.0%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Nov 11, 2025",
+      "actual": "5.0%",
+      "forecast": "4.9%",
+      "previous": "4.8%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 14, 2025",
+      "actual": "4.8%",
+      "forecast": "4.7%",
+      "previous": "4.7%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 16, 2025",
+      "actual": "4.7%",
+      "forecast": "4.7%",
+      "previous": "4.7%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Aug 12, 2025",
+      "actual": "4.7%",
+      "forecast": "4.7%",
+      "previous": "4.7%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
   "402": [
     {
       "date": "Feb 19, 2026",
@@ -2585,6 +3113,14 @@
   ],
   "403": [
     {
+      "date": "Mar 26, 2026",
+      "actual": "1.7%",
+      "forecast": "1.6%",
+      "previous": "1.7%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
       "date": "Feb 25, 2026",
       "actual": "1.7%",
       "forecast": "1.8%",
@@ -2639,12 +3175,70 @@
       "previous": "2.3%",
       "movementBefore": "",
       "movementAfter": ""
+    }
+  ],
+  "405": [
+    {
+      "date": "Feb 15, 2026",
+      "actual": "3.4%",
+      "forecast": "3.2%",
+      "previous": "3.4%",
+      "movementBefore": "",
+      "movementAfter": ""
     },
     {
-      "date": "Jul 23, 2025",
-      "actual": "2.3%",
-      "forecast": "2.5%",
-      "previous": "2.5%",
+      "date": "Nov 16, 2025",
+      "actual": "2.8%",
+      "forecast": "3.1%",
+      "previous": "3.0%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Aug 14, 2025",
+      "actual": "3.0%",
+      "forecast": "3.1%",
+      "previous": "3.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "May 15, 2025",
+      "actual": "3.3%",
+      "forecast": "3.2%",
+      "previous": "2.9%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Feb 16, 2025",
+      "actual": "2.8%",
+      "forecast": "2.8%",
+      "previous": "2.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Nov 14, 2024",
+      "actual": "2.5%",
+      "forecast": "2.8%",
+      "previous": "3.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Aug 14, 2024",
+      "actual": "3.0%",
+      "forecast": "2.6%",
+      "previous": "3.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "May 15, 2024",
+      "actual": "3.6%",
+      "forecast": "3.3%",
+      "previous": "3.9%",
       "movementBefore": "",
       "movementAfter": ""
     }
@@ -2715,6 +3309,336 @@
       "movementAfter": ""
     }
   ],
+  "504": [
+    {
+      "date": "Mar 18, 2026",
+      "actual": "0.2%",
+      "forecast": "0.5%",
+      "previous": "0.9%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 17, 2025",
+      "actual": "1.1%",
+      "forecast": "0.9%",
+      "previous": "-1.0%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 17, 2025",
+      "actual": "-0.9%",
+      "forecast": "-0.3%",
+      "previous": "0.9%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jun 18, 2025",
+      "actual": "0.8%",
+      "forecast": "0.7%",
+      "previous": "0.5%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Mar 19, 2025",
+      "actual": "0.7%",
+      "forecast": "0.4%",
+      "previous": "-1.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 18, 2024",
+      "actual": "-1.0%",
+      "forecast": "-0.2%",
+      "previous": "-1.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 18, 2024",
+      "actual": "-0.2%",
+      "forecast": "-0.4%",
+      "previous": "0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jun 19, 2024",
+      "actual": "0.2%",
+      "forecast": "0.1%",
+      "previous": "-0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "601": [
+    {
+      "date": "Mar 19, 2026",
+      "actual": "0.00%",
+      "forecast": "0.00%",
+      "previous": "0.00%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 11, 2025",
+      "actual": "0.00%",
+      "forecast": "0.00%",
+      "previous": "0.00%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 25, 2025",
+      "actual": "0.00%",
+      "forecast": "0.00%",
+      "previous": "0.00%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jun 19, 2025",
+      "actual": "0.00%",
+      "forecast": "0.00%",
+      "previous": "0.25%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Mar 20, 2025",
+      "actual": "0.25%",
+      "forecast": "0.25%",
+      "previous": "0.50%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 12, 2024",
+      "actual": "0.50%",
+      "forecast": "0.75%",
+      "previous": "1.00%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 26, 2024",
+      "actual": "1.00%",
+      "forecast": "1.00%",
+      "previous": "1.25%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jun 20, 2024",
+      "actual": "1.25%",
+      "forecast": "1.50%",
+      "previous": "1.50%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "603": [
+    {
+      "date": "Mar 17, 2026",
+      "actual": "-0.3%",
+      "forecast": "0.0%",
+      "previous": "-0.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Feb 23, 2026",
+      "actual": "-0.2%",
+      "forecast": "0.1%",
+      "previous": "-0.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jan 20, 2026",
+      "actual": "-0.2%",
+      "forecast": "-0.2%",
+      "previous": "-0.5%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 15, 2025",
+      "actual": "-0.5%",
+      "forecast": "0.1%",
+      "previous": "-0.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Nov 13, 2025",
+      "actual": "-0.3%",
+      "forecast": "-0.1%",
+      "previous": "-0.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 14, 2025",
+      "actual": "-0.2%",
+      "forecast": "-0.2%",
+      "previous": "-0.6%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 15, 2025",
+      "actual": "-0.6%",
+      "forecast": "0.1%",
+      "previous": "-0.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Aug 14, 2025",
+      "actual": "-0.2%",
+      "forecast": "0.0%",
+      "previous": "-0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "604": [
+    {
+      "date": "Feb 27, 2026",
+      "actual": "0.1%",
+      "forecast": "0.2%",
+      "previous": "-0.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Nov 28, 2025",
+      "actual": "-0.5%",
+      "forecast": "-0.4%",
+      "previous": "0.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Aug 28, 2025",
+      "actual": "0.1%",
+      "forecast": "0.1%",
+      "previous": "0.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jun 2, 2025",
+      "actual": "0.5%",
+      "forecast": "0.4%",
+      "previous": "0.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Feb 27, 2025",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "0.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Nov 29, 2024",
+      "actual": "0.4%",
+      "forecast": "0.4%",
+      "previous": "0.6%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 3, 2024",
+      "actual": "0.7%",
+      "forecast": "0.5%",
+      "previous": "0.5%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "May 30, 2024",
+      "actual": "0.5%",
+      "forecast": "0.3%",
+      "previous": "0.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "605": [
+    {
+      "date": "Mar 2, 2026",
+      "actual": "-1.1%",
+      "forecast": "2.7%",
+      "previous": "2.8%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Feb 2, 2026",
+      "actual": "2.9%",
+      "forecast": "2.5%",
+      "previous": "1.7%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jan 5, 2026",
+      "actual": "2.3%",
+      "forecast": "2.5%",
+      "previous": "2.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 1, 2025",
+      "actual": "2.7%",
+      "forecast": "1.2%",
+      "previous": "1.8%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 31, 2025",
+      "actual": "1.5%",
+      "forecast": "0.3%",
+      "previous": "-0.4%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 1, 2025",
+      "actual": "-0.2%",
+      "forecast": "0.5%",
+      "previous": "0.9%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 1, 2025",
+      "actual": "0.7%",
+      "forecast": "3.6%",
+      "previous": "3.9%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jul 31, 2025",
+      "actual": "3.8%",
+      "forecast": "0.2%",
+      "previous": "0.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
   "703": [
     {
       "date": "Mar 20, 2026",
@@ -2777,6 +3701,72 @@
       "actual": "0.7%",
       "forecast": "0.3%",
       "previous": "0.5%",
+      "movementBefore": "",
+      "movementAfter": ""
+    }
+  ],
+  "704": [
+    {
+      "date": "Feb 27, 2026",
+      "actual": "0.2%",
+      "forecast": "0.1%",
+      "previous": "0.0%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jan 30, 2026",
+      "actual": "0.0%",
+      "forecast": "0.1%",
+      "previous": "-0.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Dec 23, 2025",
+      "actual": "-0.3%",
+      "forecast": "-0.3%",
+      "previous": "0.2%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Nov 28, 2025",
+      "actual": "0.2%",
+      "forecast": "0.2%",
+      "previous": "-0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Oct 31, 2025",
+      "actual": "-0.3%",
+      "forecast": "0.0%",
+      "previous": "0.3%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Sep 26, 2025",
+      "actual": "0.2%",
+      "forecast": "0.1%",
+      "previous": "-0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Aug 29, 2025",
+      "actual": "-0.1%",
+      "forecast": "0.1%",
+      "previous": "-0.1%",
+      "movementBefore": "",
+      "movementAfter": ""
+    },
+    {
+      "date": "Jul 31, 2025",
+      "actual": "-0.1%",
+      "forecast": "-0.1%",
+      "previous": "-0.1%",
       "movementBefore": "",
       "movementAfter": ""
     }

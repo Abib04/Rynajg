@@ -2,7 +2,6 @@
  * update_others.js
  * Scrapes historical data from ForexFactory for:
  * UK (301-307), Japan (401-407), New Zealand (501-507), Swiss (601-606), Canada (701-707)
- * Run: node update_others.js
  */
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -24,7 +23,7 @@ const targetIndicators = [
     { id: 401, name: "JN BOJ Policy Rate", category: "Japan", refUrl: "https://www.forexfactory.com/calendar/641-jn-boj-policy-rate" },
     { id: 402, name: "National Core CPI y/y", category: "Japan", refUrl: "https://www.forexfactory.com/calendar/174-jn-national-core-cpi-yy" },
     { id: 403, name: "BOJ Core CPI y/y", category: "Japan", refUrl: "https://www.forexfactory.com/calendar/631-jn-boj-core-cpi-yy" },
-    { id: 404, name: "PPI y/y", category: "Japan", refUrl: "https://www.forexfactory.com/calendar/148-jn-ppi-yy" },
+    { id: 404, name: "PPI m/m", category: "Japan", refUrl: "https://www.forexfactory.com/calendar/784-jn-ppi-mm" },
     { id: 405, name: "Prelim GDP y/y", category: "Japan", refUrl: "https://www.forexfactory.com/calendar/43-jn-prelim-gdp-price-index-yy" },
     { id: 406, name: "Retail Sales y/y", category: "Japan", refUrl: "https://www.forexfactory.com/calendar/115-jn-retail-sales-yy" },
     { id: 407, name: "Unemployment Rate", category: "Japan", refUrl: "https://www.forexfactory.com/calendar/63-jn-unemployment-rate" },
@@ -38,12 +37,12 @@ const targetIndicators = [
     { id: 506, name: "Employment Change q/q", category: "New Zealand", refUrl: "https://www.forexfactory.com/calendar/74-nz-employment-change-qq" },
     { id: 507, name: "Unemployment Rate q/q", category: "New Zealand", refUrl: "https://www.forexfactory.com/calendar/65-nz-unemployment-rate" },
 
-    // Swiss - SZ (SNB)
+    // Swiss (SZ / CHF)
     { id: 601, name: "SZ SNB Policy Rate", category: "Swiss", refUrl: "https://www.forexfactory.com/calendar/834-sz-snb-policy-rate" },
     { id: 602, name: "SZ CPI m/m", category: "Swiss", refUrl: "https://www.forexfactory.com/calendar/100-sz-cpi-mm" },
     { id: 603, name: "SZ PPI m/m", category: "Swiss", refUrl: "https://www.forexfactory.com/calendar/96-sz-ppi-mm" },
     { id: 604, name: "SZ GDP q/q", category: "Swiss", refUrl: "https://www.forexfactory.com/calendar/32-sz-gdp-qq" },
-    { id: 605, name: "SZ Retail Sales q/q", category: "Swiss", refUrl: "https://www.forexfactory.com/calendar/109-sz-retail-sales-yy" },
+    { id: 605, name: "SZ Retail Sales y/y", category: "Swiss", refUrl: "https://www.forexfactory.com/calendar/109-sz-retail-sales-yy" },
     { id: 606, name: "Unemployment Rate m/m", category: "Swiss", refUrl: "https://www.forexfactory.com/calendar/62-sz-unemployment-rate" },
 
     // Canada (CA)
@@ -57,52 +56,73 @@ const targetIndicators = [
 ];
 
 const scrapeIndicatorHistory = async (indicator) => {
-    try {
-        console.log(`[${indicator.category}] Scraping ${indicator.name} (id=${indicator.id})...`);
-        const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(indicator.refUrl);
-        const html = await cloudscraper.get({
-            url: proxyUrl,
-            headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' }
-        });
-        const $ = cheerio.load(html);
+    const maxRetries = 2;
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+        try {
+            // Slug is more natural
+            const url = indicator.refUrl;
+            console.log(`[${indicator.category}] Scraping ${indicator.name} (id=${indicator.id}, attempt=${attempt}/${maxRetries})...`);
+            
+            const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+            const html = await cloudscraper.get({
+                url: proxyUrl,
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
+                }
+            });
 
-        let historyList = [];
-        const rows = $('table.calendarhistory tbody tr');
+            if (html.includes('calendarhistory')) {
+                const $ = cheerio.load(html);
+                let historyList = [];
+                const rows = $('table.calendarhistory tbody tr');
 
-        if (rows.length === 0) {
-            console.log(`  ⚠ No rows found for ${indicator.name}. Writing debug_${indicator.id}.html`);
-            fs.writeFileSync(`debug_${indicator.id}.html`, html);
-        }
+                rows.each((i, el) => {
+                    const dateCell = $(el).find('td.calendarhistory__row--history');
+                    const dateText = dateCell.find('a').length > 0
+                        ? dateCell.find('a').text().trim()
+                        : dateCell.text().replace(/.*?(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/, "$1").trim();
 
-        rows.each((i, el) => {
-            const dateCell = $(el).find('td.calendarhistory__row--history');
-            const dateText = dateCell.find('a').length > 0
-                ? dateCell.find('a').text().trim()
-                : dateCell.text().replace(/.*?(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/, "$1").trim();
+                    const actualText   = $(el).find('td.calendarhistory__row--actual').text().replace(/[^0-9.\-%<BKM]/g, '').trim();
+                    const forecastText = $(el).find('td.calendarhistory__row--forecast').text().replace(/[^0-9.\-%<BKM]/g, '').trim();
+                    const prevText     = $(el).find('td.calendarhistory__row--previous').text().replace(/[^0-9.\-%<BKM]/g, '').trim();
 
-            const actualText   = $(el).find('td.calendarhistory__row--actual').text().replace(/[^0-9.\-%<BKM]/g, '').trim();
-            const forecastText = $(el).find('td.calendarhistory__row--forecast').text().replace(/[^0-9.\-%<BKM]/g, '').trim();
-            const prevText     = $(el).find('td.calendarhistory__row--previous').text().replace(/[^0-9.\-%<BKM]/g, '').trim();
-
-            const match = dateText.match(/([A-Z][a-z]{2})\s+(\d{1,2}),\s+(\d{4})/);
-            if (match && actualText) {
-                historyList.push({
-                    date: match[0],
-                    actual: actualText,
-                    forecast: forecastText,
-                    previous: prevText,
-                    movementBefore: "",
-                    movementAfter: ""
+                    const match = dateText.match(/([A-Z][a-z]{2})\s+(\d{1,2}),\s+(\d{4})/);
+                    if (match && actualText) {
+                        historyList.push({
+                            date: match[0],
+                            actual: actualText,
+                            forecast: forecastText,
+                            previous: prevText,
+                            movementBefore: "",
+                            movementAfter: ""
+                        });
+                    }
                 });
-            }
-        });
 
-        console.log(`  ✓ ${historyList.length} records found`);
-        return historyList;
-    } catch (e) {
-        console.error(`  ✗ Error scraping ${indicator.name}:`, e.message);
-        return [];
+                if (historyList.length > 0) {
+                    console.log(`  ✓ ${historyList.length} records found`);
+                    return historyList;
+                }
+            }
+            
+            if (html.includes('window.calendarComponentStates')) {
+                console.log(`  ⚠ Redirected to main calendar (attempt ${attempt})`);
+            } else {
+                console.log(`  ⚠ No records found/Blocked (attempt ${attempt})`);
+                // fs.writeFileSync(`debug_${indicator.id}_attempt_${attempt}.html`, html);
+            }
+            
+            // Randomized delay on fail
+            const waitTime = 5000 + Math.random() * 5000;
+            await new Promise(resolve => setTimeout(resolve, waitTime));
+
+        } catch (err) {
+            console.error(`  ✗ Error on attempt ${attempt}:`, err.message);
+            if (attempt === maxRetries) return [];
+            await new Promise(resolve => setTimeout(resolve, 5000));
+        }
     }
+    return [];
 };
 
 const run = async () => {
@@ -114,19 +134,22 @@ const run = async () => {
     }
 
     for (const ind of targetIndicators) {
+        // 5-8 second randomized delay between indicators
+        const interDelay = 5000 + Math.random() * 3000;
+        await new Promise(r => setTimeout(r, interDelay));
+        
         const data = await scrapeIndicatorHistory(ind);
-        if (data.length > 0) {
+        if (data && data.length > 0) {
             history[ind.id] = data;
             console.log(`  → Saved ${data.length} records for [${ind.id}] ${ind.name}\n`);
+            // Save incrementally
+            fs.writeFileSync(historyFile, JSON.stringify(history, null, 2));
         } else {
             console.log(`  → No data saved for [${ind.id}] ${ind.name}\n`);
         }
-        // Delay to avoid rate limiting
-        await new Promise(r => setTimeout(r, 2500));
     }
 
-    fs.writeFileSync(historyFile, JSON.stringify(history, null, 2));
-    console.log(`\n✅ Done! scraped_history.json updated with ${Object.keys(history).length} total indicators.`);
+    console.log(`\n✅ Done! scraped_history.json updated.`);
 };
 
 run();
